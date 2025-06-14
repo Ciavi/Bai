@@ -1,0 +1,19 @@
+{
+    "admins": [
+        143742018458353664
+    ],
+    "loggers": [
+        {
+            "name": "bai",
+            "file": null,
+            "format": "{bold_light_white}{asctime}{reset}\t{log_color}{levelname}{reset}\t{purple}{name}{reset}\t{message}",
+            "level": "INFO"
+        },
+        {
+            "name": "bai",
+            "file": "./error-[datetime].log",
+            "format": "{asctime}\t{levelname}\t{name}\t{message}",
+            "level": "ERROR"
+        }
+    ]
+}
