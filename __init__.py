@@ -84,7 +84,10 @@ def embed_api_error(response: Response):
 
 def wrong_message(riddle: Riddle):
     if riddle.is_sudoku:
-        return f"Wrong! Try again!\n"
+        sudoku_array = [list(map(int, riddle.solution[i:i + 9])) for i in range(0, len(riddle.solution), 9)]
+        sudoku_pretty = display_sudoku(sudoku_array)
+        return (f"Wrong! Try again!\n"
+                f"```{sudoku_pretty}```")
 
     return(f"Wrong! Try again!\n"
            f"> {riddle.text}")
