@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed requirements.txt">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Add sudoku to wrong message">
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +87,7 @@
       <workItem from="1749858210279" duration="2664000" />
       <workItem from="1749883920053" duration="15442000" />
       <workItem from="1749901245835" duration="374000" />
-      <workItem from="1749906537199" duration="7462000" />
+      <workItem from="1749906537199" duration="7726000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version:&#10;- Commands are working (setrole, setchannel, jail, solve, sudoku)&#10;- Riddles support&#10;- Sudoku support">
       <option name="closed" value="true" />
@@ -122,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749912064497</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add sudoku to wrong message">
+      <option name="closed" value="true" />
+      <created>1749915789936</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749915789936</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +140,8 @@
     <MESSAGE value="Less ambiguity in `switch_sudoku_message`" />
     <MESSAGE value="Update devenv&#10;Reviewed requirements" />
     <MESSAGE value="Fixed requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed requirements.txt" />
+    <MESSAGE value="Add sudoku to wrong message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add sudoku to wrong message" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
