@@ -23,7 +23,7 @@ from data.models import Riddle, Guild
 
 load_dotenv()
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 
 intents = discord.Intents.default()
 intents.presences = True
