@@ -121,11 +121,11 @@ def display_sudoku(grid):
     return '\n'.join(lines)
 
 
-def switch_sudoku_message(riddle: Riddle, user: User | Member, difficulty: str):
+def switch_sudoku_message(riddle: Riddle, member: Member, difficulty: str):
     grid_array = [list(map(int, riddle.text[i:i+9])) for i in range(0, len(riddle.text), 9)]
     grid_pretty = display_sudoku(grid_array)
 
-    return (f"## Damn <@!{user.id}>, you picked the sudoku instead!\n"
+    return (f"## Damn <@!{member.id}>, you picked the sudoku instead!\n"
                 f"-# Use `/solve <answer>` to solve.\n"
                 f"-# The solution is to be given in a string format, ***row-by-row***.\n"
                 f"```{grid_pretty}```\n"
