@@ -93,10 +93,15 @@ def wrong_message(riddle: Riddle):
            f"> {riddle.text}")
 
 
-def right_message(riddle: Riddle):
+def right_message(riddle: Riddle, is_user_solution: bool = False):
     if riddle.is_sudoku:
         solution_array = [list(map(int, riddle.solution[i:i + 9])) for i in range(0, len(riddle.solution), 9)]
         solution_pretty = display_sudoku(solution_array)
+
+        if is_user_solution:
+            return (f"Your solution is also valid! Ours is:\n"
+                    f"```{solution_pretty}```\n"
+                    f"You have regained your freedom. You'll be freed in 10 seconds.")
 
         return (f"Good job! The solution was\n"
                 f"```{solution_pretty}```\n"
@@ -122,6 +127,34 @@ def display_sudoku(grid):
         if i in [2, 5]:
             lines.append("-" * 21)
     return '\n'.join(lines)
+
+def is_valid_user_solution(puzzle, solution):
+    def is_valid_group(group):
+        return sorted(group) == list(range(1, 10))
+
+    # Check that original puzzle values are preserved
+    for i in range(9):
+        for j in range(9):
+            if puzzle[i][j] != 0 and puzzle[i][j] != solution[i][j]:
+                return False
+
+    # Check rows and columns
+    for i in range(9):
+        row = solution[i]
+        col = [solution[r][i] for r in range(9)]
+        if not is_valid_group(row) or not is_valid_group(col):
+            return False
+
+    # Check 3x3 subgrids
+    for box_row in range(0, 9, 3):
+        for box_col in range(0, 9, 3):
+            block = [solution[r][c] for r in range(box_row, box_row + 3)
+                                      for c in range(box_col, box_col + 3)]
+            if not is_valid_group(block):
+                return False
+
+    return True
+
 
 
 def switch_sudoku_message(riddle: Riddle, member: Member, difficulty: str):
@@ -196,11 +229,23 @@ async def solve(interaction: Interaction, answer: str):
     embedding_answer = model.encode(answer, convert_to_tensor=True)
     similarity = util.pytorch_cos_sim(embedding_solution, embedding_answer)
 
-    if (not riddle.is_sudoku and similarity.item() < 0.75) or (riddle.is_sudoku and similarity.item() < 1.00):
+    if not riddle.is_sudoku and similarity.item() < 0.75:
         await interaction.response.send_message(wrong_message(riddle))
         return
 
-    await interaction.response.send_message(right_message(riddle))
+    is_user_solution = False
+
+    if riddle.is_sudoku and similarity.item() < 1.00:
+        grid_array = [list(map(int, riddle.text[i:i + 9])) for i in range(0, len(riddle.text), 9)]
+        answer_array = [list(map(int, answer[i:i + 9])) for i in range(0, len(answer), 9)]
+
+        if not is_valid_user_solution(grid_array, answer_array):
+            await interaction.response.send_message(wrong_message(riddle))
+            return
+
+        is_user_solution = True
+
+    await interaction.response.send_message(right_message(riddle, is_user_solution))
     await asyncio.sleep(10)
 
     delete_riddle(interaction.guild.id, interaction.user.id)
