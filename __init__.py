@@ -50,24 +50,25 @@ def is_guild_configured(guild_id: int):
 def embed_configuration_error(guild: Guild):
     embed = Embed(color=Color.red(), title=f"Guild `{guild.id}` is not configured correctly!")
     embed.description = (f"All the following variables must be set:\n"
-                         f"`moderator_role`: `<@&{guild.configuration.moderator_role}>`\n"
-                         f"`inmate_role`: `<@&{guild.configuration.inmate_role}>`\n"
-                         f"`jail_channel`: `<#{guild.configuration.jail_channel}>`\n")
+                         f"`moderator_role`: `<@&{guild.configuration['moderator_role']}>`\n"
+                         f"`inmate_role`: `<@&{guild.configuration['inmate_role']}>`\n"
+                         f"`jail_channel`: `<#{guild.configuration['jail_channel']}>`\n"
+                         f"`log_channel`: `<#{guild.configuration['log_channel']}>`\n`")
     return embed
 
 
 def is_user_moderator(guild: Guild, member: Member):
-    return any(role.id == guild.configuration.moderator_role for role in member.roles)
+    return any(role.id == guild.configuration['moderator_role'] for role in member.roles)
 
 
 def embed_permissions_error(guild: Guild):
     embed = Embed(color=Color.red(), title=f"You don't have permission to use this command!")
-    embed.description = (f"You need the role <@{guild.configuration.moderator_role}> to use this command.")
+    embed.description = f"You need the role <@{guild.configuration['moderator_role']}> to use this command."
     return embed
 
 
 def is_user_imprisoned(guild: Guild, member: Member):
-    return any(role.id == guild.configuration.inmate_role for role in member.roles)
+    return any(role.id == guild.configuration['inmate_role'] for role in member.roles)
 
 
 def imprisonment_message(riddle: Riddle, member: Member):
