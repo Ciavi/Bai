@@ -326,10 +326,14 @@ async def setrole(interaction: Interaction, role: SetRole, value: Role):
         await interaction.response.send_message("You are not authorised to run this command!", ephemeral=True)
         return
 
+    temp_config: dict = {}
+
     if role is SetRole.ModeratorRole:
-        update_guild(interaction.guild.id, i_moderator=value.id)
+        temp_config.moderator_role = value.id
     else:
-        update_guild(interaction.guild.id, i_inmate=value.id)
+        temp_config.inmate_role = value.id
+
+    update_guild(interaction.guild.id, o_configuration=temp_config)
 
     await interaction.response.send_message("OK", ephemeral=True)
 
@@ -347,7 +351,14 @@ async def setchannel(interaction: Interaction, channel: SetChannel, value: disco
         await interaction.response.send_message("You are not authorised to run this command!", ephemeral=True)
         return
 
-    update_guild(interaction.guild.id, i_jail=value.id)
+    temp_config: dict = {}
+
+    if channel is SetChannel.JailChannel:
+        temp_config.jail_channel = value.id
+    else:
+        temp_config.log_channel = value.id
+
+    update_guild(interaction.guild.id, o_configuration=temp_config)
 
     await interaction.response.send_message("OK", ephemeral=True)
 

@@ -8,7 +8,7 @@ from data.models import Guild, Riddle
 
 class GuildWrapper():
     id: int
-    configuration: object
+    configuration: dict
     updated_at: datetime
 
 
@@ -30,12 +30,15 @@ def create_guild(i_guild: int):
     return wrap
 
 
-def update_guild(i_guild: int, o_configuration: object = None):
+def update_guild(i_guild: int, o_configuration: dict = None):
     _ = Guild.get_or_create(id=i_guild)
     guild = Guild.get(Guild.id == i_guild)
 
+    o_stored: dict = json.loads(guild.configuration)
+
     if o_configuration is not None:
-        guild.configuration = json.dumps(o_configuration)
+        o_final = o_stored | o_configuration
+        guild.configuration = json.dumps(o_final)
 
     guild.save()
 
