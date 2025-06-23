@@ -191,7 +191,7 @@ async def on_member_remove(member: Member):
     if not is_configured:
         return
 
-    channel = member.guild.get_channel(guild.configuration.log_channel)
+    channel = member.guild.get_channel(guild.configuration['log_channel'])
     await channel.send(embed=member_leave_guild(member=member))
 
 
@@ -222,13 +222,13 @@ async def jail(interaction: Interaction, member: Member):
         await interaction.response.send_message(embed=embed_api_error(response), ephemeral=True)
         return
 
-    await member.add_roles(interaction.guild.get_role(guild.configuration.inmate_role))
+    await member.add_roles(interaction.guild.get_role(guild.configuration['inmate_role']))
 
     await interaction.response.send_message("User is now in jail!", ephemeral=True)
 
     riddle_json = response.json()
 
-    channel = interaction.guild.get_channel(guild.configuration.jail_channel)
+    channel = interaction.guild.get_channel(guild.configuration['jail_channel'])
     riddle = create_riddle(guild.id, member.id, riddle_json["riddle"], riddle_json["answer"])
     await channel.send(imprisonment_message(riddle, member))
 
@@ -271,7 +271,7 @@ async def solve(interaction: Interaction, answer: str):
     await asyncio.sleep(10)
 
     delete_riddle(interaction.guild.id, interaction.user.id)
-    await interaction.user.remove_roles(interaction.guild.get_role(guild.configuration.inmate_role))
+    await interaction.user.remove_roles(interaction.guild.get_role(guild.configuration['inmate_role']))
 
 
 @bot.tree.command(name="sudoku", description="Change riddle into a sudoku if your skill issue is too much to handle")
@@ -309,7 +309,7 @@ async def sudoku(interaction: Interaction):
 
     await interaction.response.send_message("Heh. Good luck!", ephemeral=True)
 
-    channel = interaction.guild.get_channel(guild.configuration.jail_channel)
+    channel = interaction.guild.get_channel(guild.configuration['jail_channel'])
     await channel.send(switch_sudoku_message(riddle, interaction.user, sudoku_difficulty))
 
 
