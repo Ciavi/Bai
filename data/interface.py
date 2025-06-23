@@ -24,7 +24,7 @@ def create_guild(i_guild: int):
 
     wrap = GuildWrapper()
     wrap.id = guild.id
-    wrap.configuration = json.loads(guild.configuration)
+    wrap.configuration = json.loads(guild.configuration or "{}")
     wrap.updated_at = guild.updated_at
 
     return wrap
@@ -34,7 +34,7 @@ def update_guild(i_guild: int, o_configuration: dict = None):
     _ = Guild.get_or_create(id=i_guild)
     guild = Guild.get(Guild.id == i_guild)
 
-    o_stored: dict = json.loads(guild.configuration)
+    o_stored: dict = json.loads(guild.configuration or "{}")
 
     if o_configuration is not None:
         o_final = o_stored | o_configuration
