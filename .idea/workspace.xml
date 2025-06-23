@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Initial version:&#10;- Commands are working (setrole, setchannel, jail, solve, sudoku)&#10;- Riddles support&#10;- Sudoku support">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixing: show text rather than solution when answer wrong.">
+      <change beforePath="$PROJECT_DIR$/.idea/Bai.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bai.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +92,11 @@
       <workItem from="1749858210279" duration="2664000" />
       <workItem from="1749883920053" duration="15442000" />
       <workItem from="1749901245835" duration="374000" />
+      <workItem from="1750155547296" duration="5220000" />
+      <workItem from="1750174451592" duration="1423000" />
+      <workItem from="1750289518918" duration="717000" />
+      <workItem from="1750319064249" duration="6556000" />
+      <workItem from="1750705101040" duration="8863000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version:&#10;- Commands are working (setrole, setchannel, jail, solve, sudoku)&#10;- Riddles support&#10;- Sudoku support">
       <option name="closed" value="true" />
@@ -97,7 +106,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749900137356</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixing: show text rather than solution when answer wrong.">
+      <option name="closed" value="true" />
+      <created>1749929512966</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1749929512966</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,7 +122,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial version:&#10;- Commands are working (setrole, setchannel, jail, solve, sudoku)&#10;- Riddles support&#10;- Sudoku support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial version:&#10;- Commands are working (setrole, setchannel, jail, solve, sudoku)&#10;- Riddles support&#10;- Sudoku support" />
+    <MESSAGE value="Fixing: show text rather than solution when answer wrong." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing: show text rather than solution when answer wrong." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
