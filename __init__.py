@@ -1,5 +1,6 @@
 import asyncio
 import enum
+from datetime import datetime
 
 import discord
 import logging
@@ -40,32 +41,33 @@ async def setup_hook():
 
 bot.setup_hook = setup_hook
 
+
 def is_guild_configured(guild_id: int):
     guild = create_guild(guild_id)
-    return guild, guild.moderator_role is not None and guild.inmate_role is not None and guild.jail_channel is not None
+    return guild, guild.configuration is not None
 
 
 def embed_configuration_error(guild: Guild):
     embed = Embed(color=Color.red(), title=f"Guild `{guild.id}` is not configured correctly!")
     embed.description = (f"All the following variables must be set:\n"
-                         f"`moderator_role`: `<@&{guild.moderator_role}>`\n"
-                         f"`inmate_role`: `<@&{guild.inmate_role}>`\n"
-                         f"`jail_channel`: `<#{guild.jail_channel}>`\n")
+                         f"`moderator_role`: `<@&{guild.configuration.moderator_role}>`\n"
+                         f"`inmate_role`: `<@&{guild.configuration.inmate_role}>`\n"
+                         f"`jail_channel`: `<#{guild.configuration.jail_channel}>`\n")
     return embed
 
 
 def is_user_moderator(guild: Guild, member: Member):
-    return any(role.id == guild.moderator_role for role in member.roles)
+    return any(role.id == guild.configuration.moderator_role for role in member.roles)
 
 
 def embed_permissions_error(guild: Guild):
     embed = Embed(color=Color.red(), title=f"You don't have permission to use this command!")
-    embed.description = (f"You need the role <@{guild.moderator_role}> to use this command.")
+    embed.description = (f"You need the role <@{guild.configuration.moderator_role}> to use this command.")
     return embed
 
 
 def is_user_imprisoned(guild: Guild, member: Member):
-    return any(role.id == guild.inmate_role for role in member.roles)
+    return any(role.id == guild.configuration.inmate_role for role in member.roles)
 
 
 def imprisonment_message(riddle: Riddle, member: Member):
@@ -134,10 +136,30 @@ def switch_sudoku_message(riddle: Riddle, member: Member, difficulty: str):
                 f"```{grid_pretty}```\n"
                 f"Difficulty: `{difficulty}`")
 
+
+def member_leave_guild(member: Member):
+    embed = Embed(color=Color.red(), title=f"<@!{member.id}> left")
+    embed.description = f"Joined at {member.joined_at}"
+    embed.set_thumbnail(url=member.avatar.url)
+
+    return embed
+
+
 @bot.event
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
     initialise()
+
+
+@bot.event
+async def on_member_remove(member: Member):
+    guild, is_configured = is_guild_configured(member.guild.id)
+
+    if not is_configured:
+        return
+
+    channel = member.guild.get_channel(guild.configuration.log_channel)
+    await channel.send(embed=member_leave_guild(member=member))
 
 
 @bot.tree.command(name="jail", description="Punish naughty people")
@@ -167,13 +189,13 @@ async def jail(interaction: Interaction, member: Member):
         await interaction.response.send_message(embed=embed_api_error(response), ephemeral=True)
         return
 
-    await member.add_roles(interaction.guild.get_role(guild.inmate_role))
+    await member.add_roles(interaction.guild.get_role(guild.configuration.inmate_role))
 
     await interaction.response.send_message("User is now in jail!", ephemeral=True)
 
     riddle_json = response.json()
 
-    channel = interaction.guild.get_channel(guild.jail_channel)
+    channel = interaction.guild.get_channel(guild.configuration.jail_channel)
     riddle = create_riddle(guild.id, member.id, riddle_json["riddle"], riddle_json["answer"])
     await channel.send(imprisonment_message(riddle, member))
 
@@ -204,7 +226,7 @@ async def solve(interaction: Interaction, answer: str):
     await asyncio.sleep(10)
 
     delete_riddle(interaction.guild.id, interaction.user.id)
-    await interaction.user.remove_roles(interaction.guild.get_role(guild.inmate_role))
+    await interaction.user.remove_roles(interaction.guild.get_role(guild.configuration.inmate_role))
 
 
 @bot.tree.command(name="sudoku", description="Change riddle into a sudoku if your skill issue is too much to handle")
@@ -242,7 +264,7 @@ async def sudoku(interaction: Interaction):
 
     await interaction.response.send_message("Heh. Good luck!", ephemeral=True)
 
-    channel = interaction.guild.get_channel(guild.jail_channel)
+    channel = interaction.guild.get_channel(guild.configuration.jail_channel)
     await channel.send(switch_sudoku_message(riddle, interaction.user, sudoku_difficulty))
 
 
@@ -267,14 +289,20 @@ async def setrole(interaction: Interaction, role: SetRole, value: Role):
     await interaction.response.send_message("OK", ephemeral=True)
 
 
-@bot.tree.command(name="setchannel", description="Set the jail channel")
-@app_commands.describe(channel="The value to set")
-async def setchannel(interaction: Interaction, channel: discord.TextChannel):
+class SetChannel(str, enum.Enum):
+    JailChannel = "jail_channel"
+    LogChannel = "log_channel"
+
+
+@bot.tree.command(name="setchannel", description="Set a server channel")
+@app_commands.describe(channel="The channel to set")
+@app_commands.describe(value="The value to set")
+async def setchannel(interaction: Interaction, channel: SetChannel, value: discord.TextChannel):
     if not interaction.user.guild_permissions.administrator and not await bot.is_owner(interaction.user):
         await interaction.response.send_message("You are not authorised to run this command!", ephemeral=True)
         return
 
-    update_guild(interaction.guild.id, i_jail=channel.id)
+    update_guild(interaction.guild.id, i_jail=value.id)
 
     await interaction.response.send_message("OK", ephemeral=True)
 

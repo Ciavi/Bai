@@ -13,9 +13,7 @@ class BaseModel(Model):
 
 class Guild(BaseModel):
     id = BigIntegerField(unique=True, primary_key=True)
-    moderator_role = BigIntegerField(null=True)
-    inmate_role = BigIntegerField(null=True)
-    jail_channel = BigIntegerField(null=True)
+    configuration = TextField(null=True)
     updated_at = DateTimeField(
         default=calendar.timegm(datetime.datetime.now().timetuple())
     )

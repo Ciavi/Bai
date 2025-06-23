@@ -1,8 +1,15 @@
 import calendar
+import json
 
 from datetime import datetime, timedelta
 from peewee import SqliteDatabase, fn, DoesNotExist
 from data.models import Guild, Riddle
+
+
+class GuildWrapper():
+    id: int
+    configuration: object
+    updated_at: datetime
 
 
 def initialise():
@@ -14,23 +21,30 @@ def initialise():
 def create_guild(i_guild: int):
     _ = Guild.get_or_create(id=i_guild)
     guild = Guild.get(Guild.id == i_guild)
-    return guild
+
+    wrap = GuildWrapper()
+    wrap.id = guild.id
+    wrap.configuration = json.loads(guild.configuration)
+    wrap.updated_at = guild.updated_at
+
+    return wrap
 
 
-def update_guild(i_guild: int, i_moderator: int = None, i_inmate: int = None, i_jail: int = None):
-    guild = create_guild(i_guild)
+def update_guild(i_guild: int, o_configuration: object = None):
+    _ = Guild.get_or_create(id=i_guild)
+    guild = Guild.get(Guild.id == i_guild)
 
-    if i_moderator is not None:
-        guild.moderator_role = i_moderator
-
-    if i_inmate is not None:
-        guild.inmate_role = i_inmate
-
-    if i_jail is not None:
-        guild.jail_channel = i_jail
+    if o_configuration is not None:
+        guild.configuration = json.dumps(o_configuration)
 
     guild.save()
-    return guild
+
+    wrap = GuildWrapper()
+    wrap.id = guild.id
+    wrap.configuration = json.loads(guild.configuration)
+    wrap.updated_at = guild.updated_at
+
+    return wrap
 # End Guild
 
 
