@@ -13,7 +13,7 @@ class BaseModel(Model):
 
 class Guild(BaseModel):
     id = BigIntegerField(unique=True, primary_key=True)
-    configuration = TextField(null=True)
+    configuration = TextField(default="{}")
     updated_at = DateTimeField(
         default=calendar.timegm(datetime.datetime.now().timetuple())
     )
