@@ -251,7 +251,7 @@ async def release(interaction: Interaction, inmate: Member):
         return
 
     await inmate.remove_roles(interaction.guild.get_role(guild.configuration['inmate_role']))
-    await delete_riddle(interaction.guild.id, inmate.id)
+    delete_riddle(interaction.guild.id, inmate.id)
 
     await interaction.response.send_message("User is now out of jail!", ephemeral=True)
 

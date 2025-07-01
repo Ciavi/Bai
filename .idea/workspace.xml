@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Proper dict calls.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Added release command.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
@@ -97,7 +97,8 @@
       <workItem from="1750930447810" duration="7000" />
       <workItem from="1750930471287" duration="657000" />
       <workItem from="1751130249138" duration="8839000" />
-      <workItem from="1751379836978" duration="244000" />
+      <workItem from="1751379836978" duration="290000" />
+      <workItem from="1751380424298" duration="80000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version:&#10;- Commands are working (setrole, setchannel, jail, solve, sudoku)&#10;- Riddles support&#10;- Sudoku support">
       <option name="closed" value="true" />
@@ -179,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750717031460</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added release command.">
+      <option name="closed" value="true" />
+      <created>1751380091591</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1751380091591</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +203,8 @@
     <MESSAGE value="Updated default value for guild.configuration" />
     <MESSAGE value="Workaround for NoneType on json.loads" />
     <MESSAGE value="Proper dict calls." />
-    <option name="LAST_COMMIT_MESSAGE" value="Proper dict calls." />
+    <MESSAGE value="Added release command." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added release command." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
