@@ -233,6 +233,28 @@ async def jail(interaction: Interaction, member: Member):
     riddle = create_riddle(guild.id, member.id, riddle_json["riddle"], riddle_json["answer"])
     await channel.send(imprisonment_message(riddle, member))
 
+@bot.tree.command(name="release", description="Release them naughties")
+@app_commands.describe(inmate="The inmate to release")
+async def release(interaction: Interaction, inmate: Member):
+    guild, is_configured = is_guild_configured(interaction.guild.id)
+
+    if not is_configured:
+        await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+        return
+
+    if not is_user_moderator(guild, interaction.user):
+        await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+        return
+
+    if not is_user_imprisoned(guild, inmate):
+        await interaction.response.send_message("User is not in jail!", ephemeral=True)
+        return
+
+    await inmate.remove_roles(interaction.guild.get_role(guild.configuration['inmate_role']))
+    await delete_riddle(interaction.guild.id, inmate.id)
+
+    await interaction.response.send_message("User is now out of jail!", ephemeral=True)
+
 
 @bot.tree.command(name="solve", description="Solve the riddle")
 @app_commands.describe(answer="The answer")
