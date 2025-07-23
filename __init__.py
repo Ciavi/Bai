@@ -213,6 +213,10 @@ async def jail(interaction: Interaction, member: Member):
         await interaction.response.send_message("Naughty naughty! Can't jail ol' Bai!", ephemeral=True)
         return
 
+    if member.bot:
+        await interaction.response.send_message("Why would you jail the innocent?", ephemeral=True)
+        return
+
     if is_user_imprisoned(guild, member):
         await interaction.response.send_message("User is already in jail!", ephemeral=True)
         return
