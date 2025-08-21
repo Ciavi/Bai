@@ -1,30 +1,18 @@
-import asyncio
-import enum
-from datetime import datetime
+import logging
+from os import environ as env
 
 import discord
-import logging
-import requests
-
-from discord import app_commands, Member, Embed, Color, Interaction, Role, User
-from requests import Response
-
-from sentence_transformers import SentenceTransformer, util
-
-import system.configuration
-import system.historian
-
-from os import environ as env
+from discord import Member
 from discord.ext import commands
 from dotenv import load_dotenv
 
+import system.configuration
+import system.historian
 from commands.cog_config import Configuration
 from commands.cog_jail import Jail
 from commands.messages import embed_member_leave_guild
 from commands.utils import is_guild_configured
-from data.interface import initialise, create_guild, update_guild, create_riddle, read_riddle, delete_riddle, \
-    update_riddle
-from data.models import Riddle, Guild
+from data.interface import initialise
 
 load_dotenv()
 
