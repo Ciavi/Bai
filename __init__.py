@@ -34,6 +34,7 @@ class Bai(commands.Bot):
         await self.load_extension("commands.cog_config")
         await self.load_extension("commands.cog_jail")
         await self.load_extension("commands.cog_raid")
+        await self.tree.sync()
 
 
 bot = Bai(command_prefix='^', intents=intents)
