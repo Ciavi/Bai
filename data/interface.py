@@ -14,7 +14,7 @@ class GuildWrapper():
 
 def initialise():
     db = SqliteDatabase("data.db")
-    db.create_tables([Guild, Riddle])
+    db.create_tables([Guild, Raid, Riddle])
 
 
 # Start Guild
