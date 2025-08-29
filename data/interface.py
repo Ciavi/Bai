@@ -118,7 +118,11 @@ def set_raid_supports(i_raid: int, supports: list[int]):
     raid = read_raid(i_raid)
     participants: dict = json.loads(raid.participants or "{}")
 
-    participants["supports"] = participants["supports"] ^ supports
+    try:
+        participants["supports"] = participants["supports"] ^ supports
+    except KeyError:
+        participants["supports"] = supports
+
     raid.participants = json.dumps(participants)
     raid.save()
 # End Raid
