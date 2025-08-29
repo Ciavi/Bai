@@ -89,7 +89,10 @@ def get_raid_leader(i_raid: int):
     raid = read_raid(i_raid)
     participants: dict = json.loads(raid.participants or "{}")
 
-    return participants["leader"] or None
+    try:
+        return participants["leader"]
+    except KeyError:
+        return None
 
 
 def set_raid_leader(i_raid: int, leader: int):
@@ -105,7 +108,10 @@ def get_raid_supports(i_raid: int):
     raid = read_raid(i_raid)
     participants: dict = json.loads(raid.participants or "{}")
 
-    return participants["supports"] or None
+    try:
+        return participants["supports"]
+    except KeyError:
+        return []
 
 
 def set_raid_supports(i_raid: int, supports: list[int]):
