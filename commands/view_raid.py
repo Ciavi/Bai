@@ -75,30 +75,30 @@ class BaseView(discord.ui.View):
 
 
 class RaidView(BaseView):
+    async def change_embed(self):
+        raid: Raid = read_raid(int(self.raid_id))
+        leader: int = get_raid_leader(int(self.raid_id))
+        supports: list[int] = get_raid_supports(int(self.raid_id))
+
+        list_supports: str = "<@" + ">, <@".join(map(str, supports)) + ">"
+
+        current_embed: discord.Embed = self.original.message.embeds[0]
+        new_description = f"""
+            {raid.description}
+            --------------------------------------
+            Leader ({1 if leader is not None else 0}/1): <@{leader}>
+            Supports ({len(supports)}/19): {list_supports}
+        """
+
+        new_embed = current_embed.copy()
+        new_embed.description = new_description
+
+        await self._edit(embed=new_embed, view=self)
+
     def __init__(self, user: discord.User | discord.Member, raid_id: int, timeout: float = 60.0):
         super().__init__(user, timeout)
         self.raid_id = raid_id
         self.original = self.interaction
-
-        async def change_embed():
-            raid: Raid = read_raid(int(self.raid_id))
-            leader: int = get_raid_leader(int(self.raid_id))
-            supports: list[int] = get_raid_supports(int(self.raid_id))
-
-            list_supports: str = "<@" + ">, <@".join(map(str, supports)) + ">"
-
-            current_embed: discord.Embed = self.interaction.message.embeds[0]
-            new_description = f"""
-                {raid.description}
-                --------------------------------------
-                Leader ({1 if leader is not None else 0}/1): <@{leader}>
-                Supports ({len(supports)}/19): {list_supports}
-            """
-
-            new_embed = current_embed.copy()
-            new_embed.description = new_description
-
-            await self._edit(embed=new_embed, view=self)
 
         async def cb_leader(interaction: discord.Interaction):
             leader: int | None = get_raid_leader(int(interaction.data['custom_id'].split(":")[1]))
@@ -109,7 +109,7 @@ class RaidView(BaseView):
 
             set_raid_leader(self.raid_id, interaction.user.id)
             await interaction.response.send_message(f"You registered as leader for this raid.", ephemeral=True)
-            await change_embed()
+            await self.change_embed()
 
         async def cb_support(interaction: discord.Interaction):
             supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
@@ -120,7 +120,7 @@ class RaidView(BaseView):
 
             set_raid_supports(self.raid_id, [interaction.user.id])
             await interaction.response.send_message(f"You un/registered as support for this raid.", ephemeral=True)
-            await change_embed()
+            await self.change_embed()
 
         self.add_item(
             discord.ui.Button(
