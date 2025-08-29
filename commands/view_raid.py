@@ -91,6 +91,7 @@ class RaidView(BaseView):
 
         new_embed = discord.Embed(title=raid.title, description=new_description)
         new_embed.description = new_description
+        new_embed.set_footer(text=f"Raid: {raid.id}")
 
         await self.original.edit(embed=new_embed, view=self)
 

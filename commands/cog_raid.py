@@ -68,7 +68,7 @@ class Starverse(Raid):
         raid: RaidModel = create_raid(i_guild=interaction.guild.id, i_user=interaction.user.id, s_title=title, s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
 
         embed = discord.Embed(title=title, description=description, color=discord.Color.random())
-        embed.set_footer(text=f"Raid: `{raid.id}`")
+        embed.set_footer(text=f"Raid: {raid.id}")
 
         await interaction.response.send_message(f"Created raid `{raid.id}`", ephemeral=True)
         message = await interaction.channel.send(content="Incoming raid...")
@@ -118,7 +118,7 @@ class Kunlun(Raid):
                                       s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
 
         embed = discord.Embed(title=title, description=description, color=discord.Color.random())
-        embed.set_footer(text=f"Raid: `{raid.id}`")
+        embed.set_footer(text=f"Raid: {raid.id}")
 
         await interaction.response.send_message(f"Created raid `{raid.id}`", ephemeral=True)
         message = await interaction.channel.send(content="Incoming raid...")
