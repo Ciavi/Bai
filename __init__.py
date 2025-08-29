@@ -31,9 +31,9 @@ for s_logger in logger.loggers:
 
 class Bai(commands.Bot):
     async def setup_hook(self):
-        await bot.load_extension("commands.cog_config")
-        await bot.load_extension("commands.cog_jail")
-        await bot.load_extension("commands.cog_raid")
+        await self.load_extension("commands.cog_config")
+        await self.load_extension("commands.cog_jail")
+        await self.load_extension("commands.cog_raid")
 
 
 bot = Bai(command_prefix='^', intents=intents)
