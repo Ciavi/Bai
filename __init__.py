@@ -22,15 +22,21 @@ intents.message_content = True
 configuration = system.configuration.Configuration('conf.json')
 logger = system.historian.Logging(configuration)
 
-bot = commands.Bot(command_prefix='^', intents=intents)
+discord_logger = logging.getLogger('discord')
+discord_logger.setLevel('DEBUG')
+discord_logger.handlers.clear()
+for s_logger in logger.loggers:
+    discord_logger.addHandler(s_logger.handlers[0])
 
-async def setup_hook():
-    await bot.load_extension("commands.cog_config")
-    await bot.load_extension("commands.cog_jail")
-    await bot.load_extension("commands.cog_raid")
 
-bot.setup_hook = setup_hook
+class Bai(commands.Bot):
+    async def setup_hook(self):
+        await bot.load_extension("commands.cog_config")
+        await bot.load_extension("commands.cog_jail")
+        await bot.load_extension("commands.cog_raid")
 
+
+bot = Bai(command_prefix='^', intents=intents)
 
 @bot.event
 async def on_ready():
@@ -47,12 +53,5 @@ async def on_member_remove(member: Member):
 
     channel = member.guild.get_channel(guild.configuration['log_channel'])
     await channel.send(embed=embed_member_leave_guild(member=member))
-
-
-discord_logger = logging.getLogger('discord')
-discord_logger.setLevel('DEBUG')
-discord_logger.handlers.clear()
-for s_logger in logger.loggers:
-    discord_logger.addHandler(s_logger.handlers[0])
 
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
