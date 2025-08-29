@@ -34,7 +34,7 @@ class Raid(BaseModel):
 
 
 class Riddle(BaseModel):
-    guild = ForeignKeyField(Guild, backref='riddles')
+    guild = ForeignKeyField(Guild, backref='riddles', unique=True)
     user = BigIntegerField()
     text = TextField()
     solution = TextField()
@@ -44,11 +44,10 @@ class Riddle(BaseModel):
     )
 
 
-class Subscribers(BaseModel):
+class Subscriber(BaseModel):
     guild = ForeignKeyField(Guild, backref='subscribers')
     since = DateTimeField()
     until = DateTimeField()
-    ontime = BooleanField(default=True)
     updated_at = DateTimeField(
         default=calendar.timegm(datetime.datetime.now().timetuple())
     )

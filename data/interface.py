@@ -3,7 +3,7 @@ import json
 
 from datetime import datetime, timedelta
 from peewee import SqliteDatabase, fn, DoesNotExist
-from data.models import Guild, Riddle, Raid
+from data.models import Guild, Riddle, Raid, Subscriber
 
 
 class GuildWrapper():
@@ -160,3 +160,33 @@ def delete_riddle(i_guild: int, i_user: int):
     riddle.delete_instance()
 # End Riddle
 
+
+# Start Licence
+def create_subscriber(i_guild: int, d_since: datetime, d_until: datetime):
+    _ = Subscriber.get_or_create(guild=i_guild, since=d_since, until=d_until)
+    subscriber = Subscriber.get(Subscriber.guild == i_guild)
+    return subscriber
+
+
+def read_subscriber(i_guild: int):
+    subscriber = Subscriber.get(Subscriber.guild == i_guild)
+    return subscriber
+
+
+def update_subscriber(i_guild: int, d_since: datetime = None, d_until: datetime = None):
+    subscriber = read_subscriber(i_guild)
+
+    if d_since is not None:
+        subscriber.since = d_since
+
+    if d_until is not None:
+        subscriber.until = d_until
+
+    subscriber.save()
+    return subscriber
+
+
+def delete_subscriber(i_guild: int):
+    subscriber = read_subscriber(i_guild)
+    subscriber.delete_instance()
+# End Licence
