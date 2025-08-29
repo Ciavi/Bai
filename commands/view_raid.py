@@ -75,10 +75,10 @@ class BaseView(discord.ui.View):
 
 
 class RaidView(BaseView):
-    def __init__(self, user: discord.User | discord.Member, raid_id: int, original_message: discord.Message, timeout: float = 60.0):
+    def __init__(self, user: discord.User | discord.Member, raid_id: int, timeout: float = 60.0):
         super().__init__(user, timeout)
         self.raid_id = raid_id
-        self.original = original_message
+        self.original = self.interaction
 
         async def change_embed():
             raid: Raid = read_raid(int(self.raid_id))
@@ -88,14 +88,17 @@ class RaidView(BaseView):
             list_supports: str = "<@" + ">, <@".join(map(str, supports)) + ">"
 
             current_embed: discord.Embed = self.interaction.message.embeds[0]
-            current_embed.description = f"""
+            new_description = f"""
                 {raid.description}\n
                 --------------------------------------\n
                 Leader ({1 if leader is not None else 0}/1): <@{leader}>\n
                 Supports ({len(supports)}/19): {list_supports}
             """
 
-            await self.original.edit(embed=current_embed, view=self)
+            new_embed = current_embed.copy()
+            new_embed.description = new_description
+
+            await self._edit(embed=new_embed, view=self)
 
         async def cb_leader(interaction: discord.Interaction):
             leader: int | None = get_raid_leader(int(interaction.data['custom_id'].split(":")[1]))

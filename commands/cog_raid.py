@@ -67,13 +67,11 @@ class Starverse(Raid):
 
         raid: RaidModel = create_raid(i_guild=interaction.guild.id, i_user=interaction.user.id, s_title=title, s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
 
-        message = await interaction.response.send_message("Creating raid...")
-
         embed = discord.Embed(title=title, description=description, color=discord.Color.random())
         embed.set_footer(text=f"Raid: `{raid.id}`")
-        view = RaidView(user=interaction.user, raid_id=raid.id, original_message=message, timeout=apply_by.timestamp() - datetime.now().timestamp())
+        view = RaidView(user=interaction.user, raid_id=raid.id, timeout=apply_by.timestamp() - datetime.now().timestamp())
 
-        await interaction.edit_original_response(embed=embed, view=view)
+        await interaction.response.send_message(embed=embed, view=view)
 
 
 class Kunlun(Raid):
