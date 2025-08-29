@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer, util
 
 from commands.messages import embed_api_error, embed_permissions_error, embed_configuration_error, message_imprisonment, \
     message_wrong, message_right, message_switch_sudoku
-from commands.utils import is_guild_configured, is_user_moderator, is_user_imprisoned, is_valid_user_solution
+from commands.utils import is_guild_configured, is_user_warden, is_user_imprisoned, is_valid_user_solution
 from data.interface import create_riddle, delete_riddle, read_riddle, update_riddle
 
 
@@ -28,7 +28,7 @@ class Jail(commands.Cog):
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not is_user_moderator(guild, interaction.user):
+        if not is_user_warden(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
@@ -70,7 +70,7 @@ class Jail(commands.Cog):
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not is_user_moderator(guild, interaction.user):
+        if not is_user_warden(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 

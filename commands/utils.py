@@ -15,8 +15,12 @@ async def is_user_imprisoned(guild: Guild, member: Member) -> bool:
     return any(role.id == guild.configuration['inmate_role'] for role in member.roles)
 
 
-async def is_user_moderator(guild: Guild, member: Member) -> bool:
-    return any(role.id == guild.configuration['moderator_role'] for role in member.roles)
+async def is_user_organiser(guild: Guild, member: Member) -> bool:
+    return any(role.id == guild.configuration['organiser_role'] for role in member.roles)
+
+
+async def is_user_warden(guild: Guild, member: Member) -> bool:
+    return any(role.id == guild.configuration['warden_role'] for role in member.roles)
 
 
 def is_valid_user_solution(puzzle, solution):

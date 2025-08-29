@@ -21,8 +21,9 @@ class Configuration(commands.Cog):
 
 
     class Role(str, enum.Enum):
-        ModeratorRole = "moderator_role"
         InmateRole = "inmate_role"
+        OrganiserRole = "organiser_role"
+        WardenRole = "warden_role"
 
 
     async def __is_admin_or_owner(self, interaction: discord.Interaction) -> bool:

@@ -19,6 +19,20 @@ class Guild(BaseModel):
     )
 
 
+class Raid(BaseModel):
+    id = BigIntegerField(unique=True, primary_key=True)
+    guild = BigIntegerField()
+    organiser = BigIntegerField()
+    title = TextField()
+    description = TextField()
+    participants = TextField(default="{}")
+    apply_by = DateTimeField()
+    happens_on = DateTimeField()
+    updated_at = DateTimeField(
+        default=calendar.timegm(datetime.datetime.now().timetuple())
+    )
+
+
 class Riddle(BaseModel):
     guild = ForeignKeyField(Guild, backref='riddles')
     user = BigIntegerField()
