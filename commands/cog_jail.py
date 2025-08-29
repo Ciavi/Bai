@@ -3,6 +3,7 @@ import asyncio
 import requests
 from discord import app_commands, Interaction, Member
 from discord.ext import commands
+from discord.ext.commands import Bot
 from sentence_transformers import SentenceTransformer, util
 
 from commands.messages import embed_api_error, embed_permissions_error, embed_configuration_error, message_imprisonment, \
@@ -166,3 +167,7 @@ class Jail(commands.Cog):
 
         channel = interaction.guild.get_channel(guild.configuration['jail_channel'])
         await channel.send(message_switch_sudoku(riddle, interaction.user, sudoku_difficulty))
+
+
+async def setup(bot: Bot):
+    await bot.add_cog(Jail(bot))

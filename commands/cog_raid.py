@@ -3,6 +3,7 @@ from datetime import datetime
 import discord
 from discord import app_commands
 from discord.ext import commands
+from discord.ext.commands import Bot
 from discord_timestamps import format_timestamp, TimestampType
 
 from commands.messages import embed_configuration_error, embed_permissions_error
@@ -117,3 +118,8 @@ class Kunlun(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         await interaction.response.send_message(embed=embed, view=view)
+
+
+async def setup(bot: Bot):
+    await bot.add_cog(Starverse(bot))
+    await bot.add_cog(Kunlun(bot))

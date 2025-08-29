@@ -56,3 +56,7 @@ class Configuration(commands.Cog):
         update_guild(interaction.guild.id, o_configuration=temp_config)
 
         await interaction.response.send_message("OK", ephemeral=True)
+
+
+async def setup(bot: Bot):
+    await bot.add_cog(Configuration(bot))

@@ -8,9 +8,6 @@ from dotenv import load_dotenv
 
 import system.configuration
 import system.historian
-from commands.cog_config import Configuration
-from commands.cog_jail import Jail
-from commands.cog_raid import Raid
 from commands.messages import embed_member_leave_guild
 from commands.utils import is_guild_configured
 from data.interface import initialise
@@ -28,10 +25,9 @@ logger = system.historian.Logging(configuration)
 bot = commands.Bot(command_prefix='^', intents=intents)
 
 async def setup_hook():
-    await bot.tree.sync()
-    await bot.add_cog(Configuration(bot))
-    await bot.add_cog(Jail(bot))
-    await bot.add_cog(Raid(bot))
+    await bot.load_extension("commands.cog_config")
+    await bot.load_extension("commands.cog_jail")
+    await bot.load_extension("commands.cog_raid")
 
 bot.setup_hook = setup_hook
 
