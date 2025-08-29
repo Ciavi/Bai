@@ -119,7 +119,7 @@ def set_raid_supports(i_raid: int, supports: list[int]):
     participants: dict = json.loads(raid.participants or "{}")
 
     try:
-        participants["supports"] = participants["supports"] ^ supports
+        participants["supports"] = list(set(participants["supports"]) ^ set(supports))
     except KeyError:
         participants["supports"] = supports
 
