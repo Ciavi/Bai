@@ -89,9 +89,9 @@ class RaidView(BaseView):
 
             current_embed: discord.Embed = self.interaction.message.embeds[0]
             new_description = f"""
-                {raid.description}\n
-                --------------------------------------\n
-                Leader ({1 if leader is not None else 0}/1): <@{leader}>\n
+                {raid.description}
+                --------------------------------------
+                Leader ({1 if leader is not None else 0}/1): <@{leader}>
                 Supports ({len(supports)}/19): {list_supports}
             """
 
