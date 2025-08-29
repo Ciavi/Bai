@@ -47,7 +47,7 @@ async def on_ready():
 
 @bot.event
 async def on_member_remove(member: Member):
-    guild, is_configured = is_guild_configured(member.guild.id)
+    guild, is_configured = await is_guild_configured(member.guild.id)
 
     if not is_configured:
         return

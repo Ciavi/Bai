@@ -56,7 +56,7 @@ class Starverse(Raid):
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not is_user_organiser(guild, interaction.user):
+        if not await is_user_organiser(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
@@ -100,7 +100,7 @@ class Kunlun(Raid):
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not is_user_organiser(guild, interaction.user):
+        if not await is_user_organiser(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 

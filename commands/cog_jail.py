@@ -29,7 +29,7 @@ class Jail(commands.Cog):
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not is_user_warden(guild, interaction.user):
+        if not await is_user_warden(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
@@ -41,7 +41,7 @@ class Jail(commands.Cog):
             await interaction.response.send_message("Why would you jail the innocent?", ephemeral=True)
             return
 
-        if is_user_imprisoned(guild, member):
+        if await is_user_imprisoned(guild, member):
             await interaction.response.send_message("User is already in jail!", ephemeral=True)
             return
 
@@ -71,11 +71,11 @@ class Jail(commands.Cog):
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not is_user_warden(guild, interaction.user):
+        if not await is_user_warden(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
-        if not is_user_imprisoned(guild, inmate):
+        if not await is_user_imprisoned(guild, inmate):
             await interaction.response.send_message("User is not in jail!", ephemeral=True)
             return
 
@@ -96,7 +96,7 @@ class Jail(commands.Cog):
 
         riddle = read_riddle(interaction.guild.id, interaction.user.id)
 
-        if not is_user_imprisoned(guild, interaction.user) and riddle is None:
+        if not await is_user_imprisoned(guild, interaction.user) and riddle is None:
             await interaction.response.send_message("You don't have a riddle to solve!", ephemeral=True)
             return
 
@@ -137,7 +137,7 @@ class Jail(commands.Cog):
 
         riddle = read_riddle(interaction.guild.id, interaction.user.id)
 
-        if not is_user_imprisoned(guild, interaction.user) and riddle is None:
+        if not await is_user_imprisoned(guild, interaction.user) and riddle is None:
             await interaction.response.send_message("You don't have a riddle to solve!", ephemeral=True)
             return
 
