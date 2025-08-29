@@ -7,19 +7,10 @@ from discord.ext.commands import Bot
 from discord_timestamps import format_timestamp, TimestampType
 
 from commands.messages import embed_configuration_error, embed_permissions_error
-from commands.utils import is_guild_configured, is_user_organiser
+from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
 from commands.view_raid import RaidView
 from data.interface import create_raid
 from data.models import Raid as RaidModel
-
-
-class DatetimeConverter(app_commands.Transformer):
-    async def transform(self, interaction: discord.Interaction, argument: str) -> datetime:
-        try:
-            date = datetime.strptime(argument, "%Y-%m-%d %H:%M")
-            return date
-        except ValueError:
-            raise commands.BadArgument(f"Invalid date: {argument}")
 
 
 class Raid(commands.Cog):

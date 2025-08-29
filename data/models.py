@@ -44,5 +44,15 @@ class Riddle(BaseModel):
     )
 
 
+class Subscribers(BaseModel):
+    guild = ForeignKeyField(Guild, backref='subscribers')
+    since = DateTimeField()
+    until = DateTimeField()
+    ontime = BooleanField(default=True)
+    updated_at = DateTimeField(
+        default=calendar.timegm(datetime.datetime.now().timetuple())
+    )
+
+
     class Meta:
         primary_key = CompositeKey('guild', 'user')

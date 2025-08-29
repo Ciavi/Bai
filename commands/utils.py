@@ -1,4 +1,8 @@
-from discord import Member
+from datetime import datetime
+
+import discord
+from discord import Member, app_commands
+from discord.ext import commands
 
 from data.interface import GuildWrapper, create_guild
 from data.models import Guild
@@ -67,3 +71,12 @@ def display_sudoku(grid) -> str:
         if i in [2, 5]:
             lines.append("-" * 21)
     return '\n'.join(lines)
+
+
+class DatetimeConverter(app_commands.Transformer):
+    async def transform(self, interaction: discord.Interaction, argument: str) -> datetime:
+        try:
+            date = datetime.strptime(argument, "%Y-%m-%d %H:%M")
+            return date
+        except ValueError:
+            raise commands.BadArgument(f"Invalid date: {argument}")
