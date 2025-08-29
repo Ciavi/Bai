@@ -92,7 +92,7 @@ class RaidView(BaseView):
         new_embed = discord.Embed(title=raid.title, description=new_description)
         new_embed.description = new_description
 
-        await self.message.edit(embed=new_embed, view=self)
+        await self.original.edit(embed=new_embed, view=self)
 
     def __init__(self, user: discord.User | discord.Member, raid_id: int, message: discord.Message, timeout: float = 60.0):
         super().__init__(user, timeout)
