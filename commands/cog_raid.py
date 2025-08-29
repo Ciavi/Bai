@@ -71,7 +71,7 @@ class Starverse(Raid):
         embed.set_footer(text=f"Raid: `{raid.id}`")
         view = RaidView(user=interaction.user, raid_id=raid.id, timeout=apply_by.timestamp() - datetime.now().timestamp())
 
-        await interaction.response.send_message(f"Created raid `{raid.id}`")
+        await interaction.response.send_message(f"Created raid `{raid.id}`", ephemeral=True)
         message = await interaction.channel.send(embed=embed, view=view)
         view.message = message
 
@@ -119,7 +119,7 @@ class Kunlun(Raid):
         view = RaidView(user=interaction.user, raid_id=raid.id,
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
-        await interaction.response.send_message(f"Created raid `{raid.id}`")
+        await interaction.response.send_message(f"Created raid `{raid.id}`", ephemeral=True)
         message = await interaction.channel.send(embed=embed, view=view)
         view.message = message
 
