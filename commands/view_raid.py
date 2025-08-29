@@ -97,7 +97,7 @@ class RaidView(BaseView):
             await self.message.edit(embed=current_embed)
 
         async def cb_leader(interaction: discord.Interaction):
-            leader: int | None = get_raid_leader(int(interaction.data['custom_id']))
+            leader: int | None = get_raid_leader(int(interaction.data['custom_id'].split(":")[1]))
 
             if leader is not None:
                 await interaction.response.send_message(f"<@{leader}> is already registered as leader for this raid.", ephemeral=True)
@@ -108,7 +108,7 @@ class RaidView(BaseView):
             await change_embed()
 
         async def cb_support(interaction: discord.Interaction):
-            supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id']))
+            supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
 
             if supports is not None and len(supports) == 19 and interaction.user.id not in supports:
                 await interaction.response.send_message(f"Raid is already full, please try another time.", ephemeral=True)
@@ -122,7 +122,7 @@ class RaidView(BaseView):
             discord.ui.Button(
                 label="Apply as leader",
                 style=discord.ButtonStyle.danger,
-                custom_id=f"{raid_id}"
+                custom_id=f"leader:{raid_id}"
             )
         )
 
@@ -132,7 +132,7 @@ class RaidView(BaseView):
             discord.ui.Button(
                 label="Apply as support",
                 style=discord.ButtonStyle.blurple,
-                custom_id=f"{raid_id}"
+                custom_id=f"support:{raid_id}"
             )
         )
 
