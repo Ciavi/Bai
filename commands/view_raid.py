@@ -122,7 +122,7 @@ class RaidView(BaseView):
             discord.ui.Button(
                 label="Apply as leader",
                 style=discord.ButtonStyle.danger,
-                custom_id=f"raid-{raid_id}"
+                custom_id=f"{raid_id}"
             )
         )
 
