@@ -92,12 +92,12 @@ class RaidView(BaseView):
         new_embed = discord.Embed(title=raid.title, description=new_description)
         new_embed.description = new_description
 
-        await self._edit(embed=new_embed, view=self)
+        await self.message.edit(embed=new_embed, view=self)
 
-    def __init__(self, user: discord.User | discord.Member, raid_id: int, timeout: float = 60.0):
+    def __init__(self, user: discord.User | discord.Member, raid_id: int, message: discord.Message, timeout: float = 60.0):
         super().__init__(user, timeout)
         self.raid_id = raid_id
-        self.original = self.interaction
+        self.original = message
 
         async def cb_leader(interaction: discord.Interaction):
             leader: int | None = get_raid_leader(int(interaction.data['custom_id'].split(":")[1]))
