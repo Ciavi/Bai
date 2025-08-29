@@ -12,20 +12,20 @@ from data.interface import create_raid
 from data.models import Raid as RaidModel
 
 
+class DatetimeConverter(app_commands.Transformer):
+    async def transform(self, interaction: discord.Interaction, argument: str) -> datetime:
+        try:
+            date = datetime.strptime(argument, "%Y-%m-%d %H:%M")
+            return date
+        except ValueError:
+            raise commands.BadArgument(f"Invalid date: {argument}")
+
+
 class Raid(commands.Cog):
     group = app_commands.Group(name="raid", description="Raid organisation commands")
 
     def __init__(self, bot):
         self.bot = bot
-
-
-    class DatetimeConverter(app_commands.Transformer):
-        async def transform(self, interaction: discord.Interaction, argument: str) -> datetime:
-            try:
-                date = datetime.strptime(argument, "%Y-%m-%d %H:%M")
-                return date
-            except ValueError:
-                raise commands.BadArgument(f"Invalid date: {argument}")
 
 
 class Starverse(Raid):
@@ -42,10 +42,10 @@ class Starverse(Raid):
     @app_commands.describe(description="Raid description")
     async def create(self, interaction: discord.Interaction,
                      apply_by: app_commands.Transform[
-                         datetime, super().DatetimeConverter
+                         datetime, DatetimeConverter
                      ],
                      happens_on: app_commands.Transform[
-                         datetime, super().DatetimeConverter
+                         datetime, DatetimeConverter
                      ],
                      title: str = None,
                      description: str = None):
@@ -86,10 +86,10 @@ class Kunlun(Raid):
     @app_commands.describe(description="Raid description")
     async def create(self, interaction: discord.Interaction,
                      apply_by: app_commands.Transform[
-                         datetime, super().DatetimeConverter
+                         datetime, DatetimeConverter
                      ],
                      happens_on: app_commands.Transform[
-                         datetime, super().DatetimeConverter
+                         datetime, DatetimeConverter
                      ],
                      title: str = None,
                      description: str = None):
