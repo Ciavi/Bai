@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Cleanup">
-      <change afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="New raid features for Eternal events organisation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/cog_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/cog_jail.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_jail.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +114,7 @@
       <workItem from="1755813153727" duration="1152000" />
       <workItem from="1756239886765" duration="3184000" />
       <workItem from="1756244998256" duration="3896000" />
-      <workItem from="1756444466605" duration="7414000" />
+      <workItem from="1756444466605" duration="7697000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version:&#10;- Commands are working (setrole, setchannel, jail, solve, sudoku)&#10;- Riddles support&#10;- Sudoku support">
       <option name="closed" value="true" />
@@ -251,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755762566523</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="New raid features for Eternal events organisation.">
+      <option name="closed" value="true" />
+      <created>1756452007544</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1756452007544</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +273,8 @@
     <MESSAGE value="Major re-organisation. More modularity. Preparing for Eternal." />
     <MESSAGE value="/jail imprison feature parity with /jail" />
     <MESSAGE value="Cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
+    <MESSAGE value="New raid features for Eternal events organisation." />
+    <option name="LAST_COMMIT_MESSAGE" value="New raid features for Eternal events organisation." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />

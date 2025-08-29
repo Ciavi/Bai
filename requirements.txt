@@ -1,5 +1,6 @@
 colorlog~=6.9.0
 discord.py~=2.5.2
+discord-timestamps~=1.0.2
 dotenv~=0.9.9
 peewee~=3.18.1
 python-dotenv~=1.1.0
