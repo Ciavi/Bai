@@ -63,7 +63,7 @@ class Starverse(Raid):
         title = title or f"Starverse"
         title += f" ({happens_on.date().isoformat()})"
         description = description or f"Organised by <@{interaction.user.id}>\n"
-        description += f"Happens on {format_timestamp(happens_on, TimestampType.LONG_DATETIME)}.\n Apply by {format_timestamp(apply_by, TimestampType.LONG_DATETIME)} (within {format_timestamp(apply_by, TimestampType.RELATIVE)}).\n"
+        description += f"Happens on {format_timestamp(happens_on.timestamp(), TimestampType.LONG_DATETIME)}.\n Apply by {format_timestamp(apply_by.timestamp(), TimestampType.LONG_DATETIME)} (within {format_timestamp(apply_by.timestamp(), TimestampType.RELATIVE)}).\n"
 
         raid: RaidModel = create_raid(i_guild=interaction.guild.id, i_user=interaction.user.id, s_title=title, s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
 
@@ -107,7 +107,7 @@ class Kunlun(Raid):
         title = title or f"Kunlun"
         title += f" ({happens_on.date().isoformat()})"
         description = description or f"Organised by <@{interaction.user.id}>\n"
-        description += f"Happens on {format_timestamp(happens_on, TimestampType.LONG_DATETIME)}.\n Apply by {format_timestamp(apply_by, TimestampType.LONG_DATETIME)} (within {format_timestamp(apply_by, TimestampType.RELATIVE)}).\n"
+        description += f"Happens on {format_timestamp(happens_on.timestamp(), TimestampType.LONG_DATETIME)}.\n Apply by {format_timestamp(apply_by.timestamp(), TimestampType.LONG_DATETIME)} (within {format_timestamp(apply_by.timestamp(), TimestampType.RELATIVE)}).\n"
 
         raid: RaidModel = create_raid(i_guild=interaction.guild.id, i_user=interaction.user.id, s_title=title,
                                       s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
