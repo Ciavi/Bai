@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Added name parameter for identification in Subscriber model">
-      <change afterPath="$PROJECT_DIR$/system/accountant.py" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Started work on ko-fi webhook">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,15 +116,8 @@
       <workItem from="1756244998256" duration="3896000" />
       <workItem from="1756444466605" duration="26447000" />
       <workItem from="1756495768027" duration="5872000" />
-      <workItem from="1757051500923" duration="2083000" />
-    </task>
-    <task id="LOCAL-00002" summary="Fixing: show text rather than solution when answer wrong.">
-      <option name="closed" value="true" />
-      <created>1749929512966</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1749929512966</updated>
+      <workItem from="1757051500923" duration="2182000" />
+      <workItem from="1757053753594" duration="79000" />
     </task>
     <task id="LOCAL-00003" summary="Workspace update">
       <option name="closed" value="true" />
@@ -510,14 +503,21 @@
       <option name="project" value="LOCAL" />
       <updated>1757052686811</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Started work on ko-fi webhook">
+      <option name="closed" value="true" />
+      <created>1757053693185</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1757053693185</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cleanup" />
     <MESSAGE value="New raid features for Eternal events organisation." />
     <MESSAGE value="Update dependencies" />
     <MESSAGE value="Fix incorrect class declaration and instantiation" />
@@ -542,7 +542,8 @@
     <MESSAGE value="Started work on licencing." />
     <MESSAGE value="Added /premium licence and /premium revoke owner-only commands" />
     <MESSAGE value="Added name parameter for identification in Subscriber model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added name parameter for identification in Subscriber model" />
+    <MESSAGE value="Started work on ko-fi webhook" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started work on ko-fi webhook" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />

@@ -46,6 +46,16 @@ async def on_ready():
 
 
 @bot.event
+async def on_message_edit(before: discord.Message, after: discord.Message):
+    pass
+
+
+@bot.event
+async def on_message_delete(message: discord.Message):
+    pass
+
+
+@bot.event
 async def on_member_remove(member: Member):
     guild, is_configured = await is_guild_configured(member.guild.id)
 
