@@ -33,13 +33,13 @@ def embed_message_delete(message: Message):
     attachments = []
 
     embed = Embed(color=Color.purple(), title=f"A message was deleted by {message.author.mention} ({message.author.name})")
-    embed.description = (f"**Original message follows**"
-                         f"> {message.content}"
-                         f"-------"
-                         f"**User**: {message.author.mention} ({message.author.name})"
-                         f"**Channel**: {message.channel.mention} ({message.channel.name})"
-                         f"**Context**: {message.jump_url}"
-                         f"-------"
+    embed.description = (f"**Original message follows**\n"
+                         f"{message.content}\n\n"
+                         f"-------\n"
+                         f"**User**: {message.author.mention} ({message.author.name})\n"
+                         f"**Channel**: {message.channel.mention} ({message.channel.name})\n"
+                         f"**Context**: {message.jump_url}\n"
+                         f"-------\n"
                          f"*Attachments may follow*")
 
     for attachment in message.attachments:
@@ -65,14 +65,14 @@ def embeds_message_edit(before: Message, after: Message):
     b_attachments = []
 
     b_embed = Embed(color=Color.purple(),
-                  title=f"A message was deleted by {before.author.mention} ({before.author.name})")
-    b_embed.description = (f"**Original message follows**"
-                         f"> {before.content}"
-                         f"-------"
-                         f"**User**: {before.author.mention} ({before.author.name})"
-                         f"**Channel**: {before.channel.mention} ({before.channel.name})"
-                         f"**Context**: {before.jump_url}"
-                         f"-------"
+                  title=f"A message was edited by {before.author.mention} ({before.author.name})")
+    b_embed.description = (f"**Original message follows**\n"
+                         f"{before.content}\n\n"
+                         f"-------\n"
+                         f"**User**: {before.author.mention} ({before.author.name})\n"
+                         f"**Channel**: {before.channel.mention} ({before.channel.name})\n"
+                         f"**Context**: {before.jump_url}\n"
+                         f"-------\n"
                          f"*Attachments may follow*")
 
     for attachment in before.attachments:
@@ -90,9 +90,9 @@ def embeds_message_edit(before: Message, after: Message):
 
     a_embed = Embed(color=Color.yellow(),
                     title=f"New message")
-    a_embed.description = (f"**Edited message follows**"
-                           f"> {after.content}"
-                           f"-------"
+    a_embed.description = (f"**Edited message follows**\n"
+                           f"{after.content}\n\n"
+                           f"-------\n"
                            f"*Attachments may follow*")
 
     for attachment in after.attachments:
