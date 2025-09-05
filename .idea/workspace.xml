@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Possible fix for embeds not being sent.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Formatting fix.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/messages.py" afterDir="false" />
     </list>
@@ -118,15 +118,7 @@
       <workItem from="1756495768027" duration="5872000" />
       <workItem from="1757051500923" duration="2182000" />
       <workItem from="1757053753594" duration="338000" />
-      <workItem from="1757058830838" duration="4694000" />
-    </task>
-    <task id="LOCAL-00008" summary="Workaround for NoneType on json.loads">
-      <option name="closed" value="true" />
-      <created>1750716595486</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1750716595486</updated>
+      <workItem from="1757058830838" duration="4922000" />
     </task>
     <task id="LOCAL-00009" summary="Proper dict calls.">
       <option name="closed" value="true" />
@@ -512,14 +504,21 @@
       <option name="project" value="LOCAL" />
       <updated>1757073799760</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Formatting fix.">
+      <option name="closed" value="true" />
+      <created>1757073959409</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1757073959409</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Loading now fixed?" />
     <MESSAGE value="Forgot to sync lol" />
     <MESSAGE value="Forgot to be async lol" />
     <MESSAGE value="Timestamp format" />
@@ -544,7 +543,8 @@
     <MESSAGE value="Fixing event handlers for message_edit and message_delete" />
     <MESSAGE value="Fixed missing title for embed, required." />
     <MESSAGE value="Possible fix for embeds not being sent." />
-    <option name="LAST_COMMIT_MESSAGE" value="Possible fix for embeds not being sent." />
+    <MESSAGE value="Formatting fix." />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatting fix." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />

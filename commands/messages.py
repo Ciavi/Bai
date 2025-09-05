@@ -22,8 +22,9 @@ def embed_configuration_error(guild: Guild):
 
 
 def embed_member_leave_guild(member: Member):
-    embed = Embed(color=Color.red(), title=f"{member.mention} ({member.name}) left")
-    embed.description = f"Joined at {member.joined_at}"
+    embed = Embed(color=Color.red(), title=f"{member.name} left")
+    embed.description = f"{member.mention} left us."
+    embed.add_field(name=f"Joined", value=f"{member.joined_at}")
     embed.set_thumbnail(url=member.avatar.url)
 
     return embed
@@ -32,7 +33,7 @@ def embed_member_leave_guild(member: Member):
 def embed_message_delete(message: Message):
     attachments = []
 
-    embed = Embed(color=Color.purple(), title=f"A message was deleted by {message.author.mention} ({message.author.name})")
+    embed = Embed(color=Color.purple(), title=f"A message was deleted by {message.author.name}")
     embed.description = (f"**Original message follows**\n"
                          f"{message.content}\n\n"
                          f"-------\n"
@@ -65,7 +66,7 @@ def embeds_message_edit(before: Message, after: Message):
     b_attachments = []
 
     b_embed = Embed(color=Color.purple(),
-                  title=f"A message was edited by {before.author.mention} ({before.author.name})")
+                  title=f"A message was edited by {before.author.name}")
     b_embed.description = (f"**Original message follows**\n"
                          f"{before.content}\n\n"
                          f"-------\n"
