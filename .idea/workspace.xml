@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Finished event handlers for message_edit and message_delete">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixing event handlers for message_edit and message_delete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/messages.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,15 +119,7 @@
       <workItem from="1756495768027" duration="5872000" />
       <workItem from="1757051500923" duration="2182000" />
       <workItem from="1757053753594" duration="338000" />
-      <workItem from="1757058830838" duration="3151000" />
-    </task>
-    <task id="LOCAL-00005" summary="Updated setvar logic">
-      <option name="closed" value="true" />
-      <created>1750715754056</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1750715754056</updated>
+      <workItem from="1757058830838" duration="4095000" />
     </task>
     <task id="LOCAL-00006" summary="Updated setvar logic">
       <option name="closed" value="true" />
@@ -512,14 +505,21 @@
       <option name="project" value="LOCAL" />
       <updated>1757062241465</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Fixing event handlers for message_edit and message_delete">
+      <option name="closed" value="true" />
+      <created>1757069791328</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1757069791328</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix incorrect class declaration and instantiation" />
     <MESSAGE value="Corrected extension/cog loading." />
     <MESSAGE value="Using Bai class." />
     <MESSAGE value="Loading now fixed?" />
@@ -544,7 +544,8 @@
     <MESSAGE value="Started work on ko-fi webhook" />
     <MESSAGE value="Added event handlers for message_edit and message_delete" />
     <MESSAGE value="Finished event handlers for message_edit and message_delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished event handlers for message_edit and message_delete" />
+    <MESSAGE value="Fixing event handlers for message_edit and message_delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing event handlers for message_edit and message_delete" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />

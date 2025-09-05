@@ -88,7 +88,8 @@ def embeds_message_edit(before: Message, after: Message):
 
     a_attachments = []
 
-    a_embed = Embed(color=Color.yellow())
+    a_embed = Embed(color=Color.yellow(),
+                    title=f"New message")
     a_embed.description = (f"**Edited message follows**"
                            f"> {after.content}"
                            f"-------"
