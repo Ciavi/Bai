@@ -11,7 +11,7 @@ from data.interface import create_subscriber, delete_subscriber
 class Premium(commands.Cog):
     group = app_commands.Group(name="premium", description="Premium commands")
 
-    def __init__(self, bot):
+    def __init__(self, bot: discord.ext.commands.Bot):
         self.bot = bot
 
 
@@ -19,6 +19,7 @@ class Premium(commands.Cog):
     @app_commands.describe(guild="The licenced guild")
     @app_commands.describe(since="Subscription start date")
     @app_commands.describe(until="Subscription end date")
+    @app_commands.describe(name="A string for identification purposes")
     async def licence(self, interaction: discord.Interaction,
                       guild: int,
                       since: app_commands.Transform[
@@ -26,12 +27,16 @@ class Premium(commands.Cog):
                       ],
                       until: app_commands.Transform[
                           datetime, DatetimeConverter
-                      ]):
+                      ],
+                      name: str = None):
         if not self.bot.is_owner(interaction.user):
             await interaction.response.send_message("You are not authorised to run this command!", ephemeral=True)
             return
 
-        _ = create_subscriber(guild, since, until)
+        if name is None:
+            name = self.bot.get_guild(guild).name
+
+        _ = create_subscriber(guild, name, until, since)
 
         await interaction.response.send_message(f"Guild {guild} subscribed until {until}")
 

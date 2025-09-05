@@ -162,8 +162,8 @@ def delete_riddle(i_guild: int, i_user: int):
 
 
 # Start Licence
-def create_subscriber(i_guild: int, d_since: datetime, d_until: datetime):
-    _ = Subscriber.get_or_create(guild=i_guild, since=d_since, until=d_until)
+def create_subscriber(i_guild: int, t_name: str, d_since: datetime, d_until: datetime):
+    _ = Subscriber.get_or_create(guild=i_guild, name=t_name, since=d_since, until=d_until)
     subscriber = Subscriber.get(Subscriber.guild == i_guild)
     return subscriber
 
@@ -173,7 +173,7 @@ def read_subscriber(i_guild: int):
     return subscriber
 
 
-def update_subscriber(i_guild: int, d_since: datetime = None, d_until: datetime = None):
+def update_subscriber(i_guild: int, t_name: str = None, d_since: datetime = None, d_until: datetime = None):
     subscriber = read_subscriber(i_guild)
 
     if d_since is not None:

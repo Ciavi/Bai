@@ -46,6 +46,7 @@ class Riddle(BaseModel):
 
 class Subscriber(BaseModel):
     guild = ForeignKeyField(Guild, backref='subscribers')
+    name = TextField()
     since = DateTimeField()
     until = DateTimeField()
     updated_at = DateTimeField(
