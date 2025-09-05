@@ -33,9 +33,10 @@ def embed_member_leave_guild(member: Member):
 def embed_message_delete(message: Message):
     attachments = []
 
-    embed = Embed(color=Color.purple(), title=f"A message was deleted by {message.author.name}")
+    embed = Embed(color=Color.red(), title=f"A message was deleted by {message.author.name}")
     embed.description = (f"**Original message follows**\n"
                          f"{message.content}\n\n"
+                         f"-# Sent at {message.created_at}\n"
                          f"-------\n"
                          f"**User**: {message.author.mention} ({message.author.name})\n"
                          f"**Channel**: {message.channel.mention} ({message.channel.name})\n"
@@ -69,6 +70,7 @@ def embeds_message_edit(before: Message, after: Message):
                   title=f"A message was edited by {before.author.name}")
     b_embed.description = (f"**Original message follows**\n"
                          f"{before.content}\n\n"
+                         f"-# Sent at {before.created_at}\n"
                          f"-------\n"
                          f"**User**: {before.author.mention} ({before.author.name})\n"
                          f"**Channel**: {before.channel.mention} ({before.channel.name})\n"
