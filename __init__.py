@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 import system.configuration
 import system.historian
-from commands.messages import embed_member_leave_guild
+from commands.messages import embed_member_leave_guild, embed_message_delete, embeds_message_edit
 from commands.utils import is_guild_configured
 from data.interface import initialise
 
@@ -47,12 +47,29 @@ async def on_ready():
 
 @bot.event
 async def on_message_edit(before: discord.Message, after: discord.Message):
-    pass
+    guild, is_configured = await is_guild_configured(before.guild.id)
+
+    if not is_configured:
+        return
+
+    channel = before.guild.get_channel(guild.configuration['log_channel'])
+    b, b_a, a, a_a = embeds_message_edit(before, after)
+
+    await channel.send(embeds=[b, b_a])
+    await channel.send(embeds=[a, a_a])
 
 
 @bot.event
 async def on_message_delete(message: discord.Message):
-    pass
+    guild, is_configured = await is_guild_configured(message.guild.id)
+
+    if not is_configured:
+        return
+
+    channel = message.guild.get_channel(guild.configuration['log_channel'])
+    e, e_a = embed_message_delete(message)
+
+    await channel.send(embeds=[e, e_a])
 
 
 @bot.event

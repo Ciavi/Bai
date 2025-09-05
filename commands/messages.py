@@ -30,7 +30,29 @@ def embed_member_leave_guild(member: Member):
 
 
 def embed_message_delete(message: Message):
-    pass
+    attachments = []
+
+    embed = Embed(color=Color.purple(), title=f"A message was deleted by {message.author.mention} ({message.author.name})")
+    embed.description = (f"**Original message follows**"
+                         f"> {message.content}"
+                         f"-------"
+                         f"**User**: {message.author.mention} ({message.author.name})"
+                         f"**Channel**: {message.channel.mention} ({message.channel.name})"
+                         f"**Context**: {message.jump_url}"
+                         f"-------"
+                         f"*Attachments may follow*")
+
+    for attachment in message.attachments:
+        att_embed = Embed(color=Color.greyple(), title=f"{attachment.filename}")
+
+        if (attachment.content_type == "image/png" or attachment.content_type == "image/jpeg"
+                or attachment.content_type == "image/webp" or attachment.content_type == "image/gif"):
+            att_embed.set_image(url=attachment.url)
+
+        att_embed.description = attachment.url
+        attachments.append(att_embed)
+
+    return embed, attachments
 
 
 def embed_permissions_error(guild: Guild):
@@ -40,7 +62,49 @@ def embed_permissions_error(guild: Guild):
 
 
 def embeds_message_edit(before: Message, after: Message):
-    pass
+    b_attachments = []
+
+    b_embed = Embed(color=Color.purple(),
+                  title=f"A message was deleted by {before.author.mention} ({before.author.name})")
+    b_embed.description = (f"**Original message follows**"
+                         f"> {before.content}"
+                         f"-------"
+                         f"**User**: {before.author.mention} ({before.author.name})"
+                         f"**Channel**: {before.channel.mention} ({before.channel.name})"
+                         f"**Context**: {before.jump_url}"
+                         f"-------"
+                         f"*Attachments may follow*")
+
+    for attachment in before.attachments:
+        att_embed = Embed(color=Color.greyple(), title=f"{attachment.filename}")
+
+        if (attachment.content_type == "image/png" or attachment.content_type == "image/jpeg"
+                or attachment.content_type == "image/webp" or attachment.content_type == "image/gif"):
+            att_embed.set_image(url=attachment.url)
+
+        att_embed.description = attachment.url
+        b_attachments.append(att_embed)
+
+
+    a_attachments = []
+
+    a_embed = Embed(color=Color.yellow())
+    a_embed.description = (f"**Edited message follows**"
+                           f"> {after.content}"
+                           f"-------"
+                           f"*Attachments may follow*")
+
+    for attachment in after.attachments:
+        att_embed = Embed(color=Color.greyple(), title=f"{attachment.filename}")
+
+        if (attachment.content_type == "image/png" or attachment.content_type == "image/jpeg"
+                or attachment.content_type == "image/webp" or attachment.content_type == "image/gif"):
+            att_embed.set_image(url=attachment.url)
+
+        att_embed.description = attachment.url
+        a_attachments.append(att_embed)
+
+    return b_embed, b_attachments, a_embed, a_attachments
 
 
 def message_imprisonment(riddle: Riddle, member: Member):
