@@ -1,4 +1,4 @@
-from discord import Embed, Color, Member
+from discord import Embed, Color, Member, Message
 from requests import Response
 
 from commands.utils import display_sudoku
@@ -22,17 +22,25 @@ def embed_configuration_error(guild: Guild):
 
 
 def embed_member_leave_guild(member: Member):
-    embed = Embed(color=Color.red(), title=f"<@!{member.id}> left")
+    embed = Embed(color=Color.red(), title=f"{member.mention} ({member.name}) left")
     embed.description = f"Joined at {member.joined_at}"
     embed.set_thumbnail(url=member.avatar.url)
 
     return embed
 
 
+def embed_message_delete(message: Message):
+    pass
+
+
 def embed_permissions_error(guild: Guild):
     embed = Embed(color=Color.red(), title=f"You don't have permission to use this command!")
     embed.description = f"You need the role <@{guild.configuration['moderator_role']}> to use this command."
     return embed
+
+
+def embeds_message_edit(before: Message, after: Message):
+    pass
 
 
 def message_imprisonment(riddle: Riddle, member: Member):
