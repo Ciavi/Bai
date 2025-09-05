@@ -55,8 +55,8 @@ async def on_message_edit(before: discord.Message, after: discord.Message):
     channel = before.guild.get_channel(guild.configuration['log_channel'])
     b, b_a, a, a_a = embeds_message_edit(before, after)
 
-    await channel.send(embeds=[b, b_a])
-    await channel.send(embeds=[a, a_a])
+    await channel.send(content="", embeds=[b, b_a])
+    await channel.send(content="", embeds=[a, a_a])
 
 
 @bot.event
@@ -69,7 +69,7 @@ async def on_message_delete(message: discord.Message):
     channel = message.guild.get_channel(guild.configuration['log_channel'])
     e, e_a = embed_message_delete(message)
 
-    await channel.send(embeds=[e, e_a])
+    await channel.send(content="", embeds=[e, e_a])
 
 
 @bot.event

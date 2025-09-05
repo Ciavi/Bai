@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Added event handlers for message_edit and message_delete">
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Bai.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bai.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Finished event handlers for message_edit and message_delete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/messages.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,15 +118,7 @@
       <workItem from="1756495768027" duration="5872000" />
       <workItem from="1757051500923" duration="2182000" />
       <workItem from="1757053753594" duration="338000" />
-      <workItem from="1757058830838" duration="2121000" />
-    </task>
-    <task id="LOCAL-00004" summary="Added `on_member_remove` handler to check on users leaving discord guild">
-      <option name="closed" value="true" />
-      <created>1750714617653</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1750714617653</updated>
+      <workItem from="1757058830838" duration="3151000" />
     </task>
     <task id="LOCAL-00005" summary="Updated setvar logic">
       <option name="closed" value="true" />
@@ -516,14 +504,21 @@
       <option name="project" value="LOCAL" />
       <updated>1757053859249</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Finished event handlers for message_edit and message_delete">
+      <option name="closed" value="true" />
+      <created>1757062241463</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1757062241465</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update dependencies" />
     <MESSAGE value="Fix incorrect class declaration and instantiation" />
     <MESSAGE value="Corrected extension/cog loading." />
     <MESSAGE value="Using Bai class." />
@@ -548,7 +543,8 @@
     <MESSAGE value="Added name parameter for identification in Subscriber model" />
     <MESSAGE value="Started work on ko-fi webhook" />
     <MESSAGE value="Added event handlers for message_edit and message_delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added event handlers for message_edit and message_delete" />
+    <MESSAGE value="Finished event handlers for message_edit and message_delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished event handlers for message_edit and message_delete" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
