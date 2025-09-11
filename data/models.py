@@ -34,7 +34,7 @@ class Raid(BaseModel):
 
 
 class Riddle(BaseModel):
-    guild = ForeignKeyField(Guild, backref='riddles', unique=True)
+    guild = ForeignKeyField(Guild, backref='riddles')
     user = BigIntegerField()
     text = TextField()
     solution = TextField()
@@ -43,6 +43,9 @@ class Riddle(BaseModel):
         default=calendar.timegm(datetime.datetime.now().timetuple())
     )
 
+
+    class Meta:
+        primary_key = CompositeKey('guild', 'user')
 
 class Subscriber(BaseModel):
     guild = ForeignKeyField(Guild, backref='subscribers')
@@ -53,6 +56,3 @@ class Subscriber(BaseModel):
         default=calendar.timegm(datetime.datetime.now().timetuple())
     )
 
-
-    class Meta:
-        primary_key = CompositeKey('guild', 'user')

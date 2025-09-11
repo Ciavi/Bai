@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Formatting fix.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Change colour for message embeds.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/messages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +29,12 @@
     &quot;assignee&quot;: &quot;Ciavi&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Ciavi/Bai.git&quot;,
-    &quot;accountId&quot;: &quot;9c8f0228-dc91-4e73-b5be-5a46cd6eae23&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Ciavi/Bai",
+    "accountId": "abbabe5f-94ba-42ef-be4e-8ecd0844ca32"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -118,15 +118,8 @@
       <workItem from="1756495768027" duration="5872000" />
       <workItem from="1757051500923" duration="2182000" />
       <workItem from="1757053753594" duration="338000" />
-      <workItem from="1757058830838" duration="5787000" />
-    </task>
-    <task id="LOCAL-00010" summary="Proper dict calls.">
-      <option name="closed" value="true" />
-      <created>1750717031460</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1750717031460</updated>
+      <workItem from="1757058830838" duration="5957000" />
+      <workItem from="1757594337228" duration="1279000" />
     </task>
     <task id="LOCAL-00011" summary="Added release command.">
       <option name="closed" value="true" />
@@ -512,14 +505,21 @@
       <option name="project" value="LOCAL" />
       <updated>1757074178042</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Change colour for message embeds.">
+      <option name="closed" value="true" />
+      <created>1757076435884</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1757076435884</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Forgot to sync lol" />
     <MESSAGE value="Forgot to be async lol" />
     <MESSAGE value="Timestamp format" />
     <MESSAGE value="Initialise Raid table" />
@@ -544,7 +544,8 @@
     <MESSAGE value="Fixed missing title for embed, required." />
     <MESSAGE value="Possible fix for embeds not being sent." />
     <MESSAGE value="Formatting fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="Formatting fix." />
+    <MESSAGE value="Change colour for message embeds." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change colour for message embeds." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
