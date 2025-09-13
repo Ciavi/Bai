@@ -3,6 +3,7 @@ from datetime import datetime
 import discord
 from discord import app_commands
 from discord.ext import commands
+from discord.ext.commands import Bot
 
 from commands.utils import DatetimeConverter
 from data.interface import create_subscriber, delete_subscriber
@@ -52,3 +53,6 @@ class Premium(commands.Cog):
 
         await interaction.response.send_message(f"Guild {guild} unsubscribed")
 
+
+async def setup(bot: Bot):
+    await bot.add_cog(Premium(bot))
