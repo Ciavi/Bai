@@ -21,6 +21,8 @@ class WebhookHandler(BaseHTTPRequestHandler):
             data = post_data.decode('utf-8')
             json_data = json.loads(data)
 
+            print(json_data)
+
             if json_data["verification_token"] != "bba50b8f-46ee-46c9-8e62-507bdc36eee2":
                 self.send_response(403)
                 return
