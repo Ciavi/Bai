@@ -1,15 +1,38 @@
+import json
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import ssl
 
 from discord.ext.commands import Bot
 
+from commands.messages import p_embed_kofi
+
 
 class WebhookHandler(BaseHTTPRequestHandler):
-    def do_POST(self):
-        if self.path == "/ko-fi":
-            pass
+    def __init__(self, *args, bot: Bot = None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.bot = bot
 
-        self.send_response(200)
+    async def do_POST(self):
+        if self.path == "/ko-fi":
+            owner = self.bot.get_user(self.bot.owner_id)
+
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            data = post_data.decode('utf-8')
+            json_data = json.loads(data)
+
+            if json_data["verification_token"] != "bba50b8f-46ee-46c9-8e62-507bdc36eee2":
+                self.send_response(403)
+                return
+
+            embed = p_embed_kofi(json_data)
+
+            await owner.send(embed=embed)
+
+            self.send_response(200)
+            return
+
+        self.send_response(404)
 
 
 class Accountant:
@@ -22,7 +45,10 @@ class Accountant:
 
         self.context = context
 
-        with HTTPServer(("0.0.0.0", 4443), WebhookHandler) as httpd:
+        def handler(*args, **kwargs) -> WebhookHandler:
+            return WebhookHandler(*args, bot=self.bot, **kwargs)
+
+        with HTTPServer(("0.0.0.0", 4443), handler) as httpd:
             httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
             httpd.serve_forever()
 

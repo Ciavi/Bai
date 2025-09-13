@@ -11,6 +11,7 @@ import system.historian
 from commands.messages import embed_member_leave_guild, embed_message_delete, embeds_message_edit
 from commands.utils import is_guild_configured
 from data.interface import initialise
+from system.accountant import Accountant
 
 load_dotenv()
 
@@ -33,6 +34,7 @@ class Bai(commands.Bot):
     async def setup_hook(self):
         await self.load_extension("commands.cog_config")
         await self.load_extension("commands.cog_jail")
+        await self.load_extension("commands.cog_premium")
         await self.load_extension("commands.cog_raid")
         await self.tree.sync()
 
@@ -87,3 +89,5 @@ async def on_member_remove(member: Member):
     await channel.send(embed=embed_member_leave_guild(member=member))
 
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
+
+accountant = Accountant(bot=bot)

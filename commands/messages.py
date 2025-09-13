@@ -157,3 +157,20 @@ def message_wrong(riddle: Riddle):
 
     return(f"Wrong! Try again!\n"
            f"> {riddle.text}")
+
+
+def p_embed_kofi(data):
+    title = f"{data['type']} ({data['tier_name']})"
+    embed = Embed(color=Color.greyple(), title=f"{title}")
+    embed.description = f"{data['message']}"
+
+    embed.add_field(name=f"First payment?", value=f"{data['is_first_subscription_payment']}", inline=True)
+    embed.add_field(name=f"Amount", value=f"{data['amount']} {data['currency']}", inline=True)
+    embed.add_field(name=f"Email", value=f"{data['email']}", inline=False)
+    embed.add_field(name=f"Name", value=f"{data['from_name']}", inline=True)
+    embed.add_field(name=f"User", value=f"{data['discord_username']}", inline=False)
+    embed.add_field(name=f"ID", value=f"<@{data['discord_userid']}>", inline=True)
+    embed.add_field(name=f"Transaction", value=f"{data['kofi_transaction_id']}", inline=False)
+    embed.add_field(name=f"When", value=f"{data['timestamp']}", inline=False)
+
+    return embed
