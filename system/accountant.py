@@ -1,4 +1,5 @@
 import json
+from functools import partial
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import ssl
 
@@ -8,13 +9,18 @@ from commands.messages import p_embed_kofi
 
 
 class WebhookHandler(BaseHTTPRequestHandler):
-    bot: Bot
+    bot: Bot = None
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, bot: Bot = None, **kwargs):
         super().__init__(*args, **kwargs)
+        self.bot = bot
 
     def do_POST(self):
         if self.path == "/ko-fi":
+            if self.bot is None:
+                self.send_response(500)
+                return
+
             owner = self.bot.get_user(self.bot.owner_id)
 
             content_length = int(self.headers['Content-Length'])
@@ -48,11 +54,7 @@ class Accountant:
 
         self.context = context
 
-        def handler(*args, **kwargs) -> WebhookHandler:
-            kwhandler = WebhookHandler(*args, **kwargs)
-            kwhandler.bot = self.bot
-
-            return kwhandler
+        handler = partial(WebhookHandler, bot=self.bot)
 
         with HTTPServer(("0.0.0.0", 4443), handler) as httpd:
             httpd.socket = context.wrap_socket(httpd.socket, server_side=True)

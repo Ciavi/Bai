@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed WebhookHandler class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system/accountant.py" beforeDir="false" afterPath="$PROJECT_DIR$/system/accountant.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,15 +119,7 @@
       <workItem from="1757051500923" duration="2182000" />
       <workItem from="1757053753594" duration="338000" />
       <workItem from="1757058830838" duration="5787000" />
-      <workItem from="1757747707450" duration="6701000" />
-    </task>
-    <task id="LOCAL-00017" summary="New raid features for Eternal events organisation.">
-      <option name="closed" value="true" />
-      <created>1756452007544</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1756452007544</updated>
+      <workItem from="1757747707450" duration="7035000" />
     </task>
     <task id="LOCAL-00018" summary="Update dependencies">
       <option name="closed" value="true" />
@@ -514,7 +505,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757754116539</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Fixed WebhookHandler class">
+      <option name="closed" value="true" />
+      <created>1757754489256</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1757754489256</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
