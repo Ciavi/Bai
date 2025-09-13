@@ -8,9 +8,9 @@ from commands.messages import p_embed_kofi
 
 
 class WebhookHandler(BaseHTTPRequestHandler):
-    bot: Bot = None
+    bot: Bot
 
-    def __init__(self, *args, bot: Bot = None, **kwargs):
+    def __init__(self, *args, bot: Bot, **kwargs):
         super().__init__(*args, **kwargs)
         self.bot = bot
 
