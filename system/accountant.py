@@ -1,5 +1,6 @@
 import asyncio
 import json
+import urllib.parse
 from functools import partial
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import ssl
@@ -19,9 +20,10 @@ class WebhookHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         if self.path == "/ko-fi":
             content_length = int(self.headers['Content-Length'])
-            post_data = self.rfile.read(content_length)
-            data = post_data.decode('utf-8')
-            json_data = json.loads(data)
+            post_data = self.rfile.read(content_length).decode('utf-8')
+            form = urllib.parse.parse_qs(post_data)
+
+            json_data = json.loads(form["data"][0])
 
             print(json_data)
 
