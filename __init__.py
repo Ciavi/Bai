@@ -1,5 +1,4 @@
 import logging
-import threading
 from os import environ as env
 
 import discord
@@ -47,9 +46,6 @@ async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
     initialise()
 
-    threading.Thread(target=Accountant(bot=bot).run(), daemon=True).start()
-
-
 @bot.event
 async def on_message_edit(before: discord.Message, after: discord.Message):
     guild, is_configured = await is_guild_configured(before.guild.id)
@@ -91,4 +87,5 @@ async def on_member_remove(member: Member):
     channel = member.guild.get_channel(guild.configuration['log_channel'])
     await channel.send(embed=embed_member_leave_guild(member=member))
 
+Accountant(bot=bot).run()
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
