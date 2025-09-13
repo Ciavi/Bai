@@ -31,12 +31,12 @@ class WebhookHandler(BaseHTTPRequestHandler):
 
             embed = p_embed_kofi(json_data)
 
-            async def send_dm(embed):
+            async def send_dm(e):
                 owner = await self.bot.fetch_user(self.bot.owner_id)
-                await owner.send(embed=embed)
+                await owner.send(embed=e)
 
             asyncio.run_coroutine_threadsafe(
-                send_dm(embed=embed),
+                send_dm(e=embed),
                 self.bot.loop
             )
 
