@@ -1,4 +1,5 @@
 import logging
+import threading
 from os import environ as env
 
 import discord
@@ -45,7 +46,8 @@ bot = Bai(command_prefix='^', intents=intents)
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
     initialise()
-    Accountant(bot=bot)
+
+    threading.Thread(target=Accountant(bot=bot).run(), daemon=True).start()
 
 
 @bot.event

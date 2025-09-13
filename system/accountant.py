@@ -1,3 +1,4 @@
+import asyncio
 import json
 from functools import partial
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -17,12 +18,6 @@ class WebhookHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         if self.path == "/ko-fi":
-            if self.bot is None:
-                self.send_response(500)
-                return
-
-            owner = self.bot.get_user(self.bot.owner_id)
-
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
             data = post_data.decode('utf-8')
@@ -36,7 +31,14 @@ class WebhookHandler(BaseHTTPRequestHandler):
 
             embed = p_embed_kofi(json_data)
 
-            owner.send(embed=embed)
+            async def send_dm(embed):
+                owner = await self.bot.fetch_user(self.bot.owner_id)
+                await owner.send(embed=embed)
+
+            asyncio.run_coroutine_threadsafe(
+                send_dm(embed=embed),
+                self.bot.loop
+            )
 
             self.send_response(200)
             return
@@ -54,9 +56,9 @@ class Accountant:
 
         self.context = context
 
+    def run(self):
         handler = partial(WebhookHandler, bot=self.bot)
 
         with HTTPServer(("0.0.0.0", 4443), handler) as httpd:
-            httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
+            httpd.socket = self.context.wrap_socket(httpd.socket, server_side=True)
             httpd.serve_forever()
-
