@@ -10,9 +10,8 @@ from commands.messages import p_embed_kofi
 class WebhookHandler(BaseHTTPRequestHandler):
     bot: Bot
 
-    def __init__(self, *args, bot: Bot, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.bot = bot
 
     def do_POST(self):
         if self.path == "/ko-fi":
@@ -50,7 +49,10 @@ class Accountant:
         self.context = context
 
         def handler(*args, **kwargs) -> WebhookHandler:
-            return WebhookHandler(*args, bot=self.bot, **kwargs)
+            kwhandler = WebhookHandler(*args, **kwargs)
+            kwhandler.bot = self.bot
+
+            return kwhandler
 
         with HTTPServer(("0.0.0.0", 4443), handler) as httpd:
             httpd.socket = context.wrap_socket(httpd.socket, server_side=True)

@@ -44,8 +44,8 @@ bot = Bai(command_prefix='^', intents=intents)
 @bot.event
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
-    Accountant(bot=bot)
     initialise()
+    Accountant(bot=bot)
 
 
 @bot.event
