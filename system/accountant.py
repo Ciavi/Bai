@@ -12,7 +12,7 @@ class WebhookHandler(BaseHTTPRequestHandler):
         super().__init__(*args, **kwargs)
         self.bot = bot
 
-    async def do_POST(self):
+    def do_POST(self):
         if self.path == "/ko-fi":
             owner = self.bot.get_user(self.bot.owner_id)
 
@@ -29,7 +29,7 @@ class WebhookHandler(BaseHTTPRequestHandler):
 
             embed = p_embed_kofi(json_data)
 
-            await owner.send(embed=embed)
+            owner.send(embed=embed)
 
             self.send_response(200)
             return

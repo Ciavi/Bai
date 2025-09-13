@@ -44,6 +44,7 @@ bot = Bai(command_prefix='^', intents=intents)
 @bot.event
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
+    Accountant(bot=bot)
     initialise()
 
 
@@ -89,5 +90,3 @@ async def on_member_remove(member: Member):
     await channel.send(embed=embed_member_leave_guild(member=member))
 
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
-
-accountant = Accountant(bot=bot)
