@@ -1,6 +1,6 @@
+import asyncio
 import json
 import logging
-import urllib.parse
 from os import environ as env
 
 import discord
@@ -58,8 +58,15 @@ async def kofi():
         return make_response(None, 403)
 
     embed = p_embed_kofi(json_data)
-    owner = await bot.fetch_user(bot.owner_id)
-    await owner.send(embed=embed)
+
+    async def sendm(e):
+        owner = await bot.fetch_user(bot.owner_id)
+        await owner.send(embed=e)
+
+    asyncio.run_coroutine_threadsafe(
+        sendm(embed),
+        bot.loop
+    )
 
     return make_response(None, 200)
 
