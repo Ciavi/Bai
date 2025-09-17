@@ -69,6 +69,7 @@ async def kofi():
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
     initialise()
+    web.run(host='0.0.0.0', port=4443, ssl_context=('cert.pem', 'key.pem'))
 
 @bot.event
 async def on_message_edit(before: discord.Message, after: discord.Message):
@@ -112,4 +113,3 @@ async def on_member_remove(member: Member):
     await channel.send(embed=embed_member_leave_guild(member=member))
 
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
-web.run(host='0.0.0.0', port=4443, ssl_context=('cert.pem', 'key.pem'))
