@@ -1,17 +1,19 @@
+import json
 import logging
+import urllib.parse
 from os import environ as env
 
 import discord
 from discord import Member
 from discord.ext import commands
 from dotenv import load_dotenv
+from flask import Flask, make_response, request
 
 import system.configuration
 import system.historian
-from commands.messages import embed_member_leave_guild, embed_message_delete, embeds_message_edit
+from commands.messages import embed_member_leave_guild, embed_message_delete, embeds_message_edit, p_embed_kofi
 from commands.utils import is_guild_configured
 from data.interface import initialise
-from system.accountant import Accountant
 
 load_dotenv()
 
@@ -32,14 +34,36 @@ for s_logger in logger.loggers:
 
 class Bai(commands.Bot):
     async def setup_hook(self):
-        await self.load_extension("commands.cog_config")
-        await self.load_extension("commands.cog_jail")
-        await self.load_extension("commands.cog_premium")
-        await self.load_extension("commands.cog_raid")
+        await self.load_extension('commands.cog_config')
+        await self.load_extension('commands.cog_jail')
+        await self.load_extension('commands.cog_premium')
+        await self.load_extension('commands.cog_raid')
         await self.tree.sync()
 
-
+web = Flask(__name__)
 bot = Bai(command_prefix='^', intents=intents)
+
+@web.route('/', defaults={'path': ''}, methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
+def home():
+    return make_response(None, 403)
+
+@web.route('/ko-fi', methods=['POST'])
+async def kofi():
+    post_data = request.data.decode('utf-8')
+    form = urllib.parse.parse_qs(post_data)
+    json_data = json.loads(form['data'][0])
+
+    print(json_data)
+
+    if json_data['verification_token'] != env['KOFI_TOKEN']:
+        return make_response(None, 403)
+
+    embed = p_embed_kofi(json_data)
+    owner = await bot.fetch_user(bot.owner_id)
+    await owner.send(embed=embed)
+
+    return make_response(None, 200)
+
 
 @bot.event
 async def on_ready():
@@ -87,5 +111,5 @@ async def on_member_remove(member: Member):
     channel = member.guild.get_channel(guild.configuration['log_channel'])
     await channel.send(embed=embed_member_leave_guild(member=member))
 
-# Accountant(bot=bot).run()
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
+web.run(host='0.0.0.0', port=4443, ssl_context=('cert.pem', 'key.pem'))
