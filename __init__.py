@@ -1,6 +1,7 @@
 import asyncio
 import json
 import logging
+import threading
 from os import environ as env
 
 import discord
@@ -43,6 +44,10 @@ class Bai(commands.Bot):
 web = Flask(__name__)
 bot = Bai(command_prefix='^', intents=intents)
 
+
+def run_webserver():
+    web.run(host='0.0.0.0', port=4443, ssl_context=('cert.pem', 'key.pem'))
+
 @web.route('/', defaults={'path': ''}, methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
 def home():
     return make_response(None, 403)
@@ -52,21 +57,10 @@ async def kofi():
     post_data = request.form.get('data')
     json_data = json.loads(post_data)
 
-    print(json_data)
-
     if json_data['verification_token'] != env['KOFI_TOKEN']:
         return make_response("Unauthorized", 403)
 
-    embed = p_embed_kofi(json_data)
-
-    async def sendm(e):
-        owner = await bot.fetch_user(bot.owner_id)
-        await owner.send(embed=e)
-
-    asyncio.run_coroutine_threadsafe(
-        sendm(embed),
-        bot.loop
-    )
+    # send json_data to main thread
 
     return make_response("OK", 200)
 
@@ -75,7 +69,7 @@ async def kofi():
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
     initialise()
-    web.run(host='0.0.0.0', port=4443, ssl_context=('cert.pem', 'key.pem'))
+
 
 @bot.event
 async def on_message_edit(before: discord.Message, after: discord.Message):
@@ -118,4 +112,9 @@ async def on_member_remove(member: Member):
     channel = member.guild.get_channel(guild.configuration['log_channel'])
     await channel.send(embed=embed_member_leave_guild(member=member))
 
+
+x = threading.Thread(target=run_webserver(), args=(), daemon=True)
+x.start()
+
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
+x.join()
