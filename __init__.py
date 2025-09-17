@@ -49,9 +49,8 @@ def home():
 
 @web.route('/ko-fi', methods=['POST'])
 async def kofi():
-    post_data = request.data.decode('utf-8')
-    form = urllib.parse.parse_qs(post_data)
-    json_data = json.loads(form['data'][0])
+    post_data = request.form.get('data')
+    json_data = json.loads(post_data)
 
     print(json_data)
 
