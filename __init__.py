@@ -55,7 +55,7 @@ async def kofi():
     print(json_data)
 
     if json_data['verification_token'] != env['KOFI_TOKEN']:
-        return make_response(None, 403)
+        return make_response("Unauthorized", 403)
 
     embed = p_embed_kofi(json_data)
 
@@ -68,7 +68,7 @@ async def kofi():
         bot.loop
     )
 
-    return make_response(None, 200)
+    return make_response("OK", 200)
 
 
 @bot.event
