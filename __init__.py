@@ -71,7 +71,6 @@ async def kofi():
 
 
 x = threading.Thread(target=run_webserver(), args=(), daemon=True)
-x.start()
 
 
 @bot.event
@@ -132,3 +131,4 @@ async def on_member_remove(member: Member):
 
 
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
+x.start()
