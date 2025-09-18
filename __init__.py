@@ -36,7 +36,7 @@ web = Quart(__name__)
 
 class Bai(commands.Bot):
     async def setup_hook(self):
-        self.loop.create_task(web.run_task(host='0.0.0.0', port=4443, certfile='cert.pem', keyfile='key.pem'))
+        self.loop.create_task(web.run_task(host='0.0.0.0', port=4443, certfile='./cert.pem', keyfile='./key.pem'))
 
         await self.load_extension('commands.cog_config')
         await self.load_extension('commands.cog_jail')
