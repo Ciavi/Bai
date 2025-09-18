@@ -49,11 +49,7 @@ bot = Bai(command_prefix='^', intents=intents)
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
 
 
-@web.route('/', defaults={'path': ''}, methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
-def home():
-    return make_response(None, 403)
-
-@web.route('/ko-fi', methods=['POST'])
+@web.post("/ko-fi")
 async def kofi():
     post_data = (await request.form).get('data')
     json_data = json.loads(post_data)
