@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed redundant call to join()">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed starting order">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
@@ -121,14 +121,6 @@
       <workItem from="1757058830838" duration="5787000" />
       <workItem from="1757747707450" duration="7932000" />
       <workItem from="1758087860348" duration="3698000" />
-    </task>
-    <task id="LOCAL-00031" summary="Possibly fixed view interaction embed">
-      <option name="closed" value="true" />
-      <created>1756456044673</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1756456044673</updated>
     </task>
     <task id="LOCAL-00032" summary="Possibly fixed view interaction embed">
       <option name="closed" value="true" />
@@ -514,14 +506,21 @@
       <option name="project" value="LOCAL" />
       <updated>1758235690992</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Fixed starting order">
+      <option name="closed" value="true" />
+      <created>1758235842241</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1758235842241</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Formatting" />
     <MESSAGE value="Started work on licencing." />
     <MESSAGE value="Added /premium licence and /premium revoke owner-only commands" />
     <MESSAGE value="Added name parameter for identification in Subscriber model" />
@@ -546,7 +545,8 @@
     <MESSAGE value="Fixed threading" />
     <MESSAGE value="Possible solution. Running webserver as daemon thread." />
     <MESSAGE value="Fixed redundant call to join()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed redundant call to join()" />
+    <MESSAGE value="Fixed starting order" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed starting order" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />

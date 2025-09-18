@@ -1,15 +1,12 @@
-import asyncio
 import json
 import logging
-import queue
-import threading
 from os import environ as env
 
 import discord
 from discord import Member
 from discord.ext import commands
 from dotenv import load_dotenv
-from flask import Flask, make_response, request
+from quart import Quart, make_response, request
 
 import system.configuration
 import system.historian
@@ -42,15 +39,9 @@ class Bai(commands.Bot):
         await self.load_extension('commands.cog_raid')
         await self.tree.sync()
 
-web = Flask(__name__)
+web = Quart(__name__)
 bot = Bai(command_prefix='^', intents=intents)
 
-
-q = queue.Queue()
-
-
-def run_webserver():
-    web.run(host='0.0.0.0', port=4443, ssl_context=('cert.pem', 'key.pem'))
 
 @web.route('/', defaults={'path': ''}, methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
 def home():
@@ -65,27 +56,17 @@ async def kofi():
         return make_response("Unauthorized", 403)
 
     # send json_data to main thread
-    q.put(json_data)
+    embed = p_embed_kofi(json_data)
+    owner = await bot.fetch_user(bot.owner_id)
+    await owner.send(embed=embed)
 
     return make_response("OK", 200)
-
-
-x = threading.Thread(target=run_webserver(), args=(), daemon=True)
 
 
 @bot.event
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
     initialise()
-
-    while x.is_alive() or not q.empty():
-        try:
-            data = q.get(timeout=1)
-            embed = p_embed_kofi(data)
-            owner = await bot.fetch_user(bot.owner_id)
-            await owner.send(embed=embed)
-        except queue.Empty:
-            pass
 
 
 @bot.event
@@ -130,5 +111,5 @@ async def on_member_remove(member: Member):
     await channel.send(embed=embed_member_leave_guild(member=member))
 
 
+bot.loop.create_task(web.run_task(host='0.0.0.0', port=4443, certfile='cert.pem', keyfile='key.pem'))
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
-x.start()
