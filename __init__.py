@@ -46,7 +46,6 @@ class Bai(commands.Bot):
 
 
 bot = Bai(command_prefix='^', intents=intents)
-bot.run(env['DISCORD_TOKEN'], log_handler=None)
 
 
 @web.post("/ko-fi")
@@ -112,3 +111,5 @@ async def on_member_remove(member: Member):
     channel = member.guild.get_channel(guild.configuration['log_channel'])
     await channel.send(embed=embed_member_leave_guild(member=member))
 
+
+bot.run(env['DISCORD_TOKEN'], log_handler=None)
