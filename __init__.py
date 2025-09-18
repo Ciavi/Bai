@@ -132,4 +132,3 @@ async def on_member_remove(member: Member):
 
 
 bot.run(env['DISCORD_TOKEN'], log_handler=None)
-x.join()
