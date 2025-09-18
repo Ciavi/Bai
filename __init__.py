@@ -31,16 +31,22 @@ for s_logger in logger.loggers:
     discord_logger.addHandler(s_logger.handlers[0])
 
 
+web = Quart(__name__)
+
+
 class Bai(commands.Bot):
     async def setup_hook(self):
+        self.loop.create_task(web.run_task(host='0.0.0.0', port=4443, certfile='cert.pem', keyfile='key.pem'))
+
         await self.load_extension('commands.cog_config')
         await self.load_extension('commands.cog_jail')
         await self.load_extension('commands.cog_premium')
         await self.load_extension('commands.cog_raid')
         await self.tree.sync()
 
-web = Quart(__name__)
+
 bot = Bai(command_prefix='^', intents=intents)
+bot.run(env['DISCORD_TOKEN'], log_handler=None)
 
 
 @web.route('/', defaults={'path': ''}, methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
@@ -110,6 +116,3 @@ async def on_member_remove(member: Member):
     channel = member.guild.get_channel(guild.configuration['log_channel'])
     await channel.send(embed=embed_member_leave_guild(member=member))
 
-
-bot.loop.create_task(web.run_task(host='0.0.0.0', port=4443, certfile='cert.pem', keyfile='key.pem'))
-bot.run(env['DISCORD_TOKEN'], log_handler=None)
