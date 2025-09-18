@@ -58,7 +58,7 @@ async def kofi():
 
     # send json_data to main thread
     embed = p_embed_kofi(json_data)
-    owner = await bot.fetch_user(bot.owner_id)
+    owner = await bot.fetch_user(int(env['OWNER']))
     await owner.send(embed=embed)
 
     return make_response("OK", 200)
