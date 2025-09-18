@@ -55,7 +55,7 @@ def home():
 
 @web.route('/ko-fi', methods=['POST'])
 async def kofi():
-    post_data = request.form.get('data')
+    post_data = (await request.form).get('data')
     json_data = json.loads(post_data)
 
     if json_data['verification_token'] != env['KOFI_TOKEN']:
