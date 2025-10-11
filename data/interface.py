@@ -109,7 +109,7 @@ def get_raid_leaders(i_raid: int):
     participants: dict = json.loads(raid.participants or "{}")
 
     try:
-        participants["leaders"]
+        return participants["leaders"]
     except KeyError:
         return []
 
