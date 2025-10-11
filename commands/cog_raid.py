@@ -8,7 +8,7 @@ from discord_timestamps import format_timestamp, TimestampType
 
 from commands.messages import embed_configuration_error, embed_permissions_error
 from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
-from commands.view_raid import RaidView
+from commands.view_raid import RaidView, ClashView
 from data.interface import create_raid
 from data.models import Raid as RaidModel
 
