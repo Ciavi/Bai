@@ -131,6 +131,7 @@ class Clash(Raid):
     @app_commands.describe(happens_on="Raid scheduled to happen on")
     @app_commands.describe(title="Raid title")
     @app_commands.describe(description="Raid description")
+    @app_commands.describe(arrays="Number of arrays")
     async def create(self, interaction: discord.Interaction,
                      apply_by: app_commands.Transform[
                          datetime, DatetimeConverter
@@ -139,7 +140,8 @@ class Clash(Raid):
                          datetime, DatetimeConverter
                      ],
                      title: str = None,
-                     description: str = None):
+                     description: str = None,
+                     arrays: app_commands.Range[int, 1, 4] = 3):
         guild, is_configured = await is_guild_configured(interaction.guild.id)
 
         if not is_configured:
@@ -164,7 +166,7 @@ class Clash(Raid):
         await interaction.response.send_message(f"Created raid `{raid.id}`", ephemeral=True)
         message = await interaction.channel.send(content="Incoming raid...")
 
-        view = ClashView(user=interaction.user, raid_id=raid.id, message=message,
+        view = ClashView(user=interaction.user, raid_id=raid.id, message=message, arrays=arrays,
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         await message.edit(embed=embed, view=view)
