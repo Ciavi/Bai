@@ -11,7 +11,8 @@ import traceback
 import discord
 from discord.ui.select import BaseSelect
 
-from data.interface import get_raid_leader, set_raid_leader, get_raid_supports, read_raid, set_raid_supports
+from data.interface import get_raid_leader, set_raid_leader, get_raid_supports, read_raid, set_raid_supports, \
+    set_raid_leaders, get_raid_leaders
 from data.models import Raid
 
 
