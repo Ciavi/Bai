@@ -104,6 +104,29 @@ def set_raid_leader(i_raid: int, leader: int):
     raid.save()
 
 
+def get_raid_leaders(i_raid: int):
+    raid = read_raid(i_raid)
+    participants: dict = json.loads(raid.participants or "{}")
+
+    try:
+        participants["leaders"]
+    except KeyError:
+        return []
+
+
+def set_raid_leaders(i_raid: int, leaders: list[int]):
+    raid = read_raid(i_raid)
+    participants: dict = json.loads(raid.participants or "{}")
+
+    try:
+        participants["leaders"] = list(set(participants["leaders"]) ^ set(leaders))
+    except KeyError:
+        participants["leaders"] = leaders
+
+    raid.participants = json.dumps(participants)
+    raid.save()
+
+
 def get_raid_supports(i_raid: int):
     raid = read_raid(i_raid)
     participants: dict = json.loads(raid.participants or "{}")

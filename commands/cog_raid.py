@@ -120,6 +120,56 @@ class Kunlun(Raid):
         await message.edit(embed=embed, view=view)
 
 
+class Clash(Raid):
+    group = app_commands.Group(name="clash", description="clash commands")
+
+    def __init__(self, bot):
+        super().__init__(bot)
+
+    @group.command(name="create", description="Create a new sect clash")
+    @app_commands.describe(apply_by="Applications close by")
+    @app_commands.describe(happens_on="Raid scheduled to happen on")
+    @app_commands.describe(title="Raid title")
+    @app_commands.describe(description="Raid description")
+    async def create(self, interaction: discord.Interaction,
+                     apply_by: app_commands.Transform[
+                         datetime, DatetimeConverter
+                     ],
+                     happens_on: app_commands.Transform[
+                         datetime, DatetimeConverter
+                     ],
+                     title: str = None,
+                     description: str = None):
+        guild, is_configured = await is_guild_configured(interaction.guild.id)
+
+        if not is_configured:
+            await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+            return
+
+        if not await is_user_organiser(guild, interaction.user):
+            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            return
+
+        title = title or f"Sect Clash"
+        title += f" ({happens_on.date().isoformat()})"
+        description = description or f"Organised by <@{interaction.user.id}>\n"
+        description += f"Happens on {format_timestamp(happens_on.timestamp(), TimestampType.LONG_DATETIME)}.\n Apply by {format_timestamp(apply_by.timestamp(), TimestampType.LONG_DATETIME)} ({format_timestamp(apply_by.timestamp(), TimestampType.RELATIVE)}).\n"
+
+        raid: RaidModel = create_raid(i_guild=interaction.guild.id, i_user=interaction.user.id, s_title=title,
+                                      s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
+
+        embed = discord.Embed(title=title, description=description, color=discord.Color.random())
+        embed.set_footer(text=f"Raid: {raid.id}")
+
+        await interaction.response.send_message(f"Created raid `{raid.id}`", ephemeral=True)
+        message = await interaction.channel.send(content="Incoming raid...")
+
+        view = ClashView(user=interaction.user, raid_id=raid.id, message=message,
+                        timeout=apply_by.timestamp() - datetime.now().timestamp())
+
+        await message.edit(embed=embed, view=view)
+
+
 async def setup(bot: Bot):
     await bot.add_cog(Starverse(bot))
     await bot.add_cog(Kunlun(bot))

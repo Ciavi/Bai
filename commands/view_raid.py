@@ -141,3 +141,73 @@ class RaidView(BaseView):
         )
 
         self.children[1].callback = cb_support
+
+
+class ClashView(BaseView):
+    async def change_embed(self):
+        raid: Raid = read_raid(int(self.raid_id))
+        leaders: list[int] = get_raid_leaders(int(self.raid_id))
+        supports: list[int] = get_raid_supports(int(self.raid_id))
+
+        list_leaders: str = "<@" + ">, <@".join(map(str, leaders)) + ">" if len(leaders) > 0 else "None"
+        list_supports: str = "<@" + ">, <@".join(map(str, supports)) + ">" if len(supports) > 0 else "None"
+
+        new_description = f"""
+            {raid.description}
+            --------------------------------------
+            Drivers ({len(leaders)}/3): {list_leaders}
+            Supports ({len(supports)}/12): {list_supports}
+        """
+
+        new_embed = discord.Embed(title=raid.title, description=new_description)
+        new_embed.description = new_description
+        new_embed.set_footer(text=f"Raid: {raid.id}")
+
+        await self.original.edit(embed=new_embed, view=self)
+
+    def __init__(self, user: discord.User | discord.Member, raid_id: int, message: discord.Message, timeout: float = 60.0):
+        super().__init__(user, timeout)
+        self.raid_id = raid_id
+        self.original = message
+
+        async def cb_leader(interaction: discord.Interaction):
+            leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
+
+            if leaders is not None and len(leaders) == 3 and interaction.user.id not in leaders:
+                await interaction.response.send_message(f"Raid is already full, please try another time.", ephemeral=True)
+                return
+
+            set_raid_leaders(self.raid_id, [interaction.user.id])
+            await interaction.response.send_message(f"You un/registered as driver for this raid.", ephemeral=True)
+            await self.change_embed()
+
+        async def cb_support(interaction: discord.Interaction):
+            supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
+
+            if supports is not None and len(supports) == 12 and interaction.user.id not in supports:
+                await interaction.response.send_message(f"Raid is already full, please try another time.", ephemeral=True)
+                return
+
+            set_raid_supports(self.raid_id, [interaction.user.id])
+            await interaction.response.send_message(f"You un/registered as support for this raid.", ephemeral=True)
+            await self.change_embed()
+
+        self.add_item(
+            discord.ui.Button(
+                label="Apply as driver",
+                style=discord.ButtonStyle.danger,
+                custom_id=f"leader:{raid_id}"
+            )
+        )
+
+        self.children[0].callback = cb_leader
+
+        self.add_item(
+            discord.ui.Button(
+                label="Apply as support",
+                style=discord.ButtonStyle.blurple,
+                custom_id=f"support:{raid_id}"
+            )
+        )
+
+        self.children[1].callback = cb_support
