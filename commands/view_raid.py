@@ -12,7 +12,7 @@ import discord
 from discord.ui.select import BaseSelect
 
 from data.interface import get_raid_leader, set_raid_leader, get_raid_supports, read_raid, set_raid_supports, \
-    set_raid_leaders, get_raid_leaders, set_raid_backup_leaders
+    set_raid_leaders, get_raid_leaders, set_raid_backup_leaders, get_raid_backup_leaders
 from data.models import Raid
 
 
@@ -148,16 +148,19 @@ class ClashView(BaseView):
     async def change_embed(self):
         raid: Raid = read_raid(int(self.raid_id))
         leaders: list[int] = get_raid_leaders(int(self.raid_id))
+        backups: list[int] = get_raid_backup_leaders(int(self.raid_id))
         supports: list[int] = get_raid_supports(int(self.raid_id))
 
         list_leaders: str = "<@" + ">, <@".join(map(str, leaders)) + ">" if leaders is not None and len(leaders) > 0 else "None"
+        list_backups: str = "<@" + ">, <@".join(map(str, backups)) + ">" if backups is not None and len(backups) > 0 else "None"
         list_supports: str = "<@" + ">, <@".join(map(str, supports)) + ">" if supports is not None and len(supports) > 0 else "None"
 
         new_description = f"""
             {raid.description}
             --------------------------------------
-            Drivers ({len(leaders) if leaders is not None else 0}/3): {list_leaders}
-            Supports ({len(supports) if supports is not None else 0}/12): {list_supports}
+            Drivers ({len(leaders) if leaders is not None else 0}/{self.arrays}): {list_leaders}
+            Backups ({len(backups) if backups is not None else 0}): {list_backups}
+            Supports ({len(supports) if supports is not None else 0}/{4*self.arrays}): {list_supports}
         """
 
         new_embed = discord.Embed(title=raid.title, description=new_description)
@@ -170,6 +173,7 @@ class ClashView(BaseView):
         super().__init__(user, timeout)
         self.raid_id = raid_id
         self.original = message
+        self.arrays = arrays
 
         async def cb_leader(interaction: discord.Interaction):
             leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))

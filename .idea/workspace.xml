@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed missing return statement">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Added array counts, backup drivers, mutually excl. lists.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/interface.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,15 +121,7 @@
       <workItem from="1757058830838" duration="5787000" />
       <workItem from="1757747707450" duration="7932000" />
       <workItem from="1758087860348" duration="3698000" />
-      <workItem from="1760201683501" duration="6871000" />
-    </task>
-    <task id="LOCAL-00047" summary="Formatting">
-      <option name="closed" value="true" />
-      <created>1756461869619</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1756461869619</updated>
+      <workItem from="1760201683501" duration="7593000" />
     </task>
     <task id="LOCAL-00048" summary="Started work on licencing.">
       <option name="closed" value="true" />
@@ -517,14 +507,21 @@
       <option name="project" value="LOCAL" />
       <updated>1760205106108</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Added array counts, backup drivers, mutually excl. lists.">
+      <option name="closed" value="true" />
+      <created>1760208612207</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1760208612207</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial version of webhook handler." />
     <MESSAGE value="Fixed missing cog" />
     <MESSAGE value="Debug" />
     <MESSAGE value="Changed a few routines" />
@@ -549,7 +546,8 @@
     <MESSAGE value="Possible AttributeError on logger" />
     <MESSAGE value="Issue with NoneType" />
     <MESSAGE value="Fixed missing return statement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed missing return statement" />
+    <MESSAGE value="Added array counts, backup drivers, mutually excl. lists." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added array counts, backup drivers, mutually excl. lists." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
