@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Forgot data interface calls">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Possible AttributeError on logger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,15 +121,7 @@
       <workItem from="1757058830838" duration="5787000" />
       <workItem from="1757747707450" duration="7932000" />
       <workItem from="1758087860348" duration="3698000" />
-      <workItem from="1760201683501" duration="2562000" />
-    </task>
-    <task id="LOCAL-00042" summary="I am an idiot.">
-      <option name="closed" value="true" />
-      <created>1756459823387</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1756459823387</updated>
+      <workItem from="1760201683501" duration="2756000" />
     </task>
     <task id="LOCAL-00043" summary="I am an idiot.">
       <option name="closed" value="true" />
@@ -515,14 +507,21 @@
       <option name="project" value="LOCAL" />
       <updated>1760203926321</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Possible AttributeError on logger">
+      <option name="closed" value="true" />
+      <created>1760204278155</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1760204278155</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Possible fix for embeds not being sent." />
     <MESSAGE value="Formatting fix." />
     <MESSAGE value="Accountant class" />
     <MESSAGE value="Initial version of webhook handler." />
@@ -547,7 +546,8 @@
     <MESSAGE value="Added Sect Clash: forgot to add the cog :derp:" />
     <MESSAGE value="Forgot the view" />
     <MESSAGE value="Forgot data interface calls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forgot data interface calls" />
+    <MESSAGE value="Possible AttributeError on logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Possible AttributeError on logger" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />

@@ -87,7 +87,7 @@ class RaidView(BaseView):
             {raid.description}
             --------------------------------------
             Leader ({1 if leader is not None else 0}/1): <@{leader}>
-            Supports ({len(supports)}/19): {list_supports}
+            Supports ({len(supports) if supports is not None else 0}/19): {list_supports}
         """
 
         new_embed = discord.Embed(title=raid.title, description=new_description)
@@ -156,8 +156,8 @@ class ClashView(BaseView):
         new_description = f"""
             {raid.description}
             --------------------------------------
-            Drivers ({len(leaders)}/3): {list_leaders}
-            Supports ({len(supports)}/12): {list_supports}
+            Drivers ({len(leaders) if leaders is not None else 0}/3): {list_leaders}
+            Supports ({len(supports) if supports is not None else 0}/12): {list_supports}
         """
 
         new_embed = discord.Embed(title=raid.title, description=new_description)
