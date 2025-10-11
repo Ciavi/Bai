@@ -72,7 +72,10 @@ async def on_ready():
 
 @bot.event
 async def on_message_edit(before: discord.Message, after: discord.Message):
-    guild, is_configured = await is_guild_configured(before.guild.id)
+    if not before and not after:
+        return
+
+    guild, is_configured = await is_guild_configured(before.guild.id or after.guild.id)
 
     if not is_configured:
         return
