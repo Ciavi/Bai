@@ -75,6 +75,9 @@ async def on_message_edit(before: discord.Message, after: discord.Message):
     if not before and not after:
         return
 
+    if not before.guild and not after.guild:
+        return
+
     guild, is_configured = await is_guild_configured(before.guild.id or after.guild.id)
 
     if not is_configured:
