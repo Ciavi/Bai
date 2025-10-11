@@ -81,7 +81,7 @@ class RaidView(BaseView):
         leader: int = get_raid_leader(int(self.raid_id))
         supports: list[int] = get_raid_supports(int(self.raid_id))
 
-        list_supports: str = "<@" + ">, <@".join(map(str, supports)) + ">" if len(supports) > 0 else "None"
+        list_supports: str = "<@" + ">, <@".join(map(str, supports)) + ">" if supports is not None and len(supports) > 0 else "None"
 
         new_description = f"""
             {raid.description}
@@ -150,8 +150,8 @@ class ClashView(BaseView):
         leaders: list[int] = get_raid_leaders(int(self.raid_id))
         supports: list[int] = get_raid_supports(int(self.raid_id))
 
-        list_leaders: str = "<@" + ">, <@".join(map(str, leaders)) + ">" if len(leaders) > 0 else "None"
-        list_supports: str = "<@" + ">, <@".join(map(str, supports)) + ">" if len(supports) > 0 else "None"
+        list_leaders: str = "<@" + ">, <@".join(map(str, leaders)) + ">" if leaders is not None and len(leaders) > 0 else "None"
+        list_supports: str = "<@" + ">, <@".join(map(str, supports)) + ">" if supports is not None and len(supports) > 0 else "None"
 
         new_description = f"""
             {raid.description}
