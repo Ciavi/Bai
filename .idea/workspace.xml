@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="This could potentially be the fix to the 404 errors">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Added Sect Clash">
       <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/interface.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,15 +120,7 @@
       <workItem from="1757058830838" duration="5787000" />
       <workItem from="1757747707450" duration="7932000" />
       <workItem from="1758087860348" duration="3698000" />
-      <workItem from="1760201683501" duration="1574000" />
-    </task>
-    <task id="LOCAL-00038" summary="This is a good shot">
-      <option name="closed" value="true" />
-      <created>1756458884668</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1756458884668</updated>
+      <workItem from="1760201683501" duration="1633000" />
     </task>
     <task id="LOCAL-00039" summary="Formatting fix">
       <option name="closed" value="true" />
@@ -517,14 +506,21 @@
       <option name="project" value="LOCAL" />
       <updated>1758238845770</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Added Sect Clash">
+      <option name="closed" value="true" />
+      <created>1760203282029</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1760203282031</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added event handlers for message_edit and message_delete" />
     <MESSAGE value="Finished event handlers for message_edit and message_delete" />
     <MESSAGE value="Fixing event handlers for message_edit and message_delete" />
     <MESSAGE value="Fixed missing title for embed, required." />
@@ -549,7 +545,8 @@
     <MESSAGE value="Fixed order" />
     <MESSAGE value="Cert error to be fixed..." />
     <MESSAGE value="This could potentially be the fix to the 404 errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="This could potentially be the fix to the 404 errors" />
+    <MESSAGE value="Added Sect Clash" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Sect Clash" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bai$interface.coverage" NAME="interface Coverage Results" MODIFIED="1749758814105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />

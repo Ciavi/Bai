@@ -171,5 +171,6 @@ class Clash(Raid):
 
 
 async def setup(bot: Bot):
+    await bot.add_cog(Clash(bot))
     await bot.add_cog(Starverse(bot))
     await bot.add_cog(Kunlun(bot))
