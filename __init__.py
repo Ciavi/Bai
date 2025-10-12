@@ -1,3 +1,4 @@
+import asyncio
 import json
 import logging
 from os import environ as env
@@ -36,7 +37,12 @@ web = Quart(__name__)
 
 class Bai(commands.Bot):
     async def setup_hook(self):
-        self.loop.create_task(web.run_task(host='0.0.0.0', port=4443, certfile='./cert.pem', keyfile='./key.pem'))
+        self.loop.create_task(
+            web.run_task(
+                host='0.0.0.0', port=4443, certfile='./cert.pem', keyfile='./key.pem',
+                debug=False, use_reloader=False
+            )
+        )
 
         await self.load_extension('commands.cog_config')
         await self.load_extension('commands.cog_jail')
@@ -56,12 +62,16 @@ async def kofi():
     if json_data['verification_token'] != env['KOFI_TOKEN']:
         return make_response("Unauthorized", 403)
 
-    # send json_data to main thread
-    embed = p_embed_kofi(json_data)
-    owner = await bot.fetch_user(int(env['OWNER']))
-    await owner.send(embed=embed)
+    asyncio.create_task(handle_kofi(json_data))
 
     return make_response("OK", 200)
+
+
+async def handle_kofi(data):
+    # send json_data to main thread
+    embed = p_embed_kofi(data)
+    owner = await bot.fetch_user(int(env['OWNER']))
+    await owner.send(embed=embed)
 
 
 @bot.event
