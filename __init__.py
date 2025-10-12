@@ -39,8 +39,7 @@ class Bai(commands.Bot):
     async def setup_hook(self):
         self.loop.create_task(
             web.run_task(
-                host='0.0.0.0', port=4443, certfile='./cert.pem', keyfile='./key.pem',
-                debug=False, use_reloader=False
+                host='0.0.0.0', port=4443, certfile='./cert.pem', keyfile='./key.pem', debug=False
             )
         )
 
