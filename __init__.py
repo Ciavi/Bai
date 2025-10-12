@@ -59,11 +59,11 @@ async def kofi():
     json_data = json.loads(post_data)
 
     if json_data['verification_token'] != env['KOFI_TOKEN']:
-        return make_response("Unauthorized", 403)
+        return await make_response("Unauthorized", 403)
 
     asyncio.create_task(handle_kofi(json_data))
 
-    return make_response("OK", 200)
+    return await make_response("OK", 200)
 
 
 async def handle_kofi(data):
