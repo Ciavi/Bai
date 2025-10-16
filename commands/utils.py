@@ -77,7 +77,8 @@ def display_sudoku(grid) -> str:
 class DatetimeConverter(app_commands.Transformer):
     async def transform(self, interaction: discord.Interaction, argument: str) -> datetime:
         try:
-            date = dateparser.parse(argument)
+            date = dateparser.parse(argument, settings={"PREFER_DATES_FROM": "future"})
+            print(date)
 
             if date is None:
                 raise ValueError
