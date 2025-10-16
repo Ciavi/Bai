@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed sign-up logic for starverse and kunlun.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Improved `DatetimeConverter`. Now accepts more nuanced dates, like &quot;this tuesday at 1am&quot;.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,15 +125,7 @@
       <workItem from="1760284731691" duration="32000" />
       <workItem from="1760285030845" duration="3171000" />
       <workItem from="1760616674923" duration="5877000" />
-      <workItem from="1760624734759" duration="505000" />
-    </task>
-    <task id="LOCAL-00062" summary="Debug">
-      <option name="closed" value="true" />
-      <created>1757751963284</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1757751963284</updated>
+      <workItem from="1760624734759" duration="846000" />
     </task>
     <task id="LOCAL-00063" summary="Changed a few routines">
       <option name="closed" value="true" />
@@ -520,14 +511,21 @@
       <option name="project" value="LOCAL" />
       <updated>1760621981613</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Improved `DatetimeConverter`. Now accepts more nuanced dates, like &quot;this tuesday at 1am&quot;.">
+      <option name="closed" value="true" />
+      <created>1760625302536</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1760625302537</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Switched over to quart, better async support" />
     <MESSAGE value="Fixed order" />
     <MESSAGE value="Cert error to be fixed..." />
     <MESSAGE value="This could potentially be the fix to the 404 errors" />
@@ -552,7 +550,8 @@
     <MESSAGE value="Fixed colour retention, added embed colour, fixed formatting." />
     <MESSAGE value="Removing quick and dirty printout for debugging embeds." />
     <MESSAGE value="Fixed sign-up logic for starverse and kunlun." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed sign-up logic for starverse and kunlun." />
+    <MESSAGE value="Improved `DatetimeConverter`. Now accepts more nuanced dates, like &quot;this tuesday at 1am&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved `DatetimeConverter`. Now accepts more nuanced dates, like &quot;this tuesday at 1am&quot;." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

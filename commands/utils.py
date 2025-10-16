@@ -78,6 +78,10 @@ class DatetimeConverter(app_commands.Transformer):
     async def transform(self, interaction: discord.Interaction, argument: str) -> datetime:
         try:
             date = dateparser.parse(argument)
+
+            if date is None:
+                raise ValueError
+
             return date
         except ValueError:
             raise commands.BadArgument(f"Invalid date: {argument}")
