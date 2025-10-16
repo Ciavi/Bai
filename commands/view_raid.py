@@ -108,6 +108,11 @@ class RaidView(BaseView):
 
         async def cb_leader(interaction: discord.Interaction):
             leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
+            supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
+
+            if supports is not None and interaction.user.id in supports:
+                await interaction.response.send_message(f"You registered as support for this raid.", ephemeral=True)
+                return
 
             if leaders is not None and len(leaders) > 0 and interaction.user.id not in leaders:
                 await interaction.response.send_message(f"<@{leaders[0]}> is already registered as leader for this raid.", ephemeral=True)
@@ -118,7 +123,12 @@ class RaidView(BaseView):
             await self.change_embed()
 
         async def cb_support(interaction: discord.Interaction):
+            leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
             supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
+
+            if leaders is not None and interaction.user.id in leaders:
+                await interaction.response.send_message(f"You registered as leader for this raid.", ephemeral=True)
+                return
 
             if supports is not None and len(supports) == 19 and interaction.user.id not in supports:
                 await interaction.response.send_message(f"Raid is already full, please try another time.", ephemeral=True)
