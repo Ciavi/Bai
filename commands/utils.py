@@ -1,3 +1,4 @@
+import dateparser
 from datetime import datetime
 
 import discord
@@ -76,7 +77,7 @@ def display_sudoku(grid) -> str:
 class DatetimeConverter(app_commands.Transformer):
     async def transform(self, interaction: discord.Interaction, argument: str) -> datetime:
         try:
-            date = datetime.strptime(argument, "%Y-%m-%d %H:%M")
+            date = dateparser.parse(argument)
             return date
         except ValueError:
             raise commands.BadArgument(f"Invalid date: {argument}")

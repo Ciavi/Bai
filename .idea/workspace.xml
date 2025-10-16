@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Removing quick and dirty printout for debugging embeds.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed sign-up logic for starverse and kunlun.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,15 +125,8 @@
       <workItem from="1760201683501" duration="8132000" />
       <workItem from="1760284731691" duration="32000" />
       <workItem from="1760285030845" duration="3171000" />
-      <workItem from="1760616674923" duration="5272000" />
-    </task>
-    <task id="LOCAL-00061" summary="Fixed missing cog">
-      <option name="closed" value="true" />
-      <created>1757751356603</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1757751356603</updated>
+      <workItem from="1760616674923" duration="5877000" />
+      <workItem from="1760624734759" duration="505000" />
     </task>
     <task id="LOCAL-00062" summary="Debug">
       <option name="closed" value="true" />
@@ -518,14 +512,21 @@
       <option name="project" value="LOCAL" />
       <updated>1760621849347</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Fixed sign-up logic for starverse and kunlun.">
+      <option name="closed" value="true" />
+      <created>1760621981613</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1760621981613</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed starting order" />
     <MESSAGE value="Switched over to quart, better async support" />
     <MESSAGE value="Fixed order" />
     <MESSAGE value="Cert error to be fixed..." />
@@ -550,7 +551,8 @@
     <MESSAGE value="Fixed empty embeds on `change_embed`" />
     <MESSAGE value="Fixed colour retention, added embed colour, fixed formatting." />
     <MESSAGE value="Removing quick and dirty printout for debugging embeds." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing quick and dirty printout for debugging embeds." />
+    <MESSAGE value="Fixed sign-up logic for starverse and kunlun." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed sign-up logic for starverse and kunlun." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
