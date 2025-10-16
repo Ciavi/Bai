@@ -71,12 +71,12 @@ class Starverse(Raid):
         embed.set_footer(text=f"Raid: {raid.id}")
 
         await interaction.response.send_message(f"Created raid `{raid.id}`", ephemeral=True)
-        message = await interaction.channel.send(content="Incoming raid...")
+        message = await interaction.channel.send(embed=embed)
 
         view = RaidView(user=interaction.user, raid_id=raid.id, message=message,
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
-        await message.edit(embed=embed, view=view)
+        await message.edit(view=view)
 
 
 class Kunlun(Raid):
@@ -129,12 +129,12 @@ class Kunlun(Raid):
         embed.set_footer(text=f"Raid: {raid.id}")
 
         await interaction.response.send_message(f"Created raid `{raid.id}`", ephemeral=True)
-        message = await interaction.channel.send(content="Incoming raid...")
+        message = await interaction.channel.send(embed=embed)
 
         view = RaidView(user=interaction.user, raid_id=raid.id, message=message,
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
-        await message.edit(embed=embed, view=view)
+        await message.edit(view=view)
 
 
 class Clash(Raid):
