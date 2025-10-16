@@ -65,7 +65,7 @@ class Starverse(Raid):
 
         raid: RaidModel = create_raid(i_guild=interaction.guild.id, i_user=interaction.user.id, s_title=title, s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
 
-        embed = discord.Embed(title=title, description=description, color=discord.Color.random())
+        embed = discord.Embed(title=title, description=description, color=discord.Color.from_str(f"#{hex}"))
         embed.set_thumbnail(url=thumbnail)
         embed.set_image(url=image)
         embed.set_footer(text=f"Raid: {raid.id}")
@@ -123,7 +123,7 @@ class Kunlun(Raid):
         raid: RaidModel = create_raid(i_guild=interaction.guild.id, i_user=interaction.user.id, s_title=title,
                                       s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
 
-        embed = discord.Embed(title=title, description=description, color=discord.Color.random())
+        embed = discord.Embed(title=title, description=description, color=discord.Color.from_str(f"#{hex}"))
         embed.set_thumbnail(url=thumbnail)
         embed.set_image(url=image)
         embed.set_footer(text=f"Raid: {raid.id}")

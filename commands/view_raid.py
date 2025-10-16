@@ -90,11 +90,11 @@ class RaidView(BaseView):
         new_description = f"""
             {raid.description}
             --------------------------------------
-            Leader ({len(leaders) if leaders is not None else 0}/1): <@{list_leaders}>
+            Leader ({len(leaders) if leaders is not None else 0}/1): {list_leaders}
             Supports ({len(supports) if supports is not None else 0}/19): {list_supports}
         """
 
-        new_embed = discord.Embed(title=raid.title, description=new_description)
+        new_embed = discord.Embed(title=raid.title, description=new_description, color=old_embed.color)
         new_embed.description = new_description
         new_embed.set_thumbnail(url=old_embed.thumbnail.url)
         new_embed.set_image(url=old_embed.image.url)
