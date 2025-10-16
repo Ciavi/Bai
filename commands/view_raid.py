@@ -102,14 +102,14 @@ class RaidView(BaseView):
         self.original = message
 
         async def cb_leader(interaction: discord.Interaction):
-            leader: int | None = get_raid_leader(int(interaction.data['custom_id'].split(":")[1]))
+            leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
 
-            if leader is not None:
-                await interaction.response.send_message(f"<@{leader}> is already registered as leader for this raid.", ephemeral=True)
+            if leaders is not None and len(leaders) > 0 and interaction.user.id not in leaders:
+                await interaction.response.send_message(f"<@{leaders[0]}> is already registered as leader for this raid.", ephemeral=True)
                 return
 
-            set_raid_leader(self.raid_id, interaction.user.id)
-            await interaction.response.send_message(f"You registered as leader for this raid.", ephemeral=True)
+            set_raid_leaders(self.raid_id, [interaction.user.id])
+            await interaction.response.send_message(f"You un/registered as leader for this raid.", ephemeral=True)
             await self.change_embed()
 
         async def cb_support(interaction: discord.Interaction):

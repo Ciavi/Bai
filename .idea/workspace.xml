@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Adding some colour, should help tell raids apart at a glance.">
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Update dependencies">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,15 +124,7 @@
       <workItem from="1760201683501" duration="8132000" />
       <workItem from="1760284731691" duration="32000" />
       <workItem from="1760285030845" duration="3171000" />
-      <workItem from="1760616674923" duration="2026000" />
-    </task>
-    <task id="LOCAL-00054" summary="Fixing event handlers for message_edit and message_delete">
-      <option name="closed" value="true" />
-      <created>1757069791328</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1757069791328</updated>
+      <workItem from="1760616674923" duration="3026000" />
     </task>
     <task id="LOCAL-00055" summary="Fixed missing title for embed, required.">
       <option name="closed" value="true" />
@@ -517,14 +510,21 @@
       <option name="project" value="LOCAL" />
       <updated>1760618510406</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="Update dependencies">
+      <option name="closed" value="true" />
+      <created>1760618723637</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1760618723637</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Deactivate webserver" />
     <MESSAGE value="New webserver" />
     <MESSAGE value="Updated requirements.txt" />
     <MESSAGE value="Fixed post data" />
@@ -549,7 +549,8 @@
     <MESSAGE value="Awaiting coroutines" />
     <MESSAGE value="Formatting fix" />
     <MESSAGE value="Adding some colour, should help tell raids apart at a glance." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding some colour, should help tell raids apart at a glance." />
+    <MESSAGE value="Update dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update dependencies" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
