@@ -81,7 +81,6 @@ class RaidView(BaseView):
         leaders: list[int] = get_raid_leaders(int(self.raid_id))
         supports: list[int] = get_raid_supports(int(self.raid_id))
 
-        print(self.original)
         old_embed = self.original.embeds[0]
 
         list_leaders: str = "<@" + ">, <@".join(map(str, leaders)) + ">" if leaders is not None and len(leaders) > 0 else "None"
