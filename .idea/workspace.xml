@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Backport new leader sign-up logic">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Finished backport, fixed colour not being retained on `change_embed`.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
     </list>
@@ -124,15 +124,7 @@
       <workItem from="1760201683501" duration="8132000" />
       <workItem from="1760284731691" duration="32000" />
       <workItem from="1760285030845" duration="3171000" />
-      <workItem from="1760616674923" duration="3484000" />
-    </task>
-    <task id="LOCAL-00056" summary="Possible fix for embeds not being sent.">
-      <option name="closed" value="true" />
-      <created>1757073799760</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1757073799760</updated>
+      <workItem from="1760616674923" duration="4035000" />
     </task>
     <task id="LOCAL-00057" summary="Formatting fix.">
       <option name="closed" value="true" />
@@ -518,14 +510,21 @@
       <option name="project" value="LOCAL" />
       <updated>1760619739935</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Finished backport, fixed colour not being retained on `change_embed`.">
+      <option name="closed" value="true" />
+      <created>1760620202938</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1760620202938</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated requirements.txt" />
     <MESSAGE value="Fixed post data" />
     <MESSAGE value="Fixed threading" />
     <MESSAGE value="Possible solution. Running webserver as daemon thread." />
@@ -550,7 +549,8 @@
     <MESSAGE value="Adding some colour, should help tell raids apart at a glance." />
     <MESSAGE value="Update dependencies" />
     <MESSAGE value="Backport new leader sign-up logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Backport new leader sign-up logic" />
+    <MESSAGE value="Finished backport, fixed colour not being retained on `change_embed`." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished backport, fixed colour not being retained on `change_embed`." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
