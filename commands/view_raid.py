@@ -78,20 +78,25 @@ class BaseView(discord.ui.View):
 class RaidView(BaseView):
     async def change_embed(self):
         raid: Raid = read_raid(int(self.raid_id))
-        leader: int = get_raid_leader(int(self.raid_id))
+        leaders: list[int] = get_raid_leaders(int(self.raid_id))
         supports: list[int] = get_raid_supports(int(self.raid_id))
 
+        old_embed = self.original.embeds[0]
+
+        list_leaders: str = "<@" + ">, <@".join(map(str, leaders)) + ">" if leaders is not None and len(leaders) > 0 else "None"
         list_supports: str = "<@" + ">, <@".join(map(str, supports)) + ">" if supports is not None and len(supports) > 0 else "None"
 
         new_description = f"""
             {raid.description}
             --------------------------------------
-            Leader ({1 if leader is not None else 0}/1): <@{leader}>
+            Leader ({len(leaders) if leaders is not None else 0}/1): <@{list_leaders}>
             Supports ({len(supports) if supports is not None else 0}/19): {list_supports}
         """
 
         new_embed = discord.Embed(title=raid.title, description=new_description)
         new_embed.description = new_description
+        new_embed.set_thumbnail(url=old_embed.thumbnail.url)
+        new_embed.set_image(url=old_embed.image.url)
         new_embed.set_footer(text=f"Raid: {raid.id}")
 
         await self.original.edit(embed=new_embed, view=self)
