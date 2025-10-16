@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Added array counts, backup drivers, mutually excl. lists.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Awaiting coroutines">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,39 +121,10 @@
       <workItem from="1757058830838" duration="5787000" />
       <workItem from="1757747707450" duration="7932000" />
       <workItem from="1758087860348" duration="3698000" />
-      <workItem from="1760201683501" duration="7593000" />
-    </task>
-    <task id="LOCAL-00048" summary="Started work on licencing.">
-      <option name="closed" value="true" />
-      <created>1756473622583</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1756473622583</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Added /premium licence and /premium revoke owner-only commands">
-      <option name="closed" value="true" />
-      <created>1756509101844</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1756509101844</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Added name parameter for identification in Subscriber model">
-      <option name="closed" value="true" />
-      <created>1757052686811</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1757052686811</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Started work on ko-fi webhook">
-      <option name="closed" value="true" />
-      <created>1757053693185</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1757053693185</updated>
+      <workItem from="1760201683501" duration="8132000" />
+      <workItem from="1760284731691" duration="32000" />
+      <workItem from="1760285030845" duration="3171000" />
+      <workItem from="1760616674923" duration="911000" />
     </task>
     <task id="LOCAL-00052" summary="Added event handlers for message_edit and message_delete">
       <option name="closed" value="true" />
@@ -515,16 +486,45 @@
       <option name="project" value="LOCAL" />
       <updated>1760208612207</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="Fixed formatting.">
+      <option name="closed" value="true" />
+      <created>1760211387450</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1760211387450</updated>
+    </task>
+    <task id="LOCAL-00098" summary="May fix multiple messages per webhook">
+      <option name="closed" value="true" />
+      <created>1760286416701</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1760286416702</updated>
+    </task>
+    <task id="LOCAL-00099" summary="May fix multiple messages per webhook">
+      <option name="closed" value="true" />
+      <created>1760286707495</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1760286707495</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Awaiting coroutines">
+      <option name="closed" value="true" />
+      <created>1760286866518</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1760286866518</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed missing cog" />
-    <MESSAGE value="Debug" />
-    <MESSAGE value="Changed a few routines" />
     <MESSAGE value="Fixed WebhookHandler class" />
     <MESSAGE value="Fixed webserver?" />
     <MESSAGE value="Deactivate webserver" />
@@ -547,7 +547,10 @@
     <MESSAGE value="Issue with NoneType" />
     <MESSAGE value="Fixed missing return statement" />
     <MESSAGE value="Added array counts, backup drivers, mutually excl. lists." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added array counts, backup drivers, mutually excl. lists." />
+    <MESSAGE value="Fixed formatting." />
+    <MESSAGE value="May fix multiple messages per webhook" />
+    <MESSAGE value="Awaiting coroutines" />
+    <option name="LAST_COMMIT_MESSAGE" value="Awaiting coroutines" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
