@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Formatting fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Adding some colour, should help tell raids apart at a glance.">
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,15 +123,7 @@
       <workItem from="1760201683501" duration="8132000" />
       <workItem from="1760284731691" duration="32000" />
       <workItem from="1760285030845" duration="3171000" />
-      <workItem from="1760616674923" duration="1803000" />
-    </task>
-    <task id="LOCAL-00053" summary="Finished event handlers for message_edit and message_delete">
-      <option name="closed" value="true" />
-      <created>1757062241463</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1757062241465</updated>
+      <workItem from="1760616674923" duration="2026000" />
     </task>
     <task id="LOCAL-00054" summary="Fixing event handlers for message_edit and message_delete">
       <option name="closed" value="true" />
@@ -518,14 +509,21 @@
       <option name="project" value="LOCAL" />
       <updated>1760617673265</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Adding some colour, should help tell raids apart at a glance.">
+      <option name="closed" value="true" />
+      <created>1760618510406</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1760618510406</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed webserver?" />
     <MESSAGE value="Deactivate webserver" />
     <MESSAGE value="New webserver" />
     <MESSAGE value="Updated requirements.txt" />
@@ -550,7 +548,8 @@
     <MESSAGE value="May fix multiple messages per webhook" />
     <MESSAGE value="Awaiting coroutines" />
     <MESSAGE value="Formatting fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Formatting fix" />
+    <MESSAGE value="Adding some colour, should help tell raids apart at a glance." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding some colour, should help tell raids apart at a glance." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
