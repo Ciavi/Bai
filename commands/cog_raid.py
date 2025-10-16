@@ -5,6 +5,7 @@ from discord import app_commands
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord_timestamps import format_timestamp, TimestampType
+import webcolors
 
 from commands.messages import embed_configuration_error, embed_permissions_error
 from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
@@ -30,6 +31,7 @@ class Starverse(Raid):
     @group.command(name="create", description="Create a new starverse raid")
     @app_commands.describe(apply_by="Applications close by")
     @app_commands.describe(happens_on="Raid scheduled to happen on")
+    @app_commands.describe(colour="Pick a colour :)")
     @app_commands.describe(title="Raid title")
     @app_commands.describe(description="Raid description")
     async def create(self, interaction: discord.Interaction,
@@ -39,6 +41,7 @@ class Starverse(Raid):
                      happens_on: app_commands.Transform[
                          datetime, DatetimeConverter
                      ],
+                     colour: str,
                      title: str = None,
                      description: str = None):
         guild, is_configured = await is_guild_configured(interaction.guild.id)
@@ -51,6 +54,10 @@ class Starverse(Raid):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
+        hex = webcolors.name_to_hex(colour.lower())[1:]
+        thumbnail = f"https://singlecolorimage.com/get/{hex}/128x128"
+        image = f"https://singlecolorimage.com/get/{hex}/768x128"
+
         title = title or f"Starverse"
         title += f" ({happens_on.date().isoformat()})"
         description = description or f"Organised by <@{interaction.user.id}>"
@@ -59,6 +66,8 @@ class Starverse(Raid):
         raid: RaidModel = create_raid(i_guild=interaction.guild.id, i_user=interaction.user.id, s_title=title, s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
 
         embed = discord.Embed(title=title, description=description, color=discord.Color.random())
+        embed.set_thumbnail(url=thumbnail)
+        embed.set_image(url=image)
         embed.set_footer(text=f"Raid: {raid.id}")
 
         await interaction.response.send_message(f"Created raid `{raid.id}`", ephemeral=True)
@@ -79,6 +88,7 @@ class Kunlun(Raid):
     @group.command(name="create", description="Create a new kunlun raid")
     @app_commands.describe(apply_by="Applications close by")
     @app_commands.describe(happens_on="Raid scheduled to happen on")
+    @app_commands.describe(colour="Pick a colour :)")
     @app_commands.describe(title="Raid title")
     @app_commands.describe(description="Raid description")
     async def create(self, interaction: discord.Interaction,
@@ -88,6 +98,7 @@ class Kunlun(Raid):
                      happens_on: app_commands.Transform[
                          datetime, DatetimeConverter
                      ],
+                     colour: str,
                      title: str = None,
                      description: str = None):
         guild, is_configured = await is_guild_configured(interaction.guild.id)
@@ -100,6 +111,10 @@ class Kunlun(Raid):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
+        hex = webcolors.name_to_hex(colour.lower())[1:]
+        thumbnail = f"https://singlecolorimage.com/get/{hex}/128x128"
+        image = f"https://singlecolorimage.com/get/{hex}/768x128"
+
         title = title or f"Kunlun"
         title += f" ({happens_on.date().isoformat()})"
         description = description or f"Organised by <@{interaction.user.id}>"
@@ -109,6 +124,8 @@ class Kunlun(Raid):
                                       s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
 
         embed = discord.Embed(title=title, description=description, color=discord.Color.random())
+        embed.set_thumbnail(url=thumbnail)
+        embed.set_image(url=image)
         embed.set_footer(text=f"Raid: {raid.id}")
 
         await interaction.response.send_message(f"Created raid `{raid.id}`", ephemeral=True)
