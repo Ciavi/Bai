@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Removed debug printout.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Migrate back to sync, unnecessary async removed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/cog_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/cog_jail.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_jail.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,15 +127,7 @@
       <workItem from="1760616674923" duration="5877000" />
       <workItem from="1760624734759" duration="3356000" />
       <workItem from="1760681643794" duration="830000" />
-      <workItem from="1760715526773" duration="1236000" />
-    </task>
-    <task id="LOCAL-00067" summary="Fixed WebhookHandler class">
-      <option name="closed" value="true" />
-      <created>1757754821245</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1757754821245</updated>
+      <workItem from="1760715526773" duration="3775000" />
     </task>
     <task id="LOCAL-00068" summary="Fixed WebhookHandler class">
       <option name="closed" value="true" />
@@ -525,14 +513,21 @@
       <option name="project" value="LOCAL" />
       <updated>1760716178344</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Migrate back to sync, unnecessary async removed.">
+      <option name="closed" value="true" />
+      <created>1760717139658</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1760717139658</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Sect Clash: forgot to add the cog :derp:" />
     <MESSAGE value="Forgot the view" />
     <MESSAGE value="Forgot data interface calls" />
     <MESSAGE value="Possible AttributeError on logger" />
@@ -557,7 +552,8 @@
     <MESSAGE value="Debug Converter." />
     <MESSAGE value="Started work on proper error handling." />
     <MESSAGE value="Removed debug printout." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed debug printout." />
+    <MESSAGE value="Migrate back to sync, unnecessary async removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrate back to sync, unnecessary async removed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -10,14 +10,14 @@ import webcolors
 from commands.messages import embed_configuration_error, embed_permissions_error
 from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
 from commands.view_raid import RaidView, ClashView
-from data.interface import create_raid
+from data.interface import create_raid, update_raid
 from data.models import Raid as RaidModel
 
 
 class Raid(commands.Cog):
     group = app_commands.Group(name="raid", description="Raid organisation commands")
 
-    def __init__(self, bot):
+    def __init__(self, bot: Bot):
         self.bot = bot
 
 
@@ -26,6 +26,10 @@ class Starverse(Raid):
 
     def __init__(self, bot):
         super().__init__(bot)
+
+        self.message_menu = app_commands.ContextMenu(callback=self.close, name="Close sign-ups")
+        # self.message_menu.error(self.count_error)
+        self.bot.tree.add_command(self.message_menu)
 
 
     @group.command(name="create", description="Create a new starverse raid")
@@ -54,9 +58,9 @@ class Starverse(Raid):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
-        hex = webcolors.name_to_hex(colour.lower())[1:]
-        thumbnail = f"https://singlecolorimage.com/get/{hex}/128x128"
-        image = f"https://singlecolorimage.com/get/{hex}/768x128"
+        c_hex = webcolors.name_to_hex(colour.lower())[1:]
+        thumbnail = f"https://singlecolorimage.com/get/{c_hex}/128x128"
+        image = f"https://singlecolorimage.com/get/{c_hex}/768x128"
 
         title = title or f"Starverse"
         title += f" ({happens_on.date().isoformat()})"
@@ -65,7 +69,7 @@ class Starverse(Raid):
 
         raid: RaidModel = create_raid(i_guild=interaction.guild.id, i_user=interaction.user.id, s_title=title, s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
 
-        embed = discord.Embed(title=title, description=description, color=discord.Color.from_str(f"#{hex}"))
+        embed = discord.Embed(title=title, description=description, color=discord.Color.from_str(f"#{c_hex}"))
         embed.set_thumbnail(url=thumbnail)
         embed.set_image(url=image)
         embed.set_footer(text=f"Raid: {raid.id}")
@@ -77,6 +81,32 @@ class Starverse(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         await message.edit(view=view)
+
+
+    async def close(self, interaction: discord.Interaction, message: discord.Message):
+        guild, is_configured = is_guild_configured(interaction.guild.id)
+
+        if not is_configured:
+            await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+            return
+
+        if not is_user_organiser(guild, interaction.user):
+            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            return
+
+        if message.embeds is not None and len(message.embeds) > 0 and message.author == self.bot.user:
+            embed = message.embeds[0]
+
+            if embed.footer.text.startswith("Raid:"):
+                r_id = int(embed.footer.text.replace("Raid:", "").strip())
+                _ = update_raid(i_raid=r_id, d_apply_by=datetime.now())
+
+                await message.edit(view=None)
+                await interaction.response.send_message(f"Sign-ups for raid #{r_id} were closed successfully.")
+                return
+
+        await interaction.response.send_message(f"Not a raid :)", ephemeral=True)
+        return
 
 
 class Kunlun(Raid):
@@ -111,9 +141,9 @@ class Kunlun(Raid):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
-        hex = webcolors.name_to_hex(colour.lower())[1:]
-        thumbnail = f"https://singlecolorimage.com/get/{hex}/128x128"
-        image = f"https://singlecolorimage.com/get/{hex}/768x128"
+        c_hex = webcolors.name_to_hex(colour.lower())[1:]
+        thumbnail = f"https://singlecolorimage.com/get/{c_hex}/128x128"
+        image = f"https://singlecolorimage.com/get/{c_hex}/768x128"
 
         title = title or f"Kunlun"
         title += f" ({happens_on.date().isoformat()})"
@@ -123,7 +153,7 @@ class Kunlun(Raid):
         raid: RaidModel = create_raid(i_guild=interaction.guild.id, i_user=interaction.user.id, s_title=title,
                                       s_description=description, d_apply_by=apply_by, d_happens_on=happens_on)
 
-        embed = discord.Embed(title=title, description=description, color=discord.Color.from_str(f"#{hex}"))
+        embed = discord.Embed(title=title, description=description, color=discord.Color.from_str(f"#{c_hex}"))
         embed.set_thumbnail(url=thumbnail)
         embed.set_image(url=image)
         embed.set_footer(text=f"Raid: {raid.id}")
@@ -135,6 +165,31 @@ class Kunlun(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         await message.edit(view=view)
+
+        async def close(self, interaction: discord.Interaction, message: discord.Message):
+            guild, is_configured = is_guild_configured(interaction.guild.id)
+
+            if not is_configured:
+                await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+                return
+
+            if not is_user_organiser(guild, interaction.user):
+                await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+                return
+
+            if message.embeds is not None and len(message.embeds) > 0 and message.author == self.bot.user:
+                embed = message.embeds[0]
+
+                if embed.footer.text.startswith("Raid:"):
+                    id = int(embed.footer.text.replace("Raid:", "").strip())
+                    _ = update_raid(i_raid=id, d_apply_by=datetime.now())
+
+                    await message.edit(view=None)
+                    await interaction.response.send_message(f"Sign-ups for raid #{id} were closed successfully.")
+                    return
+
+            await interaction.response.send_message(f"Not a raid :)", ephemeral=True)
+            return
 
 
 class Clash(Raid):
