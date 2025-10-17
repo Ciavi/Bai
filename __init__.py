@@ -97,7 +97,7 @@ async def on_message_edit(before: discord.Message, after: discord.Message):
     if not before.guild and not after.guild:
         return
 
-    guild, is_configured = await is_guild_configured(before.guild.id or after.guild.id)
+    guild, is_configured = is_guild_configured(before.guild.id or after.guild.id)
 
     if not is_configured:
         return
@@ -114,7 +114,7 @@ async def on_message_edit(before: discord.Message, after: discord.Message):
 
 @bot.event
 async def on_message_delete(message: discord.Message):
-    guild, is_configured = await is_guild_configured(message.guild.id)
+    guild, is_configured = is_guild_configured(message.guild.id)
 
     if not is_configured:
         return
@@ -128,7 +128,7 @@ async def on_message_delete(message: discord.Message):
 
 @bot.event
 async def on_member_remove(member: Member):
-    guild, is_configured = await is_guild_configured(member.guild.id)
+    guild, is_configured = is_guild_configured(member.guild.id)
 
     if not is_configured:
         return

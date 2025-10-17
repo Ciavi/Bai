@@ -11,6 +11,7 @@ import traceback
 import discord
 from discord.ui.select import BaseSelect
 
+from commands.utils import is_user_member
 from data.interface import get_raid_leader, set_raid_leader, get_raid_supports, read_raid, set_raid_supports, \
     set_raid_leaders, get_raid_leaders, set_raid_backup_leaders, get_raid_backup_leaders
 from data.models import Raid
@@ -110,6 +111,10 @@ class RaidView(BaseView):
             leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
             supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
 
+            if not is_user_member(guild=interaction.guild, member=interaction.user):
+                await interaction.response.send_message(f"You're not a member!", ephemeral=True)
+                return
+
             if supports is not None and interaction.user.id in supports:
                 await interaction.response.send_message(f"You registered as support for this raid.", ephemeral=True)
                 return
@@ -125,6 +130,10 @@ class RaidView(BaseView):
         async def cb_support(interaction: discord.Interaction):
             leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
             supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
+
+            if not is_user_member(guild=interaction.guild, member=interaction.user):
+                await interaction.response.send_message(f"You're not a member!", ephemeral=True)
+                return
 
             if leaders is not None and interaction.user.id in leaders:
                 await interaction.response.send_message(f"You registered as leader for this raid.", ephemeral=True)

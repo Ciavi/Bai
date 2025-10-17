@@ -44,13 +44,13 @@ class Starverse(Raid):
                      colour: str,
                      title: str = None,
                      description: str = None):
-        guild, is_configured = await is_guild_configured(interaction.guild.id)
+        guild, is_configured = is_guild_configured(interaction.guild.id)
 
         if not is_configured:
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not await is_user_organiser(guild, interaction.user):
+        if not is_user_organiser(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
@@ -101,13 +101,13 @@ class Kunlun(Raid):
                      colour: str,
                      title: str = None,
                      description: str = None):
-        guild, is_configured = await is_guild_configured(interaction.guild.id)
+        guild, is_configured = is_guild_configured(interaction.guild.id)
 
         if not is_configured:
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not await is_user_organiser(guild, interaction.user):
+        if not is_user_organiser(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
@@ -159,13 +159,13 @@ class Clash(Raid):
                      title: str = None,
                      description: str = None,
                      arrays: app_commands.Range[int, 1, 4] = 3):
-        guild, is_configured = await is_guild_configured(interaction.guild.id)
+        guild, is_configured = is_guild_configured(interaction.guild.id)
 
         if not is_configured:
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not await is_user_organiser(guild, interaction.user):
+        if not is_user_organiser(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 

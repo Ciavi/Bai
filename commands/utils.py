@@ -9,22 +9,26 @@ from data.interface import GuildWrapper, create_guild
 from data.models import Guild
 
 
-async def is_guild_configured(guild_id: int) -> tuple[Guild, bool]:
+def is_guild_configured(guild_id: int) -> tuple[Guild, bool]:
     guild: Guild = create_guild(guild_id)
     is_not_none: bool = guild.configuration is not None
 
     return guild, is_not_none
 
 
-async def is_user_imprisoned(guild: Guild, member: Member) -> bool:
+def is_user_imprisoned(guild: Guild, member: Member) -> bool:
     return any(role.id == guild.configuration['inmate_role'] for role in member.roles)
 
 
-async def is_user_organiser(guild: Guild, member: Member) -> bool:
+def is_user_member(guild: Guild, member: Member) -> bool:
+    return any(role.id == guild.configuration['member_role'] for role in member.roles)
+
+
+def is_user_organiser(guild: Guild, member: Member) -> bool:
     return any(role.id == guild.configuration['organiser_role'] for role in member.roles)
 
 
-async def is_user_warden(guild: Guild, member: Member) -> bool:
+def is_user_warden(guild: Guild, member: Member) -> bool:
     return any(role.id == guild.configuration['warden_role'] for role in member.roles)
 
 

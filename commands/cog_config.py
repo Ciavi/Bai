@@ -22,6 +22,7 @@ class Configuration(commands.Cog):
 
     class Role(str, enum.Enum):
         InmateRole = "inmate_role"
+        MemberRole = "member_role"
         OrganiserRole = "organiser_role"
         WardenRole = "warden_role"
 

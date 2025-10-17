@@ -23,13 +23,13 @@ class Jail(commands.Cog):
     @group.command(name="imprison", description="Punish naughty people")
     @app_commands.describe(member="The naughty member to punish")
     async def imprison(self, interaction: Interaction, member: Member):
-        guild, is_configured = await is_guild_configured(interaction.guild.id)
+        guild, is_configured = is_guild_configured(interaction.guild.id)
 
         if not is_configured:
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not await is_user_warden(guild, interaction.user):
+        if not is_user_warden(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
@@ -41,7 +41,7 @@ class Jail(commands.Cog):
             await interaction.response.send_message("Why would you jail the innocent?", ephemeral=True)
             return
 
-        if await is_user_imprisoned(guild, member):
+        if is_user_imprisoned(guild, member):
             await interaction.response.send_message("User is already in jail!", ephemeral=True)
             return
 
@@ -65,17 +65,17 @@ class Jail(commands.Cog):
     @group.command(name="release", description="Release them naughties")
     @app_commands.describe(inmate="The inmate to release")
     async def release(self, interaction: Interaction, inmate: Member):
-        guild, is_configured = await is_guild_configured(interaction.guild.id)
+        guild, is_configured = is_guild_configured(interaction.guild.id)
 
         if not is_configured:
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
             return
 
-        if not await is_user_warden(guild, interaction.user):
+        if not is_user_warden(guild, interaction.user):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
-        if not await is_user_imprisoned(guild, inmate):
+        if not is_user_imprisoned(guild, inmate):
             await interaction.response.send_message("User is not in jail!", ephemeral=True)
             return
 
@@ -88,7 +88,7 @@ class Jail(commands.Cog):
     @app_commands.command(name="solve", description="Solve the riddle")
     @app_commands.describe(answer="The answer")
     async def solve(self, interaction: Interaction, answer: str):
-        guild, is_configured = await is_guild_configured(interaction.guild.id)
+        guild, is_configured = is_guild_configured(interaction.guild.id)
 
         if not is_configured:
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
@@ -96,7 +96,7 @@ class Jail(commands.Cog):
 
         riddle = read_riddle(interaction.guild.id, interaction.user.id)
 
-        if not await is_user_imprisoned(guild, interaction.user) and riddle is None:
+        if not is_user_imprisoned(guild, interaction.user) and riddle is None:
             await interaction.response.send_message("You don't have a riddle to solve!", ephemeral=True)
             return
 
@@ -129,7 +129,7 @@ class Jail(commands.Cog):
 
     @app_commands.command(name="sudoku", description="Change riddle into a sudoku if your skill issue is too much to handle")
     async def sudoku(self, interaction: Interaction):
-        guild, is_configured = await is_guild_configured(interaction.guild.id)
+        guild, is_configured = is_guild_configured(interaction.guild.id)
 
         if not is_configured:
             await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
@@ -137,7 +137,7 @@ class Jail(commands.Cog):
 
         riddle = read_riddle(interaction.guild.id, interaction.user.id)
 
-        if not await is_user_imprisoned(guild, interaction.user) and riddle is None:
+        if not is_user_imprisoned(guild, interaction.user) and riddle is None:
             await interaction.response.send_message("You don't have a riddle to solve!", ephemeral=True)
             return
 
