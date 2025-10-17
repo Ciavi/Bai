@@ -80,6 +80,16 @@ async def on_ready():
 
 
 @bot.event
+async def on_error(event, *args, **kwargs):
+    logger.error(f'{event}: {", ".join(args)}\n\t{"\n\t".join(f"{k}: {v}" for k, v in kwargs.items())}')
+
+
+@bot.event
+async def on_command_error(ctx: commands.Context, error: commands.CommandError):
+    pass
+
+
+@bot.event
 async def on_message_edit(before: discord.Message, after: discord.Message):
     if not before and not after:
         return
