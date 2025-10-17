@@ -147,6 +147,14 @@ class RaidView(BaseView):
             await interaction.response.send_message(f"You un/registered as support for this raid.", ephemeral=True)
             await self.change_embed()
 
+        async def cb_refresh(interaction: discord.Interaction):
+            await interaction.response.defer()
+
+            if not is_user_member(guild=interaction.guild, member=interaction.user):
+                return
+
+            await self.change_embed()
+
         self.add_item(
             discord.ui.Button(
                 label="Apply as leader",
@@ -166,6 +174,16 @@ class RaidView(BaseView):
         )
 
         self.children[1].callback = cb_support
+
+        self.add_item(
+            discord.ui.Button(
+                emoji="🔄",
+                style=discord.ButtonStyle.gray,
+                custom_id=f"refresh:{raid_id}"
+            )
+        )
+
+        self.children[2].callback = cb_refresh
 
 
 class ClashView(BaseView):
