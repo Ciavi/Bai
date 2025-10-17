@@ -166,31 +166,6 @@ class Kunlun(Raid):
 
         await message.edit(view=view)
 
-        async def close(self, interaction: discord.Interaction, message: discord.Message):
-            guild, is_configured = is_guild_configured(interaction.guild.id)
-
-            if not is_configured:
-                await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
-                return
-
-            if not is_user_organiser(guild, interaction.user):
-                await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
-                return
-
-            if message.embeds is not None and len(message.embeds) > 0 and message.author == self.bot.user:
-                embed = message.embeds[0]
-
-                if embed.footer.text.startswith("Raid:"):
-                    id = int(embed.footer.text.replace("Raid:", "").strip())
-                    _ = update_raid(i_raid=id, d_apply_by=datetime.now())
-
-                    await message.edit(view=None)
-                    await interaction.response.send_message(f"Sign-ups for raid #{id} were closed successfully.")
-                    return
-
-            await interaction.response.send_message(f"Not a raid :)", ephemeral=True)
-            return
-
 
 class Clash(Raid):
     group = app_commands.Group(name="clash", description="clash commands")

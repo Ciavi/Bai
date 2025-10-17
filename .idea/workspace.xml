@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Migrate back to sync, unnecessary async removed.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Refresh lists.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,23 +128,7 @@
       <workItem from="1760616674923" duration="5877000" />
       <workItem from="1760624734759" duration="3356000" />
       <workItem from="1760681643794" duration="830000" />
-      <workItem from="1760715526773" duration="3775000" />
-    </task>
-    <task id="LOCAL-00068" summary="Fixed WebhookHandler class">
-      <option name="closed" value="true" />
-      <created>1757755204029</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1757755204029</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Fixed WebhookHandler class">
-      <option name="closed" value="true" />
-      <created>1757755230967</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1757755230967</updated>
+      <workItem from="1760715526773" duration="4897000" />
     </task>
     <task id="LOCAL-00070" summary="Fixed WebhookHandler class">
       <option name="closed" value="true" />
@@ -521,15 +506,29 @@
       <option name="project" value="LOCAL" />
       <updated>1760717139658</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="Rename variables to not conflict with built-ins">
+      <option name="closed" value="true" />
+      <created>1760721333247</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1760721333247</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Refresh lists.">
+      <option name="closed" value="true" />
+      <created>1760722352569</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1760722352570</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Forgot the view" />
-    <MESSAGE value="Forgot data interface calls" />
     <MESSAGE value="Possible AttributeError on logger" />
     <MESSAGE value="Issue with NoneType" />
     <MESSAGE value="Fixed missing return statement" />
@@ -553,7 +552,9 @@
     <MESSAGE value="Started work on proper error handling." />
     <MESSAGE value="Removed debug printout." />
     <MESSAGE value="Migrate back to sync, unnecessary async removed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Migrate back to sync, unnecessary async removed." />
+    <MESSAGE value="Rename variables to not conflict with built-ins" />
+    <MESSAGE value="Refresh lists." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refresh lists." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
