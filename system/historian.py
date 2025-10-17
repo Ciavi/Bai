@@ -14,7 +14,6 @@ class Logging:
         self.loggers = []
 
         for conf_logger in conf.loggers:
-            print(conf_logger)
             logger = logging.Logger(conf_logger['name'])
             formatter: logging.Formatter
             handler: logging.Handler

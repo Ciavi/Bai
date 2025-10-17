@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Debug Converter.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Started work on proper error handling.">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/historian.py" beforeDir="false" afterPath="$PROJECT_DIR$/system/historian.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,15 +128,8 @@
       <workItem from="1760285030845" duration="3171000" />
       <workItem from="1760616674923" duration="5877000" />
       <workItem from="1760624734759" duration="3356000" />
-      <workItem from="1760681643794" duration="797000" />
-    </task>
-    <task id="LOCAL-00065" summary="Fixed WebhookHandler class">
-      <option name="closed" value="true" />
-      <created>1757754116538</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1757754116539</updated>
+      <workItem from="1760681643794" duration="830000" />
+      <workItem from="1760715526773" duration="627000" />
     </task>
     <task id="LOCAL-00066" summary="Fixed WebhookHandler class">
       <option name="closed" value="true" />
@@ -521,14 +515,21 @@
       <option name="project" value="LOCAL" />
       <updated>1760630524862</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="Started work on proper error handling.">
+      <option name="closed" value="true" />
+      <created>1760682460986</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1760682460987</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="This could potentially be the fix to the 404 errors" />
     <MESSAGE value="Added Sect Clash" />
     <MESSAGE value="Added Sect Clash: forgot to add the cog :derp:" />
     <MESSAGE value="Forgot the view" />
@@ -553,7 +554,8 @@
     <MESSAGE value="Improved `DatetimeConverter`. Now accepts more nuanced dates, like &quot;this tuesday at 1am&quot;." />
     <MESSAGE value="Fixed Converter." />
     <MESSAGE value="Debug Converter." />
-    <option name="LAST_COMMIT_MESSAGE" value="Debug Converter." />
+    <MESSAGE value="Started work on proper error handling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started work on proper error handling." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
