@@ -1,7 +1,7 @@
 from datetime import datetime
 
 import discord
-from discord import app_commands
+from discord import app_commands, Member
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord_timestamps import format_timestamp, TimestampType
@@ -10,7 +10,7 @@ import webcolors
 from commands.messages import embed_configuration_error, embed_permissions_error
 from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
 from commands.view_raid import RaidView, ClashView
-from data.interface import create_raid, update_raid
+from data.interface import create_raid, update_raid, get_raid_supports, get_raid_leaders
 from data.models import Raid as RaidModel
 
 
@@ -108,6 +108,34 @@ class Starverse(Raid):
         await interaction.response.send_message(f"Not a raid :)", ephemeral=True)
         return
 
+    @group.command(name="list", description="List subscribers for starverse")
+    @app_commands.describe(id="Raid id")
+    async def list(self, interaction: discord.Interaction,
+                   raid_id: int):
+        guild, is_configured = is_guild_configured(interaction.guild.id)
+
+        if not is_configured:
+            await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+            return
+
+        if not is_user_organiser(guild, interaction.user):
+            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            return
+
+        leaders: list[int] | None = get_raid_leaders(raid_id)
+        supports: list[int] | None = get_raid_supports(raid_id)
+
+        s_leaders: list[str] = [
+            interaction.guild.get_member(leader).nick or interaction.guild.get_member(leader).global_name for leader in
+            leaders]
+        s_supports: list[str] = [
+            interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support
+            in supports]
+
+        text = f"# Starverse#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
+
+        await interaction.response.send_message(content=text, ephemeral=True)
+
 
 class Kunlun(Raid):
     group = app_commands.Group(name="kunlun", description="Kunlun commands")
@@ -166,6 +194,34 @@ class Kunlun(Raid):
 
         await message.edit(view=view)
 
+    @group.command(name="list", description="List subscribers for kunlun")
+    @app_commands.describe(id="Raid id")
+    async def list(self, interaction: discord.Interaction,
+                   raid_id: int):
+        guild, is_configured = is_guild_configured(interaction.guild.id)
+
+        if not is_configured:
+            await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+            return
+
+        if not is_user_organiser(guild, interaction.user):
+            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            return
+
+        leaders: list[int] | None = get_raid_leaders(raid_id)
+        supports: list[int] | None = get_raid_supports(raid_id)
+
+        s_leaders: list[str] = [
+            interaction.guild.get_member(leader).nick or interaction.guild.get_member(leader).global_name for leader in
+            leaders]
+        s_supports: list[str] = [
+            interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support
+            in supports]
+
+        text = f"# Kunlun#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
+
+        await interaction.response.send_message(content=text, ephemeral=True)
+
 
 class Clash(Raid):
     group = app_commands.Group(name="clash", description="clash commands")
@@ -217,6 +273,30 @@ class Clash(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         await message.edit(embed=embed, view=view)
+
+    @group.command(name="list", description="List subscribers for sect clash")
+    @app_commands.describe(id="Raid id")
+    async def list(self, interaction: discord.Interaction,
+                   raid_id: int):
+        guild, is_configured = is_guild_configured(interaction.guild.id)
+
+        if not is_configured:
+            await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+            return
+
+        if not is_user_organiser(guild, interaction.user):
+            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            return
+
+        leaders: list[int] | None = get_raid_leaders(raid_id)
+        supports: list[int] | None = get_raid_supports(raid_id)
+
+        s_leaders: list[str] = [interaction.guild.get_member(leader).nick or interaction.guild.get_member(leader).global_name for leader in leaders]
+        s_supports: list[str] = [interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support in supports]
+
+        text = f"# Sect Clash#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
+
+        await interaction.response.send_message(content=text, ephemeral=True)
 
 
 async def setup(bot: Bot):

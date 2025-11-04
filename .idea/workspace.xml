@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Refresh lists.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="This could potentially be the fix to the 500 errors">
+      <change beforePath="$PROJECT_DIR$/.idea/Bai.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bai.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +31,12 @@
     &quot;assignee&quot;: &quot;Ciavi&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Ciavi/Bai&quot;,
-    &quot;accountId&quot;: &quot;abbabe5f-94ba-42ef-be4e-8ecd0844ca32&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Ciavi/Bai.git",
+    "accountId": "9c8f0228-dc91-4e73-b5be-5a46cd6eae23"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -77,8 +78,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-PY-252.23892.515" />
-        <option value="bundled-python-sdk-7e47963ff851-f0eec537fc84-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.23892.515" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.26927.90" />
+        <option value="bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90" />
       </set>
     </attachedChunks>
   </component>
@@ -129,6 +130,7 @@
       <workItem from="1760624734759" duration="3356000" />
       <workItem from="1760681643794" duration="830000" />
       <workItem from="1760715526773" duration="4897000" />
+      <workItem from="1762284901849" duration="1283000" />
     </task>
     <task id="LOCAL-00070" summary="Fixed WebhookHandler class">
       <option name="closed" value="true" />
@@ -560,9 +562,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/commands/view_raid.py</url>
-          <line>5</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/.venv/Lib/site-packages/discord/app_commands/__init__.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
