@@ -10,7 +10,7 @@ import webcolors
 from commands.messages import embed_configuration_error, embed_permissions_error
 from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
 from commands.view_raid import RaidView, ClashView
-from data.interface import create_raid, update_raid, get_raid_supports, get_raid_leaders
+from data.interface import create_raid, update_raid, get_raid_supports, get_raid_leaders, get_raid_backup_leaders
 from data.models import Raid as RaidModel
 
 
@@ -289,12 +289,16 @@ class Clash(Raid):
             return
 
         leaders: list[int] | None = get_raid_leaders(raid_id)
+        backups: list[int] | None = get_raid_backup_leaders(raid_id)
         supports: list[int] | None = get_raid_supports(raid_id)
 
         s_leaders: list[str] = [interaction.guild.get_member(leader).nick or interaction.guild.get_member(leader).global_name for leader in leaders]
+        s_backups: list[str] = [interaction.guild.get_member(backup).nick or interaction.guild.get_member(backup).global_name for backup in backups]
         s_supports: list[str] = [interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support in supports]
 
-        text = f"# Sect Clash#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
+        text = (f"# Sect Clash#{raid_id}\nLeader(s): " + ", ".join(s_leaders) +
+                "\nBackup(s): " + ", ".join(s_backups) +
+                "\nSupport(s): " + ", ".join(s_supports))
 
         await interaction.response.send_message(content=text, ephemeral=True)
 

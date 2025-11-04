@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="API did not like my /list command :)">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed views not using proper Guild wrapper.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,15 +127,7 @@
       <workItem from="1760624734759" duration="3356000" />
       <workItem from="1760681643794" duration="830000" />
       <workItem from="1760715526773" duration="4897000" />
-      <workItem from="1762284901849" duration="2233000" />
-    </task>
-    <task id="LOCAL-00072" summary="Deactivate webserver">
-      <option name="closed" value="true" />
-      <created>1758087914017</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1758087914017</updated>
+      <workItem from="1762284901849" duration="2650000" />
     </task>
     <task id="LOCAL-00073" summary="New webserver">
       <option name="closed" value="true" />
@@ -522,14 +513,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762286510460</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="Fixed views not using proper Guild wrapper.">
+      <option name="closed" value="true" />
+      <created>1762287182431</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1762287182431</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed missing return statement" />
     <MESSAGE value="Added array counts, backup drivers, mutually excl. lists." />
     <MESSAGE value="Fixed formatting." />
     <MESSAGE value="May fix multiple messages per webhook" />
@@ -554,7 +552,8 @@
     <MESSAGE value="Refresh lists." />
     <MESSAGE value="Added `/{raid}` list commands to list subscribers' names, caching might show UIDs for mentions." />
     <MESSAGE value="API did not like my /list command :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="API did not like my /list command :)" />
+    <MESSAGE value="Fixed views not using proper Guild wrapper." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed views not using proper Guild wrapper." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
