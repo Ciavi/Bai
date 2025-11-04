@@ -109,7 +109,7 @@ class Starverse(Raid):
         return
 
     @group.command(name="list", description="List subscribers for starverse")
-    @app_commands.describe(id="Raid id")
+    @app_commands.describe(raid_id="Raid id")
     async def list(self, interaction: discord.Interaction,
                    raid_id: int):
         guild, is_configured = is_guild_configured(interaction.guild.id)
@@ -195,7 +195,7 @@ class Kunlun(Raid):
         await message.edit(view=view)
 
     @group.command(name="list", description="List subscribers for kunlun")
-    @app_commands.describe(id="Raid id")
+    @app_commands.describe(raid_id="Raid id")
     async def list(self, interaction: discord.Interaction,
                    raid_id: int):
         guild, is_configured = is_guild_configured(interaction.guild.id)
@@ -275,7 +275,7 @@ class Clash(Raid):
         await message.edit(embed=embed, view=view)
 
     @group.command(name="list", description="List subscribers for sect clash")
-    @app_commands.describe(id="Raid id")
+    @app_commands.describe(raid_id="Raid id")
     async def list(self, interaction: discord.Interaction,
                    raid_id: int):
         guild, is_configured = is_guild_configured(interaction.guild.id)
