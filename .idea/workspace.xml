@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Added `/{raid}` list commands to list subscribers' names, caching might show UIDs for mentions.">
-      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="API did not like my /list command :)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,15 +128,7 @@
       <workItem from="1760624734759" duration="3356000" />
       <workItem from="1760681643794" duration="830000" />
       <workItem from="1760715526773" duration="4897000" />
-      <workItem from="1762284901849" duration="1578000" />
-    </task>
-    <task id="LOCAL-00071" summary="Fixed webserver?">
-      <option name="closed" value="true" />
-      <created>1757755578602</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1757755578602</updated>
+      <workItem from="1762284901849" duration="2233000" />
     </task>
     <task id="LOCAL-00072" summary="Deactivate webserver">
       <option name="closed" value="true" />
@@ -521,14 +514,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762286283266</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="API did not like my /list command :)">
+      <option name="closed" value="true" />
+      <created>1762286510460</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1762286510460</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Issue with NoneType" />
     <MESSAGE value="Fixed missing return statement" />
     <MESSAGE value="Added array counts, backup drivers, mutually excl. lists." />
     <MESSAGE value="Fixed formatting." />
@@ -553,7 +553,8 @@
     <MESSAGE value="Rename variables to not conflict with built-ins" />
     <MESSAGE value="Refresh lists." />
     <MESSAGE value="Added `/{raid}` list commands to list subscribers' names, caching might show UIDs for mentions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added `/{raid}` list commands to list subscribers' names, caching might show UIDs for mentions." />
+    <MESSAGE value="API did not like my /list command :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="API did not like my /list command :)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

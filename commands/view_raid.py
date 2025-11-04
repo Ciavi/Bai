@@ -11,7 +11,8 @@ import traceback
 import discord
 from discord.ui.select import BaseSelect
 
-from commands.utils import is_user_member
+from commands.messages import embed_configuration_error
+from commands.utils import is_user_member, is_guild_configured
 from data.interface import get_raid_leader, set_raid_leader, get_raid_supports, read_raid, set_raid_supports, \
     set_raid_leaders, get_raid_leaders, set_raid_backup_leaders, get_raid_backup_leaders
 from data.models import Raid
@@ -108,12 +109,18 @@ class RaidView(BaseView):
         self.original = message
 
         async def cb_leader(interaction: discord.Interaction):
-            leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
-            supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
+            guild, is_configured = is_guild_configured(interaction.guild.id)
+
+            if not is_configured:
+                await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+                return
 
             if not is_user_member(guild=interaction.guild, member=interaction.user):
                 await interaction.response.send_message(f"You're not a member!", ephemeral=True)
                 return
+
+            leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
+            supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
 
             if supports is not None and interaction.user.id in supports:
                 await interaction.response.send_message(f"You registered as support for this raid.", ephemeral=True)
@@ -128,12 +135,18 @@ class RaidView(BaseView):
             await self.change_embed()
 
         async def cb_support(interaction: discord.Interaction):
-            leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
-            supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
+            guild, is_configured = is_guild_configured(interaction.guild.id)
+
+            if not is_configured:
+                await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+                return
 
             if not is_user_member(guild=interaction.guild, member=interaction.user):
                 await interaction.response.send_message(f"You're not a member!", ephemeral=True)
                 return
+
+            leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
+            supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
 
             if leaders is not None and interaction.user.id in leaders:
                 await interaction.response.send_message(f"You registered as leader for this raid.", ephemeral=True)
@@ -149,6 +162,12 @@ class RaidView(BaseView):
 
         async def cb_refresh(interaction: discord.Interaction):
             await interaction.response.defer()
+
+            guild, is_configured = is_guild_configured(interaction.guild.id)
+
+            if not is_configured:
+                await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+                return
 
             if not is_user_member(guild=interaction.guild, member=interaction.user):
                 return
@@ -218,6 +237,16 @@ class ClashView(BaseView):
         self.arrays = arrays
 
         async def cb_leader(interaction: discord.Interaction):
+            guild, is_configured = is_guild_configured(interaction.guild.id)
+
+            if not is_configured:
+                await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+                return
+
+            if not is_user_member(guild=interaction.guild, member=interaction.user):
+                await interaction.response.send_message(f"You're not a member!", ephemeral=True)
+                return
+
             leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
             supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
 
@@ -235,6 +264,16 @@ class ClashView(BaseView):
             await self.change_embed()
 
         async def cb_support(interaction: discord.Interaction):
+            guild, is_configured = is_guild_configured(interaction.guild.id)
+
+            if not is_configured:
+                await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+                return
+
+            if not is_user_member(guild=interaction.guild, member=interaction.user):
+                await interaction.response.send_message(f"You're not a member!", ephemeral=True)
+                return
+
             leaders: list[int] | None = get_raid_leaders(int(interaction.data['custom_id'].split(":")[1]))
             supports: list[int] | None = get_raid_supports(int(interaction.data['custom_id'].split(":")[1]))
 
@@ -251,7 +290,11 @@ class ClashView(BaseView):
             await self.change_embed()
 
         async def cb_refresh(interaction: discord.Interaction):
-            await interaction.response.defer()
+            guild, is_configured = is_guild_configured(interaction.guild.id)
+
+            if not is_configured:
+                await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+                return
 
             if not is_user_member(guild=interaction.guild, member=interaction.user):
                 return
