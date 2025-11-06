@@ -27,7 +27,7 @@ class Starverse(Raid):
     def __init__(self, bot):
         super().__init__(bot)
 
-        self.ctx_clarify = app_commands.ContextMenu(callback=self.clarify, name="Show names (use this if mentions are broken)")
+        self.ctx_clarify = app_commands.ContextMenu(callback=self.clarify, name="Show names")
         self.ctx_close = app_commands.ContextMenu(callback=self.close, name="Close sign-ups")
         # self.message_menu.error(self.count_error)
         self.bot.tree.add_command(self.ctx_clarify)
