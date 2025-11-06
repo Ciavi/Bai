@@ -27,9 +27,11 @@ class Starverse(Raid):
     def __init__(self, bot):
         super().__init__(bot)
 
-        self.message_menu = app_commands.ContextMenu(callback=self.close, name="Close sign-ups")
+        self.ctx_clarify = app_commands.ContextMenu(callback=self.clarify, name="Show names (use this if mentions are broken)")
+        self.ctx_close = app_commands.ContextMenu(callback=self.close, name="Close sign-ups")
         # self.message_menu.error(self.count_error)
-        self.bot.tree.add_command(self.message_menu)
+        self.bot.tree.add_command(self.ctx_clarify)
+        self.bot.tree.add_command(self.ctx_close)
 
 
     @group.command(name="create", description="Create a new starverse raid")
@@ -108,6 +110,17 @@ class Starverse(Raid):
         await interaction.response.send_message(f"Not a raid :)", ephemeral=True)
         return
 
+    async def clarify(self, interaction: discord.Interaction, message: discord.Message):
+        if message.embeds is not None and len(message.embeds) > 0 and message.author == self.bot.user:
+            embed = message.embeds[0]
+
+            if embed.footer.text.startswith("Raid:"):
+                r_id = int(embed.footer.text.replace("Raid:", "").strip())
+                await self.list(interaction=interaction, raid_id=r_id)
+                return
+
+        await interaction.response.send_message(f"Not a raid :)", ephemeral=True)
+
     @group.command(name="list", description="List subscribers for starverse")
     @app_commands.describe(raid_id="Raid id")
     async def list(self, interaction: discord.Interaction,
@@ -132,7 +145,7 @@ class Starverse(Raid):
             interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support
             in supports]
 
-        text = f"# Starverse#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
+        text = f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
 
         await interaction.response.send_message(content=text, ephemeral=True)
 
@@ -218,7 +231,7 @@ class Kunlun(Raid):
             interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support
             in supports]
 
-        text = f"# Kunlun#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
+        text = f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
 
         await interaction.response.send_message(content=text, ephemeral=True)
 
@@ -296,7 +309,7 @@ class Clash(Raid):
         s_backups: list[str] = [interaction.guild.get_member(backup).nick or interaction.guild.get_member(backup).global_name for backup in backups]
         s_supports: list[str] = [interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support in supports]
 
-        text = (f"# Sect Clash#{raid_id}\nLeader(s): " + ", ".join(s_leaders) +
+        text = (f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) +
                 "\nBackup(s): " + ", ".join(s_backups) +
                 "\nSupport(s): " + ", ".join(s_supports))
 
