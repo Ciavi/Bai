@@ -111,12 +111,38 @@ class Starverse(Raid):
         return
 
     async def clarify(self, interaction: discord.Interaction, message: discord.Message):
+        guild, is_configured = is_guild_configured(interaction.guild.id)
+
+        if not is_configured:
+            await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+            return
+
+        if not is_user_organiser(guild, interaction.user):
+            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            return
+
         if message.embeds is not None and len(message.embeds) > 0 and message.author == self.bot.user:
             embed = message.embeds[0]
 
             if embed.footer.text.startswith("Raid:"):
-                r_id = int(embed.footer.text.replace("Raid:", "").strip())
-                await self.list(interaction=interaction, raid_id=r_id)
+                raid_id = int(embed.footer.text.replace("Raid:", "").strip())
+
+                leaders: list[int] | None = get_raid_leaders(raid_id)
+                supports: list[int] | None = get_raid_supports(raid_id)
+
+                s_leaders: list[str] = [
+                    interaction.guild.get_member(leader).nick or interaction.guild.get_member(leader).global_name for
+                    leader in
+                    leaders]
+                s_supports: list[str] = [
+                    interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for
+                    support
+                    in supports]
+
+                text = f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(
+                    s_supports)
+
+                await interaction.response.send_message(content=text, ephemeral=True)
                 return
 
         await interaction.response.send_message(f"Not a raid :)", ephemeral=True)
