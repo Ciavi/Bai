@@ -115,7 +115,7 @@ class RaidView(BaseView):
                 await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
                 return
 
-            if not is_user_member(guild=interaction.guild, member=interaction.user):
+            if not is_user_member(guild=guild, member=interaction.user):
                 await interaction.response.send_message(f"You're not a member!", ephemeral=True)
                 return
 
@@ -141,7 +141,7 @@ class RaidView(BaseView):
                 await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
                 return
 
-            if not is_user_member(guild=interaction.guild, member=interaction.user):
+            if not is_user_member(guild=guild, member=interaction.user):
                 await interaction.response.send_message(f"You're not a member!", ephemeral=True)
                 return
 
@@ -169,7 +169,7 @@ class RaidView(BaseView):
                 await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
                 return
 
-            if not is_user_member(guild=interaction.guild, member=interaction.user):
+            if not is_user_member(guild=guild, member=interaction.user):
                 return
 
             await self.change_embed()
@@ -243,7 +243,7 @@ class ClashView(BaseView):
                 await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
                 return
 
-            if not is_user_member(guild=interaction.guild, member=interaction.user):
+            if not is_user_member(guild=guild, member=interaction.user):
                 await interaction.response.send_message(f"You're not a member!", ephemeral=True)
                 return
 
@@ -270,7 +270,7 @@ class ClashView(BaseView):
                 await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
                 return
 
-            if not is_user_member(guild=interaction.guild, member=interaction.user):
+            if not is_user_member(guild=guild, member=interaction.user):
                 await interaction.response.send_message(f"You're not a member!", ephemeral=True)
                 return
 
@@ -296,7 +296,7 @@ class ClashView(BaseView):
                 await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
                 return
 
-            if not is_user_member(guild=interaction.guild, member=interaction.user):
+            if not is_user_member(guild=guild, member=interaction.user):
                 return
 
             await self.change_embed()
