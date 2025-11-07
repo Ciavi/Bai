@@ -290,6 +290,8 @@ class ClashView(BaseView):
             await self.change_embed()
 
         async def cb_refresh(interaction: discord.Interaction):
+            await interaction.response.defer()
+
             guild, is_configured = is_guild_configured(interaction.guild.id)
 
             if not is_configured:

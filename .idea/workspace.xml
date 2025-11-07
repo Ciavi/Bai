@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed erroneous data passed to `is_user_member`">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed formatting.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,15 +132,7 @@
       <workItem from="1762289031312" duration="327000" />
       <workItem from="1762368178626" duration="1559000" />
       <workItem from="1762461745912" duration="1166000" />
-      <workItem from="1762528132531" duration="246000" />
-    </task>
-    <task id="LOCAL-00078" summary="Possible solution. Running webserver as daemon thread.">
-      <option name="closed" value="true" />
-      <created>1758235500879</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1758235500879</updated>
+      <workItem from="1762528132531" duration="849000" />
     </task>
     <task id="LOCAL-00079" summary="Fixed redundant call to join()">
       <option name="closed" value="true" />
@@ -526,14 +518,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762528304451</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Fixed formatting.">
+      <option name="closed" value="true" />
+      <created>1762528389056</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1762528389056</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding some colour, should help tell raids apart at a glance." />
     <MESSAGE value="Update dependencies" />
     <MESSAGE value="Backport new leader sign-up logic" />
     <MESSAGE value="Finished backport, fixed colour not being retained on `change_embed`." />
@@ -558,7 +557,8 @@
     <MESSAGE value="Fixing context menu item name. Must be 32 char or less." />
     <MESSAGE value="Can't call commands from normal functions/methods :'(" />
     <MESSAGE value="Fixed erroneous data passed to `is_user_member`" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed erroneous data passed to `is_user_member`" />
+    <MESSAGE value="Fixed formatting." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed formatting." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
