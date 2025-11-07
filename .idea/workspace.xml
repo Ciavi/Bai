@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed views not using proper Guild wrapper.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed erroneous data passed to `is_user_member`">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +29,12 @@
     &quot;assignee&quot;: &quot;Ciavi&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Ciavi/Bai.git",
-    "accountId": "9c8f0228-dc91-4e73-b5be-5a46cd6eae23"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ciavi/Bai.git&quot;,
+    &quot;accountId&quot;: &quot;9c8f0228-dc91-4e73-b5be-5a46cd6eae23&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -128,46 +129,10 @@
       <workItem from="1760681643794" duration="830000" />
       <workItem from="1760715526773" duration="4897000" />
       <workItem from="1762284901849" duration="2650000" />
-    </task>
-    <task id="LOCAL-00073" summary="New webserver">
-      <option name="closed" value="true" />
-      <created>1758089968040</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1758089968040</updated>
-    </task>
-    <task id="LOCAL-00074" summary="New webserver">
-      <option name="closed" value="true" />
-      <created>1758090694051</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1758090694051</updated>
-    </task>
-    <task id="LOCAL-00075" summary="Updated requirements.txt">
-      <option name="closed" value="true" />
-      <created>1758090831615</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1758090831615</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Fixed post data">
-      <option name="closed" value="true" />
-      <created>1758091074149</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1758091074149</updated>
-    </task>
-    <task id="LOCAL-00077" summary="Fixed threading">
-      <option name="closed" value="true" />
-      <created>1758091447698</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1758091447698</updated>
+      <workItem from="1762289031312" duration="327000" />
+      <workItem from="1762368178626" duration="1559000" />
+      <workItem from="1762461745912" duration="1166000" />
+      <workItem from="1762528132531" duration="246000" />
     </task>
     <task id="LOCAL-00078" summary="Possible solution. Running webserver as daemon thread.">
       <option name="closed" value="true" />
@@ -521,18 +486,53 @@
       <option name="project" value="LOCAL" />
       <updated>1762287182431</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="Forgot backups for `/clash list`.">
+      <option name="closed" value="true" />
+      <created>1762289184892</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1762289184892</updated>
+    </task>
+    <task id="LOCAL-00123" summary="Context menu alternative for `/{starverse, kunlun, clash} list`.">
+      <option name="closed" value="true" />
+      <created>1762462303814</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1762462303814</updated>
+    </task>
+    <task id="LOCAL-00124" summary="Fixing context menu item name. Must be 32 char or less.">
+      <option name="closed" value="true" />
+      <created>1762462561610</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1762462561610</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Can't call commands from normal functions/methods :'(">
+      <option name="closed" value="true" />
+      <created>1762462763977</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1762462763977</updated>
+    </task>
+    <task id="LOCAL-00126" summary="Fixed erroneous data passed to `is_user_member`">
+      <option name="closed" value="true" />
+      <created>1762528304450</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1762528304451</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added array counts, backup drivers, mutually excl. lists." />
-    <MESSAGE value="Fixed formatting." />
-    <MESSAGE value="May fix multiple messages per webhook" />
-    <MESSAGE value="Awaiting coroutines" />
-    <MESSAGE value="Formatting fix" />
     <MESSAGE value="Adding some colour, should help tell raids apart at a glance." />
     <MESSAGE value="Update dependencies" />
     <MESSAGE value="Backport new leader sign-up logic" />
@@ -553,7 +553,12 @@
     <MESSAGE value="Added `/{raid}` list commands to list subscribers' names, caching might show UIDs for mentions." />
     <MESSAGE value="API did not like my /list command :)" />
     <MESSAGE value="Fixed views not using proper Guild wrapper." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed views not using proper Guild wrapper." />
+    <MESSAGE value="Forgot backups for `/clash list`." />
+    <MESSAGE value="Context menu alternative for `/{starverse, kunlun, clash} list`." />
+    <MESSAGE value="Fixing context menu item name. Must be 32 char or less." />
+    <MESSAGE value="Can't call commands from normal functions/methods :'(" />
+    <MESSAGE value="Fixed erroneous data passed to `is_user_member`" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed erroneous data passed to `is_user_member`" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
