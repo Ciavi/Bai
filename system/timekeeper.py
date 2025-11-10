@@ -10,6 +10,6 @@ def run_in_loop(func_name: str, *args):
     if bai is None:
         return
 
-    loop = asyncio.get_event_loop()
+    loop = bai.loop
     func = getattr(bai, func_name)
     loop.create_task(func(*args))

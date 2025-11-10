@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Moving scheduling utilities. Fixing possible pickling error.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Possible circular import fixed">
       <change beforePath="$PROJECT_DIR$/system/timekeeper.py" beforeDir="false" afterPath="$PROJECT_DIR$/system/timekeeper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,15 +133,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="23409000" />
-    </task>
-    <task id="LOCAL-00105" summary="Finished backport, fixed colour not being retained on `change_embed`.">
-      <option name="closed" value="true" />
-      <created>1760620202938</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1760620202938</updated>
+      <workItem from="1762759567115" duration="23995000" />
     </task>
     <task id="LOCAL-00106" summary="Test - embeds empty on a message with embeds?">
       <option name="closed" value="true" />
@@ -527,14 +519,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762791658799</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="Possible circular import fixed">
+      <option name="closed" value="true" />
+      <created>1762791809260</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1762791809260</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed formatting." />
     <MESSAGE value="Forgot to defer interaction in `ClashView`." />
     <MESSAGE value="Fixed missing `defer()` on `cb_refresh`" />
     <MESSAGE value="Basic scheduling thru `apscheduler`" />
@@ -559,7 +558,8 @@
     <MESSAGE value="This should do the trick for serialization." />
     <MESSAGE value="Moved onto a generic scheduling function for messages, might see future use. Also fixed serialization issues." />
     <MESSAGE value="Moving scheduling utilities. Fixing possible pickling error." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moving scheduling utilities. Fixing possible pickling error." />
+    <MESSAGE value="Possible circular import fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Possible circular import fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
