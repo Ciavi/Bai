@@ -134,8 +134,8 @@ class Starverse(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         if ping is not None:
-            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_starting_in(raid, ping))), trigger="date", run_date=(happens_on - timedelta(hours=1)))
-            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_now(raid, ping))), trigger="date", run_date=happens_on)
+            self.bot.scheduler.add_job(func=(message.channel.send(message_raid_starting_in(raid, ping))), trigger="date", run_date=(happens_on - timedelta(hours=1)))
+            self.bot.scheduler.add_job(func=(message.channel.send(message_raid_now(raid, ping))), trigger="date", run_date=happens_on)
 
         await message.edit(view=view)
 
@@ -290,8 +290,8 @@ class Kunlun(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         if ping is not None:
-            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_starting_in(raid, ping))), trigger="date", run_date=(happens_on - timedelta(hours=1)))
-            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_now(raid, ping))), trigger="date", run_date=happens_on)
+            self.bot.scheduler.add_job(func=(message.channel.send(message_raid_starting_in(raid, ping))), trigger="date", run_date=(happens_on - timedelta(hours=1)))
+            self.bot.scheduler.add_job(func=(message.channel.send(message_raid_now(raid, ping))), trigger="date", run_date=happens_on)
 
         await message.edit(view=view)
 
@@ -376,8 +376,8 @@ class Clash(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         if ping is not None:
-            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_starting_in(raid, ping))), trigger="date", run_date=(happens_on - timedelta(hours=1)))
-            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_now(raid, ping))), trigger="date", run_date=happens_on)
+            self.bot.scheduler.add_job(func=(message.channel.send(message_raid_starting_in(raid, ping))), trigger="date", run_date=(happens_on - timedelta(hours=1)))
+            self.bot.scheduler.add_job(func=(message.channel.send(message_raid_now(raid, ping))), trigger="date", run_date=happens_on)
 
         await message.edit(embed=embed, view=view)
 
