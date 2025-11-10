@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Let framework pick, no need to specify executors.">
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Maybe specifying which loop to use will do the trick :)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,15 +134,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="12547000" />
-    </task>
-    <task id="LOCAL-00089" summary="Forgot the view">
-      <option name="closed" value="true" />
-      <created>1760203740752</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1760203740752</updated>
+      <workItem from="1762759567115" duration="12918000" />
     </task>
     <task id="LOCAL-00090" summary="Forgot data interface calls">
       <option name="closed" value="true" />
@@ -527,14 +520,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762779737165</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="Maybe specifying which loop to use will do the trick :)">
+      <option name="closed" value="true" />
+      <created>1762780079243</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1762780079243</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Debug Converter." />
     <MESSAGE value="Started work on proper error handling." />
     <MESSAGE value="Removed debug printout." />
     <MESSAGE value="Migrate back to sync, unnecessary async removed." />
@@ -559,7 +559,8 @@
     <MESSAGE value="Nope :)" />
     <MESSAGE value="Corrections. Should work now." />
     <MESSAGE value="Let framework pick, no need to specify executors." />
-    <option name="LAST_COMMIT_MESSAGE" value="Let framework pick, no need to specify executors." />
+    <MESSAGE value="Maybe specifying which loop to use will do the trick :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Maybe specifying which loop to use will do the trick :)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
