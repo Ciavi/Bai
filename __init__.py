@@ -5,7 +5,6 @@ from os import environ as env
 
 import discord
 from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR
-from apscheduler.executors.asyncio import AsyncIOExecutor
 from apscheduler.executors.pool import ThreadPoolExecutor
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -60,14 +59,11 @@ class Bai(commands.Bot):
         jobstores = {
             'default': SQLAlchemyJobStore(url="sqlite:///jobs.sqlite")
         }
-        executors = {
-            'default': AsyncIOExecutor(),
-        }
         job_defaults = {
             'coalesce': True
         }
 
-        self.scheduler = AsyncIOScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults)
+        self.scheduler = AsyncIOScheduler(jobstores=jobstores, job_defaults=job_defaults)
         self.scheduler.add_listener(scheduler_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
 
         self.scheduler.start()
