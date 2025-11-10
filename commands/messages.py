@@ -2,6 +2,7 @@ from discord import Embed, Color, Member, Message, Role
 from requests import Response
 
 from commands.utils import display_sudoku
+from data.interface import read_raid
 from data.models import Guild, Raid, Riddle
 
 
@@ -176,16 +177,20 @@ def p_embed_kofi(data):
     return embed
 
 
-def message_raid_starting_in(raid: Raid, ping: Role):
-    message = (f"{ping.mention}\n"
+def message_raid_starting_in(raid: int, ping: int):
+    raid = read_raid(i_raid=raid)
+
+    message = (f"<@{ping}>\n"
                f"\n"
                f"## {raid.title} starting in 1 hour!\n"
                f"Don't forget to participate!\n"
                f"-# Raid#{raid.id} happening on {raid.happens_on}")
     return message
 
-def message_raid_now(raid: Raid, ping: Role):
-    message = (f"{ping.mention}\n"
+def message_raid_now(raid: int, ping: int):
+    raid = read_raid(i_raid=raid)
+
+    message = (f"<@{ping}>\n"
                f"\n"
                f"## {raid.title} now!\n"
                f"-# Raid#{raid.id}")
