@@ -13,7 +13,7 @@ from discord.ui.select import BaseSelect
 
 from commands.messages import embed_configuration_error
 from commands.utils import is_user_member, is_guild_configured
-from data.interface import get_raid_leader, set_raid_leader, get_raid_supports, read_raid, set_raid_supports, \
+from data.interface import get_raid_supports, read_raid, set_raid_supports, \
     set_raid_leaders, get_raid_leaders, set_raid_backup_leaders, get_raid_backup_leaders
 from data.models import Raid
 

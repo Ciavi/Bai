@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed formatting.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Forgot to defer interaction in `ClashView`.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/messages.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/view_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/view_raid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,15 +136,9 @@
       <workItem from="1762289031312" duration="327000" />
       <workItem from="1762368178626" duration="1559000" />
       <workItem from="1762461745912" duration="1166000" />
-      <workItem from="1762528132531" duration="849000" />
-    </task>
-    <task id="LOCAL-00079" summary="Fixed redundant call to join()">
-      <option name="closed" value="true" />
-      <created>1758235690992</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1758235690992</updated>
+      <workItem from="1762528132531" duration="2799000" />
+      <workItem from="1762561086840" duration="808000" />
+      <workItem from="1762759567115" duration="10237000" />
     </task>
     <task id="LOCAL-00080" summary="Fixed starting order">
       <option name="closed" value="true" />
@@ -526,14 +524,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762528389056</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="Forgot to defer interaction in `ClashView`.">
+      <option name="closed" value="true" />
+      <created>1762529010952</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1762529010952</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update dependencies" />
     <MESSAGE value="Backport new leader sign-up logic" />
     <MESSAGE value="Finished backport, fixed colour not being retained on `change_embed`." />
     <MESSAGE value="Test - embeds empty on a message with embeds?" />
@@ -558,7 +563,8 @@
     <MESSAGE value="Can't call commands from normal functions/methods :'(" />
     <MESSAGE value="Fixed erroneous data passed to `is_user_member`" />
     <MESSAGE value="Fixed formatting." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed formatting." />
+    <MESSAGE value="Forgot to defer interaction in `ClashView`." />
+    <option name="LAST_COMMIT_MESSAGE" value="Forgot to defer interaction in `ClashView`." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
