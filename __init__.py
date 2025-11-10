@@ -90,23 +90,23 @@ async def handle_kofi(data):
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
 
-    # jobstores = {
-    #     'default': SQLAlchemyJobStore(url="sqlite:///jobs.sqlite")
-    # }
-    # executors = {
-    #     'default': AsyncIOExecutor()
-    # }
-    # job_defaults = {
-    #     'coalesce': True
-    # }
-    #
-    # bot.scheduler = AsyncIOScheduler(
-    #     jobstores=jobstores,
-    #     executors=executors,
-    #     job_defaults=job_defaults
-    # )
-    # bot.scheduler.add_listener(scheduler_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
-    # bot.scheduler.start()
+    jobstores = {
+        'default': SQLAlchemyJobStore(url="sqlite:///jobs.sqlite")
+    }
+    executors = {
+        'default': AsyncIOExecutor()
+    }
+    job_defaults = {
+        'coalesce': True
+    }
+
+    bot.scheduler = AsyncIOScheduler(
+        jobstores=jobstores,
+        executors=executors,
+        job_defaults=job_defaults
+    )
+    bot.scheduler.add_listener(scheduler_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
+    bot.scheduler.start()
 
     initialise()
 

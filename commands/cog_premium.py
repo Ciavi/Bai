@@ -55,5 +55,5 @@ class Premium(commands.Cog):
         await interaction.response.send_message(f"Guild {guild} unsubscribed")
 
 
-async def setup(bot: Bai):
+async def setup(bot):
     await bot.add_cog(Premium(bot))

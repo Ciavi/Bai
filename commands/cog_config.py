@@ -60,5 +60,5 @@ class Configuration(commands.Cog):
         await interaction.response.send_message("OK", ephemeral=True)
 
 
-async def setup(bot: Bai):
+async def setup(bot):
     await bot.add_cog(Configuration(bot))

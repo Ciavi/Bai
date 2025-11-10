@@ -170,5 +170,5 @@ class Jail(commands.Cog):
         await channel.send(message_switch_sudoku(riddle, interaction.user, sudoku_difficulty))
 
 
-async def setup(bot: Bai):
+async def setup(bot):
     await bot.add_cog(Jail(bot))

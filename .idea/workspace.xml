@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Changing routine to run scheduler. Again -.-">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Commenting out">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_jail.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_jail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_premium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,15 +138,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="16427000" />
-    </task>
-    <task id="LOCAL-00094" summary="Issue with NoneType">
-      <option name="closed" value="true" />
-      <created>1760204776395</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1760204776398</updated>
+      <workItem from="1762759567115" duration="16795000" />
     </task>
     <task id="LOCAL-00095" summary="Fixed missing return statement">
       <option name="closed" value="true" />
@@ -527,14 +524,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762784193608</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="Commenting out">
+      <option name="closed" value="true" />
+      <created>1762784296636</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1762784296636</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refresh lists." />
     <MESSAGE value="Added `/{raid}` list commands to list subscribers' names, caching might show UIDs for mentions." />
     <MESSAGE value="API did not like my /list command :)" />
     <MESSAGE value="Fixed views not using proper Guild wrapper." />
@@ -559,7 +563,8 @@
     <MESSAGE value="Updated classes. Using `Bai` instead of `Bot`. Also, changed scheduler start." />
     <MESSAGE value="I mean, passing the result of a function to a scheduler can't possibly work properly." />
     <MESSAGE value="Changing routine to run scheduler. Again -.-" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing routine to run scheduler. Again -.-" />
+    <MESSAGE value="Commenting out" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commenting out" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -415,7 +415,7 @@ class Clash(Raid):
         await interaction.response.send_message(content=text, ephemeral=True)
 
 
-async def setup(bot: Bai):
+async def setup(bot):
     await bot.add_cog(Clash(bot))
     await bot.add_cog(Starverse(bot))
     await bot.add_cog(Kunlun(bot))
