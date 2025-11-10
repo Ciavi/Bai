@@ -1,3 +1,4 @@
+apscheduler~=3.11.1
 colorlog~=6.9.0
 dateparser~=1.2.2
 dotenv~=0.9.9

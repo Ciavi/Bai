@@ -1,23 +1,71 @@
-from datetime import datetime
+import enum
+from datetime import datetime, timedelta
 
 import discord
-from discord import app_commands, Member
+from discord import app_commands, Member, Role
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord_timestamps import format_timestamp, TimestampType
 import webcolors
 
-from commands.messages import embed_configuration_error, embed_permissions_error
+from __init__ import Bai
+
+from commands.messages import embed_configuration_error, embed_permissions_error, message_raid_starting_in, \
+    message_raid_now
 from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
 from commands.view_raid import RaidView, ClashView
 from data.interface import create_raid, update_raid, get_raid_supports, get_raid_leaders, get_raid_backup_leaders
 from data.models import Raid as RaidModel
 
 
+class RaidSchedule:
+    What: str
+    When: datetime
+    Pre: datetime
+    Who: int
+
+
+CSS_COLOR_NAMES = [
+    'aliceblue', 'antiquewhite', 'aqua', 'aquamarine', 'azure', 'beige',
+    'bisque', 'black', 'blanchedalmond', 'blue', 'blueviolet', 'brown',
+    'burlywood', 'cadetblue', 'chartreuse', 'chocolate', 'coral',
+    'cornflowerblue', 'cornsilk', 'crimson', 'cyan', 'darkblue',
+    'darkcyan', 'darkgoldenrod', 'darkgray', 'darkgrey', 'darkgreen',
+    'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorange',
+    'darkorchid', 'darkred', 'darksalmon', 'darkseagreen',
+    'darkslateblue', 'darkslategray', 'darkslategrey', 'darkturquoise',
+    'darkviolet', 'deeppink', 'deepskyblue', 'dimgray', 'dimgrey',
+    'dodgerblue', 'firebrick', 'floralwhite', 'forestgreen', 'fuchsia',
+    'gainsboro', 'ghostwhite', 'gold', 'goldenrod', 'gray', 'grey',
+    'green', 'greenyellow', 'honeydew', 'hotpink', 'indianred', 'indigo',
+    'ivory', 'khaki', 'lavender', 'lavenderblush', 'lawngreen',
+    'lemonchiffon', 'lightblue', 'lightcoral', 'lightcyan',
+    'lightgoldenrodyellow', 'lightgray', 'lightgrey', 'lightgreen',
+    'lightpink', 'lightsalmon', 'lightseagreen', 'lightskyblue',
+    'lightslategray', 'lightslategrey', 'lightsteelblue', 'lightyellow',
+    'lime', 'limegreen', 'linen', 'magenta', 'maroon', 'mediumaquamarine',
+    'mediumblue', 'mediumorchid', 'mediumpurple', 'mediumseagreen',
+    'mediumslateblue', 'mediumspringgreen', 'mediumturquoise',
+    'mediumvioletred', 'midnightblue', 'mintcream', 'mistyrose',
+    'moccasin', 'navajowhite', 'navy', 'oldlace', 'olive', 'olivedrab',
+    'orange', 'orangered', 'orchid', 'palegoldenrod', 'palegreen',
+    'paleturquoise', 'palevioletred', 'papayawhip', 'peachpuff', 'peru',
+    'pink', 'plum', 'powderblue', 'purple', 'red', 'rosybrown',
+    'royalblue', 'saddlebrown', 'salmon', 'sandybrown', 'seagreen',
+    'seashell', 'sienna', 'silver', 'skyblue', 'slateblue', 'slategray',
+    'slategrey', 'snow', 'springgreen', 'steelblue', 'tan', 'teal',
+    'thistle', 'tomato', 'turquoise', 'violet', 'wheat', 'white',
+    'whitesmoke', 'yellow', 'yellowgreen'
+]
+
+async def colour_autocomplete(interaction: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
+    return [app_commands.Choice(name=option, value=option) for option in CSS_COLOR_NAMES if option.lower().startswith(current.lower())][:25]
+
+
 class Raid(commands.Cog):
     group = app_commands.Group(name="raid", description="Raid organisation commands")
 
-    def __init__(self, bot: Bot):
+    def __init__(self, bot: Bai):
         self.bot = bot
 
 
@@ -38,6 +86,8 @@ class Starverse(Raid):
     @app_commands.describe(apply_by="Applications close by")
     @app_commands.describe(happens_on="Raid scheduled to happen on")
     @app_commands.describe(colour="Pick a colour :)")
+    @app_commands.autocomplete(colour=colour_autocomplete)
+    @app_commands.describe(ping="Role to be pinged")
     @app_commands.describe(title="Raid title")
     @app_commands.describe(description="Raid description")
     async def create(self, interaction: discord.Interaction,
@@ -48,6 +98,7 @@ class Starverse(Raid):
                          datetime, DatetimeConverter
                      ],
                      colour: str,
+                     ping: Role = None,
                      title: str = None,
                      description: str = None):
         guild, is_configured = is_guild_configured(interaction.guild.id)
@@ -81,6 +132,10 @@ class Starverse(Raid):
 
         view = RaidView(user=interaction.user, raid_id=raid.id, message=message,
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
+
+        if ping is not None:
+            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_starting_in(raid, ping))), trigger="date", run_date=(happens_on - timedelta(hours=1)))
+            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_now(raid, ping))), trigger="date", run_date=happens_on)
 
         await message.edit(view=view)
 
@@ -186,6 +241,8 @@ class Kunlun(Raid):
     @app_commands.describe(apply_by="Applications close by")
     @app_commands.describe(happens_on="Raid scheduled to happen on")
     @app_commands.describe(colour="Pick a colour :)")
+    @app_commands.autocomplete(colour=colour_autocomplete)
+    @app_commands.describe(ping="Role to be pinged")
     @app_commands.describe(title="Raid title")
     @app_commands.describe(description="Raid description")
     async def create(self, interaction: discord.Interaction,
@@ -196,6 +253,7 @@ class Kunlun(Raid):
                          datetime, DatetimeConverter
                      ],
                      colour: str,
+                     ping: Role = None,
                      title: str = None,
                      description: str = None):
         guild, is_configured = is_guild_configured(interaction.guild.id)
@@ -230,6 +288,10 @@ class Kunlun(Raid):
 
         view = RaidView(user=interaction.user, raid_id=raid.id, message=message,
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
+
+        if ping is not None:
+            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_starting_in(raid, ping))), trigger="date", run_date=(happens_on - timedelta(hours=1)))
+            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_now(raid, ping))), trigger="date", run_date=happens_on)
 
         await message.edit(view=view)
 
@@ -271,6 +333,7 @@ class Clash(Raid):
     @group.command(name="create", description="Create a new sect clash")
     @app_commands.describe(apply_by="Applications close by")
     @app_commands.describe(happens_on="Raid scheduled to happen on")
+    @app_commands.describe(ping="Role to be pinged")
     @app_commands.describe(title="Raid title")
     @app_commands.describe(description="Raid description")
     @app_commands.describe(arrays="Number of arrays")
@@ -281,6 +344,7 @@ class Clash(Raid):
                      happens_on: app_commands.Transform[
                          datetime, DatetimeConverter
                      ],
+                     ping: Role = None,
                      title: str = None,
                      description: str = None,
                      arrays: app_commands.Range[int, 1, 4] = 3):
@@ -310,6 +374,10 @@ class Clash(Raid):
 
         view = ClashView(user=interaction.user, raid_id=raid.id, message=message, arrays=arrays,
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
+
+        if ping is not None:
+            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_starting_in(raid, ping))), trigger="date", run_date=(happens_on - timedelta(hours=1)))
+            self.bot.scheduler.add_job(func=(await message.channel.send(message_raid_now(raid, ping))), trigger="date", run_date=happens_on)
 
         await message.edit(embed=embed, view=view)
 

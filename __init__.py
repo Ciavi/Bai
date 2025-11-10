@@ -4,6 +4,10 @@ import logging
 from os import environ as env
 
 import discord
+from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR
+from apscheduler.executors.pool import ThreadPoolExecutor
+from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from discord import Member
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -35,13 +39,36 @@ for s_logger in logger.loggers:
 web = Quart(__name__)
 
 
+def scheduler_listener(event):
+    if event.exception:
+        logger.critical(event.exception)
+    else:
+        logger.debug("Scheduler completed job successfully")
+
+
 class Bai(commands.Bot):
+    scheduler: AsyncIOScheduler
+
     async def setup_hook(self):
         self.loop.create_task(
             web.run_task(
                 host='0.0.0.0', port=4443, certfile='./cert.pem', keyfile='./key.pem', debug=False
             )
         )
+
+        jobstores = {
+            'default': SQLAlchemyJobStore(url="sqlite://jobs.sqlite")
+        }
+        executors = {
+            'default': ThreadPoolExecutor(max_workers=20)
+        }
+        job_defaults = {
+            'coalesce': True
+        }
+
+        self.scheduler = AsyncIOScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults)
+        self.scheduler.add_listener(scheduler_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
+        self.scheduler.start()
 
         await self.load_extension('commands.cog_config')
         await self.load_extension('commands.cog_jail')
