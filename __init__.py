@@ -20,6 +20,7 @@ import system.historian
 from commands.messages import embed_member_leave_guild, embed_message_delete, embeds_message_edit, p_embed_kofi
 from commands.utils import is_guild_configured
 from data.interface import initialise
+from system.timekeeper import run_in_loop, set_instance
 
 load_dotenv()
 
@@ -83,6 +84,8 @@ class Bai(commands.Bot):
         await self.load_extension('commands.cog_raid')
         await self.tree.sync()
 
+        set_instance(self)
+
     async def send_scheduled_message(self, channel_id: int, text: str):
         channel = self.get_channel(channel_id)
 
@@ -94,14 +97,10 @@ class Bai(commands.Bot):
 
     def schedule_message(self, channel_id: int, text: str, when: datetime):
         self.scheduler.add_job(
-            self._run_in_loop,
+            run_in_loop,
             trigger=DateTrigger(run_date=when),
             args=["send_scheduled_message", channel_id, text]
         )
-
-    def _run_in_loop(self, func_name: str, *args):
-        func = getattr(self, func_name)
-        asyncio.get_event_loop().create_task(func(*args))
 
 bot = Bai(command_prefix='^', intents=intents)
 
