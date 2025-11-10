@@ -1,9 +1,7 @@
-import asyncio
-import enum
 from datetime import datetime, timedelta
 
 import discord
-from discord import app_commands, Member, Role, Message
+from discord import app_commands, Role
 from discord.ext import commands
 from discord_timestamps import format_timestamp, TimestampType
 import webcolors

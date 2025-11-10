@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Possible circular import fixed">
-      <change beforePath="$PROJECT_DIR$/system/timekeeper.py" beforeDir="false" afterPath="$PROJECT_DIR$/system/timekeeper.py" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Getting that loop!">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/messages.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,15 +135,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="23995000" />
-    </task>
-    <task id="LOCAL-00106" summary="Test - embeds empty on a message with embeds?">
-      <option name="closed" value="true" />
-      <created>1760620750183</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1760620750184</updated>
+      <workItem from="1762759567115" duration="25135000" />
     </task>
     <task id="LOCAL-00107" summary="Fixed empty embeds on `change_embed`">
       <option name="closed" value="true" />
@@ -527,14 +521,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762791809260</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="Getting that loop!">
+      <option name="closed" value="true" />
+      <created>1762792390304</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1762792390304</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Forgot to defer interaction in `ClashView`." />
     <MESSAGE value="Fixed missing `defer()` on `cb_refresh`" />
     <MESSAGE value="Basic scheduling thru `apscheduler`" />
     <MESSAGE value="Updated deps" />
@@ -559,7 +560,8 @@
     <MESSAGE value="Moved onto a generic scheduling function for messages, might see future use. Also fixed serialization issues." />
     <MESSAGE value="Moving scheduling utilities. Fixing possible pickling error." />
     <MESSAGE value="Possible circular import fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Possible circular import fixed" />
+    <MESSAGE value="Getting that loop!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Getting that loop!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,4 +1,5 @@
 from discord import Embed, Color, Member, Message, Role
+from discord_timestamps import format_timestamp, TimestampType
 from requests import Response
 
 from commands.utils import display_sudoku
@@ -178,16 +179,12 @@ def p_embed_kofi(data):
 
 
 def message_raid_starting_in(raid: Raid, ping: Role):
-    message = (f"<@{ping.id}>\n"
-               f"\n"
-               f"## {raid.title} starting in 1 hour!\n"
-               f"Don't forget to participate!\n"
-               f"-# Raid#{raid.id} happening on {raid.happens_on}")
+    message = (f"## {raid.title} starting in 1 hour!\n"
+               f"Don't forget to participate! <@&{ping.id}>\n"
+               f"-# Raid#{raid.id} happening on {format_timestamp(raid.happens_on.to_timestamp(), TimestampType.LONG_DATETIME)}.")
     return message
 
 def message_raid_now(raid: Raid, ping: Role):
-    message = (f"<@{ping.id}>\n"
-               f"\n"
-               f"## {raid.title} now!\n"
+    message = (f"## {raid.title} now! <@&{ping.id}>\n"
                f"-# Raid#{raid.id}")
     return message
