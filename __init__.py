@@ -45,19 +45,6 @@ def scheduler_listener(event):
     else:
         logger.debug("Scheduler completed job successfully")
 
-jobstores = {
-    'default': SQLAlchemyJobStore(url="sqlite:///jobs.sqlite")
-}
-executors = {
-    'default': ThreadPoolExecutor(max_workers=20)
-}
-job_defaults = {
-    'coalesce': True
-}
-
-scheduler = AsyncIOScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults)
-scheduler.add_listener(scheduler_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
-
 
 class Bai(commands.Bot):
     scheduler: AsyncIOScheduler
@@ -69,7 +56,20 @@ class Bai(commands.Bot):
             )
         )
 
-        self.scheduler = scheduler
+        jobstores = {
+            'default': SQLAlchemyJobStore(url="sqlite:///jobs.sqlite")
+        }
+        executors = {
+            'default': ThreadPoolExecutor(max_workers=20)
+        }
+        job_defaults = {
+            'coalesce': True
+        }
+
+        self.scheduler = AsyncIOScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults)
+        self.scheduler.add_listener(scheduler_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
+
+        self.scheduler.start()
 
         await self.load_extension('commands.cog_config')
         await self.load_extension('commands.cog_jail')
@@ -104,7 +104,6 @@ async def handle_kofi(data):
 @bot.event
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
-    scheduler.start()
     initialise()
 
 

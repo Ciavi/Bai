@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Test: doesn't start the old way, let's see, since it returns immediately, if this works">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Could work. It's looking for a running loop, let's call it from within">
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,15 +133,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="11140000" />
-    </task>
-    <task id="LOCAL-00085" summary="This could potentially be the fix to the 404 errors">
-      <option name="closed" value="true" />
-      <created>1758238744282</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1758238744282</updated>
+      <workItem from="1762759567115" duration="11267000" />
     </task>
     <task id="LOCAL-00086" summary="This could potentially be the fix to the 404 errors">
       <option name="closed" value="true" />
@@ -527,14 +519,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762778544220</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="Could work. It's looking for a running loop, let's call it from within">
+      <option name="closed" value="true" />
+      <created>1762778661299</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1762778661299</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removing quick and dirty printout for debugging embeds." />
     <MESSAGE value="Fixed sign-up logic for starverse and kunlun." />
     <MESSAGE value="Improved `DatetimeConverter`. Now accepts more nuanced dates, like &quot;this tuesday at 1am&quot;." />
     <MESSAGE value="Fixed Converter." />
@@ -559,7 +558,8 @@
     <MESSAGE value="Updated deps" />
     <MESSAGE value="Fixed wrong path :)" />
     <MESSAGE value="Test: doesn't start the old way, let's see, since it returns immediately, if this works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test: doesn't start the old way, let's see, since it returns immediately, if this works" />
+    <MESSAGE value="Could work. It's looking for a running loop, let's call it from within" />
+    <option name="LAST_COMMIT_MESSAGE" value="Could work. It's looking for a running loop, let's call it from within" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
