@@ -5,8 +5,6 @@ from discord import app_commands, Interaction, Member
 from discord.ext import commands
 from sentence_transformers import SentenceTransformer, util
 
-from __init__ import Bai
-
 from commands.messages import embed_api_error, embed_permissions_error, embed_configuration_error, message_imprisonment, \
     message_wrong, message_right, message_switch_sudoku
 from commands.utils import is_guild_configured, is_user_warden, is_user_imprisoned, is_valid_user_solution
@@ -16,7 +14,7 @@ from data.interface import create_riddle, delete_riddle, read_riddle, update_rid
 class Jail(commands.Cog):
     group = app_commands.Group(name="jail", description="Jail commands")
 
-    def __init__(self, bot: Bai):
+    def __init__(self, bot):
         self.bot = bot
         self.model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 

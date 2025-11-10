@@ -8,8 +8,6 @@ from discord.ext import commands
 from discord_timestamps import format_timestamp, TimestampType
 import webcolors
 
-from __init__ import Bai
-
 from commands.messages import embed_configuration_error, embed_permissions_error, message_raid_starting_in, \
     message_raid_now
 from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
@@ -73,7 +71,7 @@ def send_now(message: Message, raid: RaidModel, ping: Role):
 class Raid(commands.Cog):
     group = app_commands.Group(name="raid", description="Raid organisation commands")
 
-    def __init__(self, bot: Bai):
+    def __init__(self, bot):
         self.bot = bot
 
 

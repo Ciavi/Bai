@@ -4,15 +4,13 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from __init__ import Bai
-
 from data.interface import update_guild
 
 
 class Configuration(commands.Cog):
     group = app_commands.Group(name="configure", description="Configuration commands")
 
-    def __init__(self, bot: Bai):
+    def __init__(self, bot):
         self.bot = bot
 
 

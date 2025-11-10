@@ -4,8 +4,6 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from __init__ import Bai
-
 from commands.utils import DatetimeConverter
 from data.interface import create_subscriber, delete_subscriber
 
@@ -13,7 +11,7 @@ from data.interface import create_subscriber, delete_subscriber
 class Premium(commands.Cog):
     group = app_commands.Group(name="premium", description="Premium commands")
 
-    def __init__(self, bot: Bai):
+    def __init__(self, bot):
         self.bot = bot
 
 
