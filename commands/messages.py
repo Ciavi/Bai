@@ -177,20 +177,16 @@ def p_embed_kofi(data):
     return embed
 
 
-def message_raid_starting_in(raid: int, ping: int):
-    raid = read_raid(i_raid=raid)
-
-    message = (f"<@{ping}>\n"
+def message_raid_starting_in(raid: Raid, ping: Role):
+    message = (f"<@{ping.id}>\n"
                f"\n"
                f"## {raid.title} starting in 1 hour!\n"
                f"Don't forget to participate!\n"
                f"-# Raid#{raid.id} happening on {raid.happens_on}")
     return message
 
-def message_raid_now(raid: int, ping: int):
-    raid = read_raid(i_raid=raid)
-
-    message = (f"<@{ping}>\n"
+def message_raid_now(raid: Raid, ping: Role):
+    message = (f"<@{ping.id}>\n"
                f"\n"
                f"## {raid.title} now!\n"
                f"-# Raid#{raid.id}")

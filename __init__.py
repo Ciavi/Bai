@@ -1,6 +1,7 @@
 import asyncio
 import json
 import logging
+from datetime import datetime
 from os import environ as env
 
 import discord
@@ -8,6 +9,7 @@ from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR
 from apscheduler.executors.asyncio import AsyncIOExecutor
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.triggers.date import DateTrigger
 from discord import Member
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -81,6 +83,25 @@ class Bai(commands.Bot):
         await self.load_extension('commands.cog_raid')
         await self.tree.sync()
 
+    async def send_scheduled_message(self, channel_id: int, text: str):
+        channel = self.get_channel(channel_id)
+
+        if not channel:
+            logger.warning(f"Channel {channel_id} was not found")
+            return
+
+        await channel.send(text)
+
+    def schedule_message(self, channel_id: int, text: str, when: datetime):
+        self.scheduler.add_job(
+            self._run_in_loop,
+            trigger=DateTrigger(run_date=when),
+            args=["send_scheduled_message", channel_id, text]
+        )
+
+    def _run_in_loop(self, func_name: str, *args):
+        func = getattr(self, func_name)
+        asyncio.get_event_loop().create_task(func(*args))
 
 bot = Bai(command_prefix='^', intents=intents)
 

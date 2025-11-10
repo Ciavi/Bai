@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Weird issue reloading cogs. Rolling back.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="This should do the trick for serialization.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/messages.py" afterDir="false" />
     </list>
@@ -135,15 +136,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="19659000" />
-    </task>
-    <task id="LOCAL-00102" summary="Adding some colour, should help tell raids apart at a glance.">
-      <option name="closed" value="true" />
-      <created>1760618510406</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1760618510406</updated>
+      <workItem from="1762759567115" duration="22129000" />
     </task>
     <task id="LOCAL-00103" summary="Update dependencies">
       <option name="closed" value="true" />
@@ -529,14 +522,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762786215626</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <task id="LOCAL-00151" summary="This should do the trick for serialization.">
+      <option name="closed" value="true" />
+      <created>1762787714940</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1762787714940</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing context menu item name. Must be 32 char or less." />
     <MESSAGE value="Can't call commands from normal functions/methods :'(" />
     <MESSAGE value="Fixed erroneous data passed to `is_user_member`" />
     <MESSAGE value="Fixed formatting." />
@@ -561,7 +561,8 @@
     <MESSAGE value="This way we should be able to access the same loop." />
     <MESSAGE value="Going back to blocking, want to see logs." />
     <MESSAGE value="Weird issue reloading cogs. Rolling back." />
-    <option name="LAST_COMMIT_MESSAGE" value="Weird issue reloading cogs. Rolling back." />
+    <MESSAGE value="This should do the trick for serialization." />
+    <option name="LAST_COMMIT_MESSAGE" value="This should do the trick for serialization." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

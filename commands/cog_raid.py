@@ -66,16 +66,6 @@ class Raid(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    def send_starting_soon(self, channel_id: int, raid_id: int, ping_role_id: int):
-        channel = self.bot.get_channel(channel_id)
-
-        asyncio.get_event_loop().create_task(channel.send(message_raid_starting_in(raid_id, ping_role_id)))
-
-    def send_now(self, channel_id: int, raid_id: int, ping_role_id: int):
-        channel = self.bot.get_channel(channel_id)
-
-        asyncio.get_event_loop().create_task(channel.send(message_raid_now(raid_id, ping_role_id)))
-
 
 class Starverse(Raid):
     group = app_commands.Group(name="starverse", description="Starverse commands")
@@ -142,8 +132,10 @@ class Starverse(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         if ping is not None:
-            self.bot.scheduler.add_job(func=self.send_starting_soon, args=[message.id, raid.id, ping.id], trigger="date", run_date=(happens_on - timedelta(hours=1)))
-            self.bot.scheduler.add_job(func=self.send_now, args=[message.id, raid.id, ping.id], trigger="date", run_date=happens_on)
+            warning = happens_on - timedelta(hours=1)
+
+            self.bot.schedule_message(channel_id=message.channel.id, text=message_raid_starting_in(raid, ping), when=warning)
+            self.bot.schedule_message(channel_id=message.channel.id, text=message_raid_now(raid, ping), when=happens_on)
 
         await message.edit(view=view)
 
@@ -298,8 +290,10 @@ class Kunlun(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         if ping is not None:
-            self.bot.scheduler.add_job(func=self.send_starting_soon, args=[message.id, raid.id, ping.id], trigger="date", run_date=(happens_on - timedelta(hours=1)))
-            self.bot.scheduler.add_job(func=self.send_now, args=[message.id, raid.id, ping.id], trigger="date", run_date=happens_on)
+            warning = happens_on - timedelta(hours=1)
+
+            self.bot.schedule_message(channel_id=message.channel.id, text=message_raid_starting_in(raid, ping), when=warning)
+            self.bot.schedule_message(channel_id=message.channel.id, text=message_raid_now(raid, ping), when=happens_on)
 
         await message.edit(view=view)
 
@@ -384,8 +378,10 @@ class Clash(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         if ping is not None:
-            self.bot.scheduler.add_job(func=self.send_starting_soon, args=[message.id, raid.id, ping.id], trigger="date", run_date=(happens_on - timedelta(hours=1)))
-            self.bot.scheduler.add_job(func=self.send_now, args=[message.id, raid.id, ping.id], trigger="date", run_date=happens_on)
+            warning = happens_on - timedelta(hours=1)
+
+            self.bot.schedule_message(channel_id=message.channel.id, text=message_raid_starting_in(raid, ping), when=warning)
+            self.bot.schedule_message(channel_id=message.channel.id, text=message_raid_now(raid, ping), when=happens_on)
 
         await message.edit(embed=embed, view=view)
 
