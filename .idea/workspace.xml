@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Updated classes. Using `Bai` instead of `Bot`. Also, changed scheduler start.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="I mean, passing the result of a function to a scheduler can't possibly work properly.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,15 +134,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="16001000" />
-    </task>
-    <task id="LOCAL-00092" summary="Issue with NoneType">
-      <option name="closed" value="true" />
-      <created>1760204462558</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1760204462558</updated>
+      <workItem from="1762759567115" duration="16314000" />
     </task>
     <task id="LOCAL-00093" summary="Issue with NoneType">
       <option name="closed" value="true" />
@@ -529,14 +520,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762780965560</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="I mean, passing the result of a function to a scheduler can't possibly work properly.">
+      <option name="closed" value="true" />
+      <created>1762783886911</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1762783886911</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Migrate back to sync, unnecessary async removed." />
     <MESSAGE value="Rename variables to not conflict with built-ins" />
     <MESSAGE value="Refresh lists." />
     <MESSAGE value="Added `/{raid}` list commands to list subscribers' names, caching might show UIDs for mentions." />
@@ -561,7 +559,8 @@
     <MESSAGE value="Maybe specifying which loop to use will do the trick :)" />
     <MESSAGE value="Could be the key. I doubt it" />
     <MESSAGE value="Updated classes. Using `Bai` instead of `Bot`. Also, changed scheduler start." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated classes. Using `Bai` instead of `Bot`. Also, changed scheduler start." />
+    <MESSAGE value="I mean, passing the result of a function to a scheduler can't possibly work properly." />
+    <option name="LAST_COMMIT_MESSAGE" value="I mean, passing the result of a function to a scheduler can't possibly work properly." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
