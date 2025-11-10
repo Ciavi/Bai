@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Meh. Not sure now">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Async init">
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,15 +133,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="17376000" />
-    </task>
-    <task id="LOCAL-00097" summary="Fixed formatting.">
-      <option name="closed" value="true" />
-      <created>1760211387450</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1760211387450</updated>
+      <workItem from="1762759567115" duration="17531000" />
     </task>
     <task id="LOCAL-00098" summary="May fix multiple messages per webhook">
       <option name="closed" value="true" />
@@ -528,14 +519,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762784774986</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="Async init">
+      <option name="closed" value="true" />
+      <created>1762785259786</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1762785259786</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="API did not like my /list command :)" />
     <MESSAGE value="Fixed views not using proper Guild wrapper." />
     <MESSAGE value="Forgot backups for `/clash list`." />
     <MESSAGE value="Context menu alternative for `/{starverse, kunlun, clash} list`." />
@@ -560,7 +558,8 @@
     <MESSAGE value="Changing routine to run scheduler. Again -.-" />
     <MESSAGE value="Commenting out" />
     <MESSAGE value="Meh. Not sure now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Meh. Not sure now" />
+    <MESSAGE value="Async init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Async init" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

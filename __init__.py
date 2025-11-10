@@ -175,6 +175,6 @@ async def init():
 
 
 if __name__ == '__init__':
-    asyncio.run(init())
+    asyncio.run(main=init(), debug=True)
 
 # bot.run(env['DISCORD_TOKEN'], log_handler=None)
