@@ -57,7 +57,7 @@ class Bai(commands.Bot):
         )
 
         jobstores = {
-            'default': SQLAlchemyJobStore(url="sqlite://jobs.sqlite")
+            'default': SQLAlchemyJobStore(url="sqlite:///jobs.sqlite")
         }
         executors = {
             'default': ThreadPoolExecutor(max_workers=20)

@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Basic scheduling thru `apscheduler`">
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Updated deps">
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,15 +133,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="10620000" />
-    </task>
-    <task id="LOCAL-00082" summary="Fixed order">
-      <option name="closed" value="true" />
-      <created>1758236879102</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1758236879103</updated>
+      <workItem from="1762759567115" duration="10689000" />
     </task>
     <task id="LOCAL-00083" summary="Cert error to be fixed...">
       <option name="closed" value="true" />
@@ -527,14 +519,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762777971125</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="Updated deps">
+      <option name="closed" value="true" />
+      <created>1762778126506</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1762778126506</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Test - embeds empty on a message with embeds?" />
     <MESSAGE value="Fixed empty embeds on `change_embed`" />
     <MESSAGE value="Fixed colour retention, added embed colour, fixed formatting." />
     <MESSAGE value="Removing quick and dirty printout for debugging embeds." />
@@ -559,7 +558,8 @@
     <MESSAGE value="Forgot to defer interaction in `ClashView`." />
     <MESSAGE value="Fixed missing `defer()` on `cb_refresh`" />
     <MESSAGE value="Basic scheduling thru `apscheduler`" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic scheduling thru `apscheduler`" />
+    <MESSAGE value="Updated deps" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated deps" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
