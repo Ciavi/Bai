@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Maybe specifying which loop to use will do the trick :)">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Could be the key. I doubt it">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_jail.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_jail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/cog_premium.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_premium.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/cog_raid.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_raid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,15 +138,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="12918000" />
-    </task>
-    <task id="LOCAL-00090" summary="Forgot data interface calls">
-      <option name="closed" value="true" />
-      <created>1760203926321</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1760203926321</updated>
+      <workItem from="1762759567115" duration="13420000" />
     </task>
     <task id="LOCAL-00091" summary="Possible AttributeError on logger">
       <option name="closed" value="true" />
@@ -528,14 +524,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762780079243</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="Could be the key. I doubt it">
+      <option name="closed" value="true" />
+      <created>1762780443719</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1762780443719</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started work on proper error handling." />
     <MESSAGE value="Removed debug printout." />
     <MESSAGE value="Migrate back to sync, unnecessary async removed." />
     <MESSAGE value="Rename variables to not conflict with built-ins" />
@@ -560,7 +563,8 @@
     <MESSAGE value="Corrections. Should work now." />
     <MESSAGE value="Let framework pick, no need to specify executors." />
     <MESSAGE value="Maybe specifying which loop to use will do the trick :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Maybe specifying which loop to use will do the trick :)" />
+    <MESSAGE value="Could be the key. I doubt it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Could be the key. I doubt it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

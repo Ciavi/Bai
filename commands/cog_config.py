@@ -3,7 +3,8 @@ import enum
 import discord
 from discord import app_commands
 from discord.ext import commands
-from discord.ext.commands import Bot
+
+from __init__ import Bai
 
 from data.interface import update_guild
 
@@ -11,7 +12,7 @@ from data.interface import update_guild
 class Configuration(commands.Cog):
     group = app_commands.Group(name="configure", description="Configuration commands")
 
-    def __init__(self, bot: Bot):
+    def __init__(self, bot: Bai):
         self.bot = bot
 
 
@@ -59,5 +60,5 @@ class Configuration(commands.Cog):
         await interaction.response.send_message("OK", ephemeral=True)
 
 
-async def setup(bot: Bot):
+async def setup(bot: Bai):
     await bot.add_cog(Configuration(bot))

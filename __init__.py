@@ -5,7 +5,7 @@ from os import environ as env
 
 import discord
 from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR
-from apscheduler.executors.pool import ThreadPoolExecutor
+from apscheduler.executors.asyncio import AsyncIOExecutor
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from discord import Member
@@ -59,18 +59,20 @@ class Bai(commands.Bot):
         jobstores = {
             'default': SQLAlchemyJobStore(url="sqlite:///jobs.sqlite")
         }
+        executors = {
+            'default': AsyncIOExecutor()
+        }
         job_defaults = {
             'coalesce': True
         }
 
         self.scheduler = AsyncIOScheduler(
             jobstores=jobstores,
-            job_defaults=job_defaults,
-            event_loop=self.loop
+            executors=executors,
+            job_defaults=job_defaults
         )
         self.scheduler.add_listener(scheduler_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
-
-        self.scheduler.start()
+        #self.scheduler.start()
 
         await self.load_extension('commands.cog_config')
         await self.load_extension('commands.cog_jail')
@@ -105,6 +107,7 @@ async def handle_kofi(data):
 @bot.event
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
+    bot.scheduler.start()
     initialise()
 
 

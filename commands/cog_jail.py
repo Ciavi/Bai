@@ -3,8 +3,9 @@ import asyncio
 import requests
 from discord import app_commands, Interaction, Member
 from discord.ext import commands
-from discord.ext.commands import Bot
 from sentence_transformers import SentenceTransformer, util
+
+from __init__ import Bai
 
 from commands.messages import embed_api_error, embed_permissions_error, embed_configuration_error, message_imprisonment, \
     message_wrong, message_right, message_switch_sudoku
@@ -15,7 +16,7 @@ from data.interface import create_riddle, delete_riddle, read_riddle, update_rid
 class Jail(commands.Cog):
     group = app_commands.Group(name="jail", description="Jail commands")
 
-    def __init__(self, bot):
+    def __init__(self, bot: Bai):
         self.bot = bot
         self.model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 
@@ -169,5 +170,5 @@ class Jail(commands.Cog):
         await channel.send(message_switch_sudoku(riddle, interaction.user, sudoku_difficulty))
 
 
-async def setup(bot: Bot):
+async def setup(bot: Bai):
     await bot.add_cog(Jail(bot))

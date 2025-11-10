@@ -4,7 +4,6 @@ from datetime import datetime, timedelta
 import discord
 from discord import app_commands, Member, Role, Message
 from discord.ext import commands
-from discord.ext.commands import Bot
 from discord_timestamps import format_timestamp, TimestampType
 import webcolors
 
@@ -416,7 +415,7 @@ class Clash(Raid):
         await interaction.response.send_message(content=text, ephemeral=True)
 
 
-async def setup(bot: Bot):
+async def setup(bot: Bai):
     await bot.add_cog(Clash(bot))
     await bot.add_cog(Starverse(bot))
     await bot.add_cog(Kunlun(bot))

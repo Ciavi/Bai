@@ -3,7 +3,8 @@ from datetime import datetime
 import discord
 from discord import app_commands
 from discord.ext import commands
-from discord.ext.commands import Bot
+
+from __init__ import Bai
 
 from commands.utils import DatetimeConverter
 from data.interface import create_subscriber, delete_subscriber
@@ -12,7 +13,7 @@ from data.interface import create_subscriber, delete_subscriber
 class Premium(commands.Cog):
     group = app_commands.Group(name="premium", description="Premium commands")
 
-    def __init__(self, bot: discord.ext.commands.Bot):
+    def __init__(self, bot: Bai):
         self.bot = bot
 
 
@@ -54,5 +55,5 @@ class Premium(commands.Cog):
         await interaction.response.send_message(f"Guild {guild} unsubscribed")
 
 
-async def setup(bot: Bot):
+async def setup(bot: Bai):
     await bot.add_cog(Premium(bot))
