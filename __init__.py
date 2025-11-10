@@ -58,8 +58,6 @@ job_defaults = {
 scheduler = AsyncIOScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults)
 scheduler.add_listener(scheduler_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
 
-scheduler.start()
-
 
 class Bai(commands.Bot):
     scheduler: AsyncIOScheduler
@@ -106,6 +104,7 @@ async def handle_kofi(data):
 @bot.event
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
+    scheduler.start()
     initialise()
 
 
