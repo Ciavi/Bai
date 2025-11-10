@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from discord import Embed, Color, Member, Message, Role
 from discord_timestamps import format_timestamp, TimestampType
 from requests import Response
@@ -181,7 +183,7 @@ def p_embed_kofi(data):
 def message_raid_starting_in(raid: Raid, ping: Role):
     message = (f"## {raid.title} starting in 1 hour!\n"
                f"Don't forget to participate! <@&{ping.id}>\n"
-               f"-# Raid#{raid.id} happening on {format_timestamp(raid.happens_on.to_timestamp(), TimestampType.LONG_DATETIME)}.")
+               f"-# Raid#{raid.id} happening on {format_timestamp(datetime.fromisoformat(raid.happens_on).timestamp(), TimestampType.LONG_DATETIME)}.")
     return message
 
 def message_raid_now(raid: Raid, ping: Role):
