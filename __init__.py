@@ -63,7 +63,11 @@ class Bai(commands.Bot):
             'coalesce': True
         }
 
-        self.scheduler = AsyncIOScheduler(jobstores=jobstores, job_defaults=job_defaults)
+        self.scheduler = AsyncIOScheduler(
+            jobstores=jobstores,
+            job_defaults=job_defaults,
+            event_loop=self.loop
+        )
         self.scheduler.add_listener(scheduler_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
 
         self.scheduler.start()

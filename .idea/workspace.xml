@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Corrections. Should work now.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Let framework pick, no need to specify executors.">
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,15 +133,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="12210000" />
-    </task>
-    <task id="LOCAL-00088" summary="Added Sect Clash: forgot to add the cog :derp:">
-      <option name="closed" value="true" />
-      <created>1760203332680</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1760203332681</updated>
+      <workItem from="1762759567115" duration="12547000" />
     </task>
     <task id="LOCAL-00089" summary="Forgot the view">
       <option name="closed" value="true" />
@@ -528,14 +519,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762779529669</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="Let framework pick, no need to specify executors.">
+      <option name="closed" value="true" />
+      <created>1762779737165</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1762779737165</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed Converter." />
     <MESSAGE value="Debug Converter." />
     <MESSAGE value="Started work on proper error handling." />
     <MESSAGE value="Removed debug printout." />
@@ -560,7 +558,8 @@
     <MESSAGE value="Could work. It's looking for a running loop, let's call it from within" />
     <MESSAGE value="Nope :)" />
     <MESSAGE value="Corrections. Should work now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrections. Should work now." />
+    <MESSAGE value="Let framework pick, no need to specify executors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Let framework pick, no need to specify executors." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
