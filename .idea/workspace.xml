@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Moved onto a generic scheduling function for messages, might see future use. Also fixed serialization issues.">
-      <change afterPath="$PROJECT_DIR$/system/timekeeper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Moving scheduling utilities. Fixing possible pickling error.">
+      <change beforePath="$PROJECT_DIR$/system/timekeeper.py" beforeDir="false" afterPath="$PROJECT_DIR$/system/timekeeper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,15 +133,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="23266000" />
-    </task>
-    <task id="LOCAL-00104" summary="Backport new leader sign-up logic">
-      <option name="closed" value="true" />
-      <created>1760619739935</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1760619739935</updated>
+      <workItem from="1762759567115" duration="23409000" />
     </task>
     <task id="LOCAL-00105" summary="Finished backport, fixed colour not being retained on `change_embed`.">
       <option name="closed" value="true" />
@@ -529,14 +519,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762790541037</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="Moving scheduling utilities. Fixing possible pickling error.">
+      <option name="closed" value="true" />
+      <created>1762791658799</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1762791658799</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed erroneous data passed to `is_user_member`" />
     <MESSAGE value="Fixed formatting." />
     <MESSAGE value="Forgot to defer interaction in `ClashView`." />
     <MESSAGE value="Fixed missing `defer()` on `cb_refresh`" />
@@ -561,7 +558,8 @@
     <MESSAGE value="Weird issue reloading cogs. Rolling back." />
     <MESSAGE value="This should do the trick for serialization." />
     <MESSAGE value="Moved onto a generic scheduling function for messages, might see future use. Also fixed serialization issues." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved onto a generic scheduling function for messages, might see future use. Also fixed serialization issues." />
+    <MESSAGE value="Moving scheduling utilities. Fixing possible pickling error." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving scheduling utilities. Fixing possible pickling error." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
