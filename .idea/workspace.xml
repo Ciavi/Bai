@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Updated deps">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed wrong path :)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,15 +134,7 @@
       <workItem from="1762461745912" duration="1166000" />
       <workItem from="1762528132531" duration="2799000" />
       <workItem from="1762561086840" duration="808000" />
-      <workItem from="1762759567115" duration="10689000" />
-    </task>
-    <task id="LOCAL-00083" summary="Cert error to be fixed...">
-      <option name="closed" value="true" />
-      <created>1758238147757</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1758238147758</updated>
+      <workItem from="1762759567115" duration="11022000" />
     </task>
     <task id="LOCAL-00084" summary="This could potentially be the fix to the 404 errors">
       <option name="closed" value="true" />
@@ -527,14 +520,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762778126506</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="Fixed wrong path :)">
+      <option name="closed" value="true" />
+      <created>1762778193265</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1762778193265</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed empty embeds on `change_embed`" />
     <MESSAGE value="Fixed colour retention, added embed colour, fixed formatting." />
     <MESSAGE value="Removing quick and dirty printout for debugging embeds." />
     <MESSAGE value="Fixed sign-up logic for starverse and kunlun." />
@@ -559,7 +559,8 @@
     <MESSAGE value="Fixed missing `defer()` on `cb_refresh`" />
     <MESSAGE value="Basic scheduling thru `apscheduler`" />
     <MESSAGE value="Updated deps" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated deps" />
+    <MESSAGE value="Fixed wrong path :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed wrong path :)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
