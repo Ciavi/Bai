@@ -169,12 +169,12 @@ async def on_member_remove(member: Member):
     await channel.send(embed=embed_member_leave_guild(member=member))
 
 
-async def init():
-    async with bot:
-        await bot.start(env['TOKEN'])
+# async def init():
+#     async with bot:
+#         await bot.start(env['TOKEN'])
+#
+#
+# if __name__ == '__init__':
+#     asyncio.run(main=init(), debug=True)
 
-
-if __name__ == '__init__':
-    asyncio.run(main=init(), debug=True)
-
-# bot.run(env['DISCORD_TOKEN'], log_handler=None)
+bot.run(env['DISCORD_TOKEN'], log_handler=None)
