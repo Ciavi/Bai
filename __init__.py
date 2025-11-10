@@ -72,7 +72,7 @@ class Bai(commands.Bot):
             job_defaults=job_defaults
         )
         self.scheduler.add_listener(scheduler_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
-        #self.scheduler.start()
+        self.scheduler.start()
 
         await self.load_extension('commands.cog_config')
         await self.load_extension('commands.cog_jail')
@@ -107,7 +107,7 @@ async def handle_kofi(data):
 @bot.event
 async def on_ready():
     logger.info(f'Logged in as {bot.user.name}#{bot.user.discriminator}')
-    bot.scheduler.start()
+    #bot.scheduler.start()
     initialise()
 
 

@@ -139,8 +139,8 @@ class Starverse(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         if ping is not None:
-            self.bot.scheduler.add_job(func=(self.send_starting_soon(message, raid, ping)), trigger="date", run_date=(happens_on - timedelta(hours=1)))
-            self.bot.scheduler.add_job(func=(self.send_now(message, raid, ping)), trigger="date", run_date=happens_on)
+            self.bot.scheduler.add_job(func=self.send_starting_soon, args=[message, raid, ping], trigger="date", run_date=(happens_on - timedelta(hours=1)))
+            self.bot.scheduler.add_job(func=self.send_now, args=[message, raid, ping], trigger="date", run_date=happens_on)
 
         await message.edit(view=view)
 
@@ -295,8 +295,8 @@ class Kunlun(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         if ping is not None:
-            self.bot.scheduler.add_job(func=(self.send_starting_soon(message, raid, ping)), trigger="date", run_date=(happens_on - timedelta(hours=1)))
-            self.bot.scheduler.add_job(func=(self.send_now(message, raid, ping)), trigger="date", run_date=happens_on)
+            self.bot.scheduler.add_job(func=self.send_starting_soon, args=[message, raid, ping], trigger="date", run_date=(happens_on - timedelta(hours=1)))
+            self.bot.scheduler.add_job(func=self.send_now, args=[message, raid, ping], trigger="date", run_date=happens_on)
 
         await message.edit(view=view)
 
@@ -381,8 +381,8 @@ class Clash(Raid):
                         timeout=apply_by.timestamp() - datetime.now().timestamp())
 
         if ping is not None:
-            self.bot.scheduler.add_job(func=(self.send_starting_soon(message, raid, ping)), trigger="date", run_date=(happens_on - timedelta(hours=1)))
-            self.bot.scheduler.add_job(func=(self.send_now(message, raid, ping)), trigger="date", run_date=happens_on)
+            self.bot.scheduler.add_job(func=self.send_starting_soon, args=[message, raid, ping], trigger="date", run_date=(happens_on - timedelta(hours=1)))
+            self.bot.scheduler.add_job(func=self.send_now, args=[message, raid, ping], trigger="date", run_date=happens_on)
 
         await message.edit(embed=embed, view=view)
 
