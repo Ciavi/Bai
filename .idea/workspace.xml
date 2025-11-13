@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixing timestamp issues">
-      <change afterPath="$PROJECT_DIR$/commands/cog_utilities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/messages.py" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="New Cog: adding generic scheduling utility. Can now schedule a message with `/schedule message`">
+      <change beforePath="$PROJECT_DIR$/commands/cog_utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_utilities.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,15 +135,7 @@
       <workItem from="1762561086840" duration="808000" />
       <workItem from="1762759567115" duration="27596000" />
       <workItem from="1762974233782" duration="91000" />
-      <workItem from="1763051894604" duration="1245000" />
-    </task>
-    <task id="LOCAL-00109" summary="Removing quick and dirty printout for debugging embeds.">
-      <option name="closed" value="true" />
-      <created>1760621849347</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1760621849347</updated>
+      <workItem from="1763051894604" duration="1301000" />
     </task>
     <task id="LOCAL-00110" summary="Fixed sign-up logic for starverse and kunlun.">
       <option name="closed" value="true" />
@@ -532,14 +521,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762793833804</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="New Cog: adding generic scheduling utility. Can now schedule a message with `/schedule message`">
+      <option name="closed" value="true" />
+      <created>1763053169378</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1763053169378</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated deps" />
     <MESSAGE value="Fixed wrong path :)" />
     <MESSAGE value="Test: doesn't start the old way, let's see, since it returns immediately, if this works" />
     <MESSAGE value="Could work. It's looking for a running loop, let's call it from within" />
@@ -564,7 +560,8 @@
     <MESSAGE value="Getting that loop!" />
     <MESSAGE value="Cleanup `cog_raid.py` + format corrections in `messages.py`" />
     <MESSAGE value="Fixing timestamp issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing timestamp issues" />
+    <MESSAGE value="New Cog: adding generic scheduling utility. Can now schedule a message with `/schedule message`" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Cog: adding generic scheduling utility. Can now schedule a message with `/schedule message`" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
