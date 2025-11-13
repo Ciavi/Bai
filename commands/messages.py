@@ -190,3 +190,14 @@ def message_raid_now(raid: Raid, ping: Role):
     message = (f"## {raid.title} now! <@&{ping.id}>\n"
                f"-# Raid#{raid.id}")
     return message
+
+
+def embed_scheduled_message(message: str, when: datetime):
+    title = f"Message scheduled"
+    embed = Embed(color=Color.greyple(), title=f"{title}")
+    embed.description = f"Your message has been scheduled successfully!"
+
+    embed.add_field(name=f"Message", value=message, inline=False)
+    embed.add_field(name=f"When", value=f"{format_timestamp(when.timestamp(), TimestampType.LONG_DATETIME)}", inline=False)
+
+    return embed

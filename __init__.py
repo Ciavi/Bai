@@ -82,6 +82,7 @@ class Bai(commands.Bot):
         await self.load_extension('commands.cog_jail')
         await self.load_extension('commands.cog_premium')
         await self.load_extension('commands.cog_raid')
+        await self.load_extension('commands.cog_utilities')
         await self.tree.sync()
 
         set_instance(self)
