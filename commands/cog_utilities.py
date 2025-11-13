@@ -32,7 +32,7 @@ class Scheduler(commands.Cog):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
-        self.bot.schedule_message(channel_id=interaction.channel.id, message=message)
+        self.bot.schedule_message(channel_id=interaction.channel.id, text=message, when=when)
         await interaction.response.send_message(embed=embed_scheduled_message(message, when), ephemeral=True)
 
 

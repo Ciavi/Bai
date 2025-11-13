@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="New Cog: adding generic scheduling utility. Can now schedule a message with `/schedule message`">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Clean-up">
       <change beforePath="$PROJECT_DIR$/commands/cog_utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_utilities.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,15 +135,7 @@
       <workItem from="1762561086840" duration="808000" />
       <workItem from="1762759567115" duration="27596000" />
       <workItem from="1762974233782" duration="91000" />
-      <workItem from="1763051894604" duration="1301000" />
-    </task>
-    <task id="LOCAL-00110" summary="Fixed sign-up logic for starverse and kunlun.">
-      <option name="closed" value="true" />
-      <created>1760621981613</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1760621981613</updated>
+      <workItem from="1763051894604" duration="1504000" />
     </task>
     <task id="LOCAL-00111" summary="Improved `DatetimeConverter`. Now accepts more nuanced dates, like &quot;this tuesday at 1am&quot;.">
       <option name="closed" value="true" />
@@ -529,14 +521,21 @@
       <option name="project" value="LOCAL" />
       <updated>1763053169378</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="Clean-up">
+      <option name="closed" value="true" />
+      <created>1763053217174</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1763053217174</updated>
+    </task>
+    <option name="localTasksCounter" value="160" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed wrong path :)" />
     <MESSAGE value="Test: doesn't start the old way, let's see, since it returns immediately, if this works" />
     <MESSAGE value="Could work. It's looking for a running loop, let's call it from within" />
     <MESSAGE value="Nope :)" />
@@ -561,7 +560,8 @@
     <MESSAGE value="Cleanup `cog_raid.py` + format corrections in `messages.py`" />
     <MESSAGE value="Fixing timestamp issues" />
     <MESSAGE value="New Cog: adding generic scheduling utility. Can now schedule a message with `/schedule message`" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Cog: adding generic scheduling utility. Can now schedule a message with `/schedule message`" />
+    <MESSAGE value="Clean-up" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean-up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
