@@ -97,6 +97,9 @@ class Bai(commands.Bot):
 
         await channel.send(text)
 
+    def unschedule_job(self, job_id: str):
+        self.scheduler.remove_job(job_id)
+
     def schedule_message(self, channel_id: int, text: str, when: datetime):
         self.scheduler.add_job(
             run_in_loop,
@@ -106,7 +109,7 @@ class Bai(commands.Bot):
 
     def cronschedule_message(self, channel_id: int, text: str, cron: str):
         exp_cron = cron.split(" ")
-        self.scheduler.add_job(
+        job = self.scheduler.add_job(
             run_in_loop,
             trigger=CronTrigger(
                 minute=exp_cron[0],
@@ -117,6 +120,8 @@ class Bai(commands.Bot):
             ),
             args=["send_scheduled_message", channel_id, text]
         )
+
+        return job
 
 bot = Bai(command_prefix='^', intents=intents)
 

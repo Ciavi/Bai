@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Forgot to schedule it x)">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Added `/schedule list` and `/schedule cmessage` for listing scheduled jobs and recurring jobs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/cog_utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_utilities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/messages.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,15 +138,7 @@
       <workItem from="1762759567115" duration="27596000" />
       <workItem from="1762974233782" duration="91000" />
       <workItem from="1763051894604" duration="2709000" />
-      <workItem from="1763143076642" duration="5011000" />
-    </task>
-    <task id="LOCAL-00112" summary="Fixed Converter.">
-      <option name="closed" value="true" />
-      <created>1760625634633</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1760625634633</updated>
+      <workItem from="1763143076642" duration="5387000" />
     </task>
     <task id="LOCAL-00113" summary="Debug Converter.">
       <option name="closed" value="true" />
@@ -533,14 +524,21 @@
       <option name="project" value="LOCAL" />
       <updated>1763053425601</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="Added `/schedule list` and `/schedule cmessage` for listing scheduled jobs and recurring jobs.">
+      <option name="closed" value="true" />
+      <created>1763148185184</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1763148185184</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Could work. It's looking for a running loop, let's call it from within" />
     <MESSAGE value="Nope :)" />
     <MESSAGE value="Corrections. Should work now." />
     <MESSAGE value="Let framework pick, no need to specify executors." />
@@ -565,7 +563,8 @@
     <MESSAGE value="New Cog: adding generic scheduling utility. Can now schedule a message with `/schedule message`" />
     <MESSAGE value="Clean-up" />
     <MESSAGE value="Forgot to schedule it x)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forgot to schedule it x)" />
+    <MESSAGE value="Added `/schedule list` and `/schedule cmessage` for listing scheduled jobs and recurring jobs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added `/schedule list` and `/schedule cmessage` for listing scheduled jobs and recurring jobs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,7 @@
 from datetime import datetime
 
 import discord
+from apscheduler.job import Job
 from discord import app_commands
 from discord.ext import commands
 
@@ -33,6 +34,23 @@ class Scheduler(commands.Cog):
         messages = message_scheduled_jobs(interaction, jobs)
         await interaction.followup.send_message(content=messages)
 
+
+    @group.command(name="remove", description="Remove a scheduled job")
+    @app_commands.describe(job_id="The job ID to remove")
+    async def remove(self, interaction: discord.Interaction,
+                     job_id: str):
+        guild, is_configured = is_guild_configured(interaction.guild.id)
+
+        if not is_configured:
+            await interaction.response.send_message(embed=embed_configuration_error(guild), ephemeral=True)
+            return
+
+        if not is_user_organiser(guild, interaction.user):
+            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            return
+
+        self.bot.scheduler.remove_job(job_id)
+        await interaction.response.send_message(content=f"Job#{job_id} unscheduled and removed.", ephemeral=True)
 
 
     @group.command(name="message", description="Schedule a message to be sent in the current channel")
@@ -73,7 +91,9 @@ class Scheduler(commands.Cog):
             await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
             return
 
-        self.bot.cronschedule_message(channel_id=interaction.channel.id, text=message, cron=cron)
+        job: Job = self.bot.cronschedule_message(channel_id=interaction.channel.id, text=message, cron=cron)
+        await interaction.response.send_message(embed=embed_scheduled_message(message, when=job.next_run_time), ephemeral=True)
+
 
 async def setup(bot):
     await bot.add_cog(Scheduler(bot))
