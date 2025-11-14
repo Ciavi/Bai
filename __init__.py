@@ -9,6 +9,7 @@ from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR
 from apscheduler.executors.asyncio import AsyncIOExecutor
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.triggers.cron import CronTrigger
 from apscheduler.triggers.date import DateTrigger
 from discord import Member
 from discord.ext import commands
@@ -100,6 +101,20 @@ class Bai(commands.Bot):
         self.scheduler.add_job(
             run_in_loop,
             trigger=DateTrigger(run_date=when),
+            args=["send_scheduled_message", channel_id, text]
+        )
+
+    def cronschedule_message(self, channel_id: int, text: str, cron: str):
+        exp_cron = cron.split(" ")
+        self.scheduler.add_job(
+            run_in_loop,
+            trigger=CronTrigger(
+                minute=exp_cron[0],
+                hour=exp_cron[1],
+                day=exp_cron[2],
+                month=exp_cron[3],
+                day_of_week=exp_cron[4]
+            ),
             args=["send_scheduled_message", channel_id, text]
         )
 

@@ -1,8 +1,11 @@
 from datetime import datetime
 
+import discord
+from apscheduler.job import Job
 from discord import Embed, Color, Member, Message, Role
 from discord_timestamps import format_timestamp, TimestampType
 from requests import Response
+from table2ascii import table2ascii as t2a, PresetStyle
 
 from commands.utils import display_sudoku
 from data.interface import read_raid
@@ -201,3 +204,20 @@ def embed_scheduled_message(message: str, when: datetime):
     embed.add_field(name=f"When", value=f"{format_timestamp(when.timestamp(), TimestampType.LONG_DATETIME)}", inline=False)
 
     return embed
+
+
+def message_scheduled_jobs(interaction: discord.Interaction, jobs: list[Job]):
+    body = []
+    for job in jobs:
+        args = "[" + ",\n".join(map(str, job.args[1:])) + "]"
+        body.append([job.id, job.next_run_time, type(job.trigger).__name__, job.args[0], args])
+
+    table = t2a(
+        header=["ID", "When", "Trigger", "Function", "Arguments"],
+        body=body,
+        style=PresetStyle.thin,
+        first_col_heading=True
+    )
+
+    message = f"# Scheduled jobs\n-# Current server: {interaction.guild.id}\n```\n{table}\n```"
+    return message
