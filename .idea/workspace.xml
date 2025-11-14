@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Added `/schedule list` and `/schedule cmessage` for listing scheduled jobs and recurring jobs.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/cog_utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_utilities.py" afterDir="false" />
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Added `/schedule remove` to remove scheduled jobs.">
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,15 +136,7 @@
       <workItem from="1762759567115" duration="27596000" />
       <workItem from="1762974233782" duration="91000" />
       <workItem from="1763051894604" duration="2709000" />
-      <workItem from="1763143076642" duration="5387000" />
-    </task>
-    <task id="LOCAL-00113" summary="Debug Converter.">
-      <option name="closed" value="true" />
-      <created>1760630524861</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1760630524862</updated>
+      <workItem from="1763143076642" duration="5436000" />
     </task>
     <task id="LOCAL-00114" summary="Started work on proper error handling.">
       <option name="closed" value="true" />
@@ -532,14 +522,21 @@
       <option name="project" value="LOCAL" />
       <updated>1763148185184</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="Added `/schedule remove` to remove scheduled jobs.">
+      <option name="closed" value="true" />
+      <created>1763148536157</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1763148536157</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Nope :)" />
     <MESSAGE value="Corrections. Should work now." />
     <MESSAGE value="Let framework pick, no need to specify executors." />
     <MESSAGE value="Maybe specifying which loop to use will do the trick :)" />
@@ -564,7 +561,8 @@
     <MESSAGE value="Clean-up" />
     <MESSAGE value="Forgot to schedule it x)" />
     <MESSAGE value="Added `/schedule list` and `/schedule cmessage` for listing scheduled jobs and recurring jobs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added `/schedule list` and `/schedule cmessage` for listing scheduled jobs and recurring jobs." />
+    <MESSAGE value="Added `/schedule remove` to remove scheduled jobs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added `/schedule remove` to remove scheduled jobs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
