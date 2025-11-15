@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Fixed `/{raid} list` and corresponding clarify ctx command.">
+    <list default="true" id="4565ef60-1619-4e34-a277-dc9fa9d0f3ab" name="Changes" comment="Experimental fix for `/schedule list`">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/cog_utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/cog_utilities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/messages.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,15 +138,7 @@
       <workItem from="1762974233782" duration="91000" />
       <workItem from="1763051894604" duration="2709000" />
       <workItem from="1763143076642" duration="6263000" />
-      <workItem from="1763225986220" duration="3980000" />
-    </task>
-    <task id="LOCAL-00118" summary="Refresh lists.">
-      <option name="closed" value="true" />
-      <created>1760722352569</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1760722352570</updated>
+      <workItem from="1763225986220" duration="5679000" />
     </task>
     <task id="LOCAL-00119" summary="Added `/{raid}` list commands to list subscribers' names, caching might show UIDs for mentions.">
       <option name="closed" value="true" />
@@ -533,14 +524,21 @@
       <option name="project" value="LOCAL" />
       <updated>1763229081906</updated>
     </task>
-    <option name="localTasksCounter" value="167" />
+    <task id="LOCAL-00167" summary="Experimental fix for `/schedule list`">
+      <option name="closed" value="true" />
+      <created>1763230013978</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1763230013978</updated>
+    </task>
+    <option name="localTasksCounter" value="168" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated classes. Using `Bai` instead of `Bot`. Also, changed scheduler start." />
     <MESSAGE value="I mean, passing the result of a function to a scheduler can't possibly work properly." />
     <MESSAGE value="Changing routine to run scheduler. Again -.-" />
     <MESSAGE value="Commenting out" />
@@ -565,7 +563,8 @@
     <MESSAGE value="Fixed legacy code in error logic." />
     <MESSAGE value="Debugging" />
     <MESSAGE value="Fixed `/{raid} list` and corresponding clarify ctx command." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed `/{raid} list` and corresponding clarify ctx command." />
+    <MESSAGE value="Experimental fix for `/schedule list`" />
+    <option name="LAST_COMMIT_MESSAGE" value="Experimental fix for `/schedule list`" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

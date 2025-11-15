@@ -230,9 +230,10 @@ def messages_scheduled_jobs(interaction: discord.Interaction, jobs: list[Job]):
     ]
 
     for job in jobs:
+        job_time: datetime = job.next_run_time
         messages.append(
             f"## Job `{job.id}`\n"
-            f"-# Will run on: {format_timestamp(job.next_run_time, TimestampType.LONG_DATETIME)}\n"
+            f"-# Will run on: {format_timestamp(job_time.timestamp(), TimestampType.LONG_DATETIME)}\n"
             f"- Trigger: `{type(job.trigger).__name__}`\n"
             f"- Function: `{job.args[0]}`\n"
             f"- Arguments: `[{', '.join(map(str, job.args[1:]))}]`"
