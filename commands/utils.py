@@ -2,7 +2,7 @@ import dateparser
 from datetime import datetime
 
 import discord
-from discord import Member, app_commands
+from discord import Member, app_commands, User
 from discord.ext import commands
 
 from data.interface import GuildWrapper, create_guild
@@ -76,6 +76,17 @@ def display_sudoku(grid) -> str:
         if i in [2, 5]:
             lines.append("-" * 21)
     return '\n'.join(lines)
+
+
+def valid_user_discriminator(user: Member | User):
+    if isinstance(user, Member):
+        user: Member = user
+        return user.nick or user.global_name or user.name
+    if isinstance(user, User):
+        user: User = user
+        return user.global_name or user.name
+    else:
+        return "N/A"
 
 
 class DatetimeConverter(app_commands.Transformer):

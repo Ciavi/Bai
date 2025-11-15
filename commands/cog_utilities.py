@@ -26,14 +26,14 @@ class Scheduler(commands.Cog):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, Role.OrganiserRole), ephemeral=True)
             return
 
         await interaction.response.defer()
 
         jobs = self.bot.scheduler.get_jobs()
         messages = message_scheduled_jobs(interaction, jobs)
-        await interaction.followup.send_message(content=messages)
+        await interaction.edit_original_response(content=messages)
 
 
     @group.command(name="remove", description="Remove a scheduled job")

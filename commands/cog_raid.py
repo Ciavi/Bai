@@ -8,7 +8,7 @@ import webcolors
 
 from commands.messages import embed_configuration_error, embed_permissions_error, message_raid_starting_in, \
     message_raid_now
-from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
+from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter, valid_user_discriminator
 from commands.view_raid import RaidView, ClashView
 from data.interface import create_raid, update_raid, get_raid_supports, get_raid_leaders, get_raid_backup_leaders
 from data.models import Raid as RaidModel
@@ -183,19 +183,19 @@ class Starverse(Raid):
                 raid_id = int(embed.footer.text.replace("Raid:", "").strip())
 
                 leaders: list[int] | None = get_raid_leaders(raid_id)
+                backups: list[int] | None = get_raid_backup_leaders(raid_id)
                 supports: list[int] | None = get_raid_supports(raid_id)
 
-                s_leaders: list[str] = [
-                    interaction.guild.get_member(leader).nick or interaction.guild.get_member(leader).global_name for
-                    leader in
-                    leaders]
-                s_supports: list[str] = [
-                    interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for
-                    support
-                    in supports]
+                s_leaders: list[str] = [valid_user_discriminator(interaction.guild.get_member(leader)) for leader in leaders]
+                s_backups: list[str] = [valid_user_discriminator(interaction.guild.get_member(backup)) for backup in backups]
+                s_supports: list[str] = [valid_user_discriminator(interaction.guild.get_member(support)) for support in supports]
 
-                text = f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(
-                    s_supports)
+                text = ""
+
+                if backups is None:
+                    text = f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
+                else:
+                    text = f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nBackup(s): " + ", ".join(s_backups) + "\nSupport(s): " + ", ".join(s_supports)
 
                 await interaction.response.send_message(content=text, ephemeral=True)
                 return
@@ -219,12 +219,8 @@ class Starverse(Raid):
         leaders: list[int] | None = get_raid_leaders(raid_id)
         supports: list[int] | None = get_raid_supports(raid_id)
 
-        s_leaders: list[str] = [
-            interaction.guild.get_member(leader).nick or interaction.guild.get_member(leader).global_name for leader in
-            leaders]
-        s_supports: list[str] = [
-            interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support
-            in supports]
+        s_leaders: list[str] = [valid_user_discriminator(interaction.guild.get_member(leader)) for leader in leaders]
+        s_supports: list[str] = [valid_user_discriminator(interaction.guild.get_member(support)) for support in supports]
 
         text = f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
 
@@ -314,12 +310,8 @@ class Kunlun(Raid):
         leaders: list[int] | None = get_raid_leaders(raid_id)
         supports: list[int] | None = get_raid_supports(raid_id)
 
-        s_leaders: list[str] = [
-            interaction.guild.get_member(leader).nick or interaction.guild.get_member(leader).global_name for leader in
-            leaders]
-        s_supports: list[str] = [
-            interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support
-            in supports]
+        s_leaders: list[str] = [valid_user_discriminator(interaction.guild.get_member(leader)) for leader in leaders]
+        s_supports: list[str] = [valid_user_discriminator(interaction.guild.get_member(support)) for support in supports]
 
         text = f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) + "\nSupport(s): " + ", ".join(s_supports)
 
@@ -403,12 +395,9 @@ class Clash(Raid):
         backups: list[int] | None = get_raid_backup_leaders(raid_id)
         supports: list[int] | None = get_raid_supports(raid_id)
 
-        s_leaders: list[str] = [interaction.guild.get_member(leader).nick or interaction.guild.get_member(leader).global_name for leader in leaders]
-        s_backups: list[str] = [interaction.guild.get_member(backup).nick or interaction.guild.get_member(backup).global_name for backup in backups]
-        s_supports: list[str] = [interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support in supports]
-
-        print(supports)
-        print(s_supports)
+        s_leaders: list[str] = [valid_user_discriminator(interaction.guild.get_member(leader)) for leader in leaders]
+        s_backups: list[str] = [valid_user_discriminator(interaction.guild.get_member(backup)) for backup in backups]
+        s_supports: list[str] = [valid_user_discriminator(interaction.guild.get_member(support)) for support in supports]
 
         text = (f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) +
                 "\nBackup(s): " + ", ".join(s_backups) +
