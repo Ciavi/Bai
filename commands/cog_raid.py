@@ -407,6 +407,9 @@ class Clash(Raid):
         s_backups: list[str] = [interaction.guild.get_member(backup).nick or interaction.guild.get_member(backup).global_name for backup in backups]
         s_supports: list[str] = [interaction.guild.get_member(support).nick or interaction.guild.get_member(support).global_name for support in supports]
 
+        print(supports)
+        print(s_supports)
+
         text = (f"# Raid#{raid_id}\nLeader(s): " + ", ".join(s_leaders) +
                 "\nBackup(s): " + ", ".join(s_backups) +
                 "\nSupport(s): " + ", ".join(s_supports))
