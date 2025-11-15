@@ -7,23 +7,23 @@ from discord.ext import commands
 from data.interface import update_guild
 
 
+class Channel(str, enum.Enum):
+    JailChannel = "jail_channel"
+    LogChannel = "log_channel"
+
+
+class Role(str, enum.Enum):
+    InmateRole = "inmate_role"
+    MemberRole = "member_role"
+    OrganiserRole = "organiser_role"
+    WardenRole = "warden_role"
+
+
 class Configuration(commands.Cog):
     group = app_commands.Group(name="configure", description="Configuration commands")
 
     def __init__(self, bot):
         self.bot = bot
-
-
-    class Channel(str, enum.Enum):
-        JailChannel = "jail_channel"
-        LogChannel = "log_channel"
-
-
-    class Role(str, enum.Enum):
-        InmateRole = "inmate_role"
-        MemberRole = "member_role"
-        OrganiserRole = "organiser_role"
-        WardenRole = "warden_role"
 
 
     async def __is_admin_or_owner(self, interaction: discord.Interaction) -> bool:

@@ -5,6 +5,7 @@ from apscheduler.job import Job
 from discord import app_commands
 from discord.ext import commands
 
+from commands.cog_config import Role
 from commands.messages import embed_configuration_error, embed_permissions_error, embed_scheduled_message, \
     message_scheduled_jobs
 from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
@@ -46,7 +47,7 @@ class Scheduler(commands.Cog):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, Role.OrganiserRole), ephemeral=True)
             return
 
         self.bot.scheduler.remove_job(job_id)
@@ -68,7 +69,7 @@ class Scheduler(commands.Cog):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, Role.OrganiserRole), ephemeral=True)
             return
 
         self.bot.schedule_message(channel_id=interaction.channel.id, text=message, when=when)
@@ -88,7 +89,7 @@ class Scheduler(commands.Cog):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, Role.OrganiserRole), ephemeral=True)
             return
 
         job: Job = self.bot.cronschedule_message(channel_id=interaction.channel.id, text=message, cron=cron)

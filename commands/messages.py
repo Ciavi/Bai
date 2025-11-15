@@ -7,6 +7,7 @@ from discord_timestamps import format_timestamp, TimestampType
 from requests import Response
 from table2ascii import table2ascii as t2a, PresetStyle
 
+from commands.cog_config import Role as ConfigRole
 from commands.utils import display_sudoku
 from data.interface import read_raid
 from data.models import Guild, Raid, Riddle
@@ -64,9 +65,9 @@ def embed_message_delete(message: Message):
     return embed, attachments
 
 
-def embed_permissions_error(guild: Guild):
+def embed_permissions_error(guild: Guild, role: ConfigRole):
     embed = Embed(color=Color.red(), title=f"You don't have permission to use this command!")
-    embed.description = f"You need the role <@{guild.configuration['moderator_role']}> to use this command."
+    embed.description = f"You need the role <@{guild.configuration[role.value]}> to use this command."
     return embed
 
 

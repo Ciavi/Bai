@@ -13,6 +13,8 @@ from commands.view_raid import RaidView, ClashView
 from data.interface import create_raid, update_raid, get_raid_supports, get_raid_leaders, get_raid_backup_leaders
 from data.models import Raid as RaidModel
 
+from commands.cog_config import Role as ConfigRole
+
 
 class RaidSchedule:
     What: str
@@ -104,7 +106,7 @@ class Starverse(Raid):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, ConfigRole.OrganiserRole), ephemeral=True)
             return
 
         c_hex = webcolors.name_to_hex(colour.lower())[1:]
@@ -146,7 +148,7 @@ class Starverse(Raid):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, ConfigRole.OrganiserRole), ephemeral=True)
             return
 
         if message.embeds is not None and len(message.embeds) > 0 and message.author == self.bot.user:
@@ -171,7 +173,7 @@ class Starverse(Raid):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, ConfigRole.OrganiserRole), ephemeral=True)
             return
 
         if message.embeds is not None and len(message.embeds) > 0 and message.author == self.bot.user:
@@ -211,7 +213,7 @@ class Starverse(Raid):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, ConfigRole.OrganiserRole), ephemeral=True)
             return
 
         leaders: list[int] | None = get_raid_leaders(raid_id)
@@ -261,7 +263,7 @@ class Kunlun(Raid):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, ConfigRole.OrganiserRole), ephemeral=True)
             return
 
         c_hex = webcolors.name_to_hex(colour.lower())[1:]
@@ -306,7 +308,7 @@ class Kunlun(Raid):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, ConfigRole.OrganiserRole), ephemeral=True)
             return
 
         leaders: list[int] | None = get_raid_leaders(raid_id)
@@ -355,7 +357,7 @@ class Clash(Raid):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, ConfigRole.OrganiserRole), ephemeral=True)
             return
 
         title = title or f"Sect Clash"
@@ -394,7 +396,7 @@ class Clash(Raid):
             return
 
         if not is_user_organiser(guild, interaction.user):
-            await interaction.response.send_message(embed=embed_permissions_error(guild), ephemeral=True)
+            await interaction.response.send_message(embed=embed_permissions_error(guild, ConfigRole.OrganiserRole), ephemeral=True)
             return
 
         leaders: list[int] | None = get_raid_leaders(raid_id)
