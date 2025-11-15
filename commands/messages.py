@@ -222,3 +222,20 @@ def message_scheduled_jobs(interaction: discord.Interaction, jobs: list[Job]):
 
     message = f"# Scheduled jobs\n-# Current server: {interaction.guild.id}\n```\n{table}\n```"
     return message
+
+
+def messages_scheduled_jobs(interaction: discord.Interaction, jobs: list[Job]):
+    messages: list[str] = [
+        f"# Scheduled jobs\n-# Current server: {interaction.guild.id}",
+    ]
+
+    for job in jobs:
+        messages.append(
+            f"## Job `{job.id}`\n"
+            f"-# Will run on: {format_timestamp(job.next_run_time, TimestampType.LONG_DATETIME)}\n"
+            f"- Trigger: `{type(job.trigger).__name__}`\n"
+            f"- Function: `{job.args[0]}`\n"
+            f"- Arguments: `[{', '.join(map(str, job.args[1:]))}]`"
+        )
+
+    return messages

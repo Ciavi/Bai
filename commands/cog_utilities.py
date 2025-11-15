@@ -7,7 +7,7 @@ from discord.ext import commands
 
 from commands.cog_config import Role
 from commands.messages import embed_configuration_error, embed_permissions_error, embed_scheduled_message, \
-    message_scheduled_jobs
+    message_scheduled_jobs, messages_scheduled_jobs
 from commands.utils import is_guild_configured, is_user_organiser, DatetimeConverter
 
 class Scheduler(commands.Cog):
@@ -32,8 +32,10 @@ class Scheduler(commands.Cog):
         await interaction.response.defer()
 
         jobs = self.bot.scheduler.get_jobs()
-        messages = message_scheduled_jobs(interaction, jobs)
-        await interaction.edit_original_response(content=messages)
+        messages = messages_scheduled_jobs(interaction, jobs)
+        await interaction.edit_original_response(content=messages[0])
+        for message in messages[1:]:
+            await interaction.channel.send(message)
 
 
     @group.command(name="remove", description="Remove a scheduled job")
